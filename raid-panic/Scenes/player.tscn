@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca4bee8aroijk"]
+[gd_scene load_steps=5 format=3 uid="uid://ca4bee8aroijk"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_8xaru"]
 [ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="2_bm7vx"]
+[ext_resource type="PackedScene" uid="uid://ctmuygrl3apcm" path="res://Scenes/Weapons/knife.tscn" id="3_d8gpv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2owg"]
 size = Vector2(62, 62)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 14
 script = ExtResource("2_8xaru")
 
 [node name="EntitySprite" type="Sprite2D" parent="."]
@@ -26,10 +28,14 @@ wait_time = 0.2
 [node name="ReloadTimer" type="Timer" parent="Timers"]
 
 [node name="DodgeRecoverTimer" type="Timer" parent="Timers"]
-wait_time = 0.147
+wait_time = 0.4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("")
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="Knife" parent="Weapon" instance=ExtResource("3_d8gpv")]
 
 [connection signal="timeout" from="Timers/DodgeTimer" to="." method="_on_dodge_timer_timeout"]
 [connection signal="timeout" from="Timers/DodgeRecoverTimer" to="." method="_on_dodge_recover_timer_timeout"]

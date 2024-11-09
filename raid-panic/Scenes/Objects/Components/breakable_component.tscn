@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs56gxuajc6ke"]
+
+[ext_resource type="Script" path="res://Scripts/breakable_component.gd" id="1_caslw"]
+
+[node name="BreakableComponent" type="Node2D"]
+script = ExtResource("1_caslw")

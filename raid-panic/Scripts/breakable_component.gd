@@ -1,0 +1,1 @@
+class_name BreakableComponent extends Node2D

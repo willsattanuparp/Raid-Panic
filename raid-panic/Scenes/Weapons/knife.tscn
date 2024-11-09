@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctmuygrl3apcm"]
+
+[ext_resource type="PackedScene" uid="uid://5ltu62tsincr" path="res://Scenes/Weapons/weapon.tscn" id="1_ynjd7"]
+
+[node name="Knife" instance=ExtResource("1_ynjd7")]
+damage = 45

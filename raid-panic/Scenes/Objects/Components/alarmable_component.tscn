@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwhiyu5u1s6cb"]
+
+[ext_resource type="Script" path="res://Scripts/alarmable_component.gd" id="1_pbg1g"]
+
+[node name="AlarmableComponent" type="Node2D"]
+script = ExtResource("1_pbg1g")

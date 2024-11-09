@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvrnyabtx35jj"]
+[gd_scene load_steps=5 format=3 uid="uid://bvrnyabtx35jj"]
 
 [ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="1_4c7jm"]
 [ext_resource type="PackedScene" uid="uid://ca4bee8aroijk" path="res://Scenes/player.tscn" id="2_ohf4e"]
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="3_vs14j"]
+[ext_resource type="PackedScene" uid="uid://1qnuetij5vs7" path="res://Scenes/Objects/table.tscn" id="4_j1eqs"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -12,3 +14,9 @@ texture = ExtResource("1_4c7jm")
 
 [node name="Player" parent="." instance=ExtResource("2_ohf4e")]
 position = Vector2(278, 175)
+
+[node name="Object" parent="." instance=ExtResource("3_vs14j")]
+position = Vector2(476, 160)
+
+[node name="Table" parent="." instance=ExtResource("4_j1eqs")]
+position = Vector2(528, 339)

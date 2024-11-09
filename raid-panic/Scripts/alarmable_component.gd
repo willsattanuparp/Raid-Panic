@@ -1,0 +1,1 @@
+class_name AlarmableComponent extends Node2D
