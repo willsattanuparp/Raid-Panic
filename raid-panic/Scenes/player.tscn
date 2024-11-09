@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca4bee8aroijk"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="2_8xaru"]
+[ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="2_bm7vx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2owg"]
+size = Vector2(62, 62)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("2_8xaru")
+
+[node name="EntitySprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bm7vx")
+
+[node name="EntityHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o2owg")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="SecondaryTimer" type="Timer" parent="Timers"]
+
+[node name="DodgeTimer" type="Timer" parent="Timers"]
+wait_time = 0.2
+
+[node name="ReloadTimer" type="Timer" parent="Timers"]
+
+[node name="DodgeRecoverTimer" type="Timer" parent="Timers"]
+wait_time = 0.147
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+
+[connection signal="timeout" from="Timers/DodgeTimer" to="." method="_on_dodge_timer_timeout"]
+[connection signal="timeout" from="Timers/DodgeRecoverTimer" to="." method="_on_dodge_recover_timer_timeout"]
