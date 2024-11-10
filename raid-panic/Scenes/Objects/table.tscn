@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://1qnuetij5vs7"]
+[gd_scene load_steps=5 format=3 uid="uid://1qnuetij5vs7"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_ebwuq"]
 [ext_resource type="Script" path="res://Scripts/table.gd" id="2_82tqx"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="2_ionjd"]
+[ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="3_pmq8n"]
 
-[node name="Table" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_ebwuq")]
+[node name="Table" node_paths=PackedStringArray("parkourable", "breakable") instance=ExtResource("1_ebwuq")]
 script = ExtResource("2_82tqx")
 parkourable = NodePath("ParkourableComponent")
+breakable = NodePath("BreakableComponent")
 
-[node name="ParkourableComponent" parent="." index="2" instance=ExtResource("2_ionjd")]
+[node name="BreakableComponent" parent="." index="2" instance=ExtResource("3_pmq8n")]
+
+[node name="ParkourableComponent" parent="." index="3" instance=ExtResource("2_ionjd")]
 width = 150
 height = 150

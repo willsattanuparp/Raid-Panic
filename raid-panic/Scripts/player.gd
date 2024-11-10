@@ -22,11 +22,8 @@ var on_fire: bool = false
 
 var can_parkour = false
 var parkour_body: GameObject = null
-var is_parkouring = false
 var distance_to_parkour = 0
-var direction_to_parkour = Vector2.ZERO
-var frames_to_parkour = 100
-var parkour_frames = 0
+var direction_to_parkour = 0
 
 var color_modifiers: Dictionary = {
 	"Default":Color.WHITE,
@@ -37,9 +34,9 @@ func _ready():
 	initial_speed = speed
 
 func _physics_process(delta):
-#	print(ground_array)
+	#rotate to the mouse position
+	look_at(get_global_mouse_position())
 	#movement
-	#print(can_direction)
 	if can_direction:
 		var input = Input.get_vector("Left","Right","Up","Down")
 		#play_directional_walk(input)
@@ -105,14 +102,13 @@ func dodge():
 	can_dodge = false
 	can_direction = false
 	if can_parkour and parkour_body != null:
-		direction_to_parkour = parkour_body.get_parkour_direction(global_position) * -1
+		direction_to_parkour = parkour_body.parkourable.get_parkour_direction(global_position) * -1
 		distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
 		#print(distance_to_parkour)
 		speed = distance_to_parkour / $Timers/ParkourTimer.wait_time
-		print(speed)
+		#print(speed)
 		direction = direction_to_parkour
-		print(direction)
-		is_parkouring = true
+		#print(direction)
 		#make invulnerable to objects
 		set_collision_mask_value(3,false)
 		$Timers/ParkourTimer.start()
@@ -162,7 +158,6 @@ func _on_parkour_timer_timeout() -> void:
 	print("done parkouring")
 	speed = initial_speed
 	can_direction = true
-	can_dodge = true
-	is_parkouring = false
 	set_collision_mask_value(3,true)
+	$Timers/DodgeRecoverTimer.start()
 	
