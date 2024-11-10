@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="2_6acmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ni1i"]
-size = Vector2(126, 127)
+size = Vector2(126, 126)
 
 [node name="Object" type="StaticBody2D"]
 collision_layer = 4

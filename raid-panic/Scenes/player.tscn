@@ -24,11 +24,17 @@ shape = SubResource("RectangleShape2D_o2owg")
 
 [node name="DodgeTimer" type="Timer" parent="Timers"]
 wait_time = 0.2
+one_shot = true
 
 [node name="ReloadTimer" type="Timer" parent="Timers"]
 
 [node name="DodgeRecoverTimer" type="Timer" parent="Timers"]
 wait_time = 0.4
+one_shot = true
+
+[node name="ParkourTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("")
@@ -39,3 +45,4 @@ root_node = NodePath("")
 
 [connection signal="timeout" from="Timers/DodgeTimer" to="." method="_on_dodge_timer_timeout"]
 [connection signal="timeout" from="Timers/DodgeRecoverTimer" to="." method="_on_dodge_recover_timer_timeout"]
+[connection signal="timeout" from="Timers/ParkourTimer" to="." method="_on_parkour_timer_timeout"]
