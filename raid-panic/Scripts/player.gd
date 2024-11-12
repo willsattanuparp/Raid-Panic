@@ -13,6 +13,7 @@ var direction_timer: float = .1
 
 #var knockback: Vector2 = Vector2.ZERO
 
+var look_at_threshold = .3
 
 @export var speed: float = 600
 var initial_speed: float
@@ -147,7 +148,8 @@ func dodge():
 	#parkour logic
 	if can_parkour and parkour_body != null:
 		direction_to_parkour = parkour_body.parkourable.get_parkour_direction(global_position) * -1
-		if direction_to_parkour != Vector2.ZERO:
+		print(direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()))
+		if direction_to_parkour != Vector2.ZERO and direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()) > look_at_threshold:
 			distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
 			#print(distance_to_parkour)
 			speed = distance_to_parkour / $Timers/ParkourTimer.wait_time
@@ -207,6 +209,7 @@ func _on_parkour_timer_timeout() -> void:
 	#print("done parkouring")
 	speed = initial_speed
 	can_direction = true
+	can_dodge = true
 	set_collision_mask_value(3,true)
 	$Timers/DodgeRecoverTimer.start()
 	
