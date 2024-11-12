@@ -15,9 +15,8 @@ func deal_dmg(i: GameObject):
 	i.breakable.deal_damage(dmg)
 
 
+
 func _on_weapon_area_body_entered(body: Node2D) -> void:
-	print(body)
-	print(body.get_groups())
 	if body.is_in_group("Breakable"):
 		to_break.append(body)
 		print(to_break)

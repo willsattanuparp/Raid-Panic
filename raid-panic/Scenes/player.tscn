@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="2_bm7vx"]
 [ext_resource type="PackedScene" uid="uid://ctmuygrl3apcm" path="res://Scenes/Weapons/knife.tscn" id="3_d8gpv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2owg"]
-size = Vector2(62, 62)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xs6um"]
+radius = 31.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 14
@@ -16,7 +16,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_bm7vx")
 
 [node name="EntityHitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_o2owg")
+shape = SubResource("CircleShape2D_xs6um")
 
 [node name="Timers" type="Node" parent="."]
 

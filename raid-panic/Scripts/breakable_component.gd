@@ -12,4 +12,11 @@ func deal_damage(damage):
 	$HealthBar.value = health
 	print(health)
 	if health <= 0:
-		get_parent().queue_free()
+		destroy()
+
+func set_bar_position(pos):
+	$HealthBar.pos = pos
+
+#TODO: make this more animated
+func destroy():
+	get_parent().queue_free()
