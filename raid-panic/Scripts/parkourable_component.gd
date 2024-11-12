@@ -19,6 +19,7 @@ func connect_signals():
 
 func _on_parkourable_body_entered(body):
 	if body.is_in_group("Player"):
+		
 		body.can_parkour = true
 		body.parkour_body = get_parent()
 		#print("can_parkour")

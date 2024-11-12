@@ -23,21 +23,22 @@ shape = SubResource("CircleShape2D_xs6um")
 [node name="SecondaryTimer" type="Timer" parent="Timers"]
 
 [node name="DodgeTimer" type="Timer" parent="Timers"]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
 
 [node name="ReloadTimer" type="Timer" parent="Timers"]
 
 [node name="DodgeRecoverTimer" type="Timer" parent="Timers"]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
 
 [node name="ParkourTimer" type="Timer" parent="Timers"]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
+[node name="HangJumpTimer" type="Timer" parent="Timers"]
+wait_time = 0.3
+one_shot = true
 
 [node name="Weapon" type="Node2D" parent="."]
 
@@ -46,3 +47,4 @@ root_node = NodePath("")
 [connection signal="timeout" from="Timers/DodgeTimer" to="." method="_on_dodge_timer_timeout"]
 [connection signal="timeout" from="Timers/DodgeRecoverTimer" to="." method="_on_dodge_recover_timer_timeout"]
 [connection signal="timeout" from="Timers/ParkourTimer" to="." method="_on_parkour_timer_timeout"]
+[connection signal="timeout" from="Timers/HangJumpTimer" to="." method="_on_hang_jump_timer_timeout"]

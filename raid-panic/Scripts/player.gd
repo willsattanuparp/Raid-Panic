@@ -14,19 +14,24 @@ var direction_timer: float = .1
 #var knockback: Vector2 = Vector2.ZERO
 
 
-@export var speed: float = 400
+@export var speed: float = 600
 var initial_speed: float
 
-var dodge_speed = speed * 1.5
+var dodge_speed = speed * 2
 
 var on_fire: bool = false
 
 var can_parkour = false
 var parkour_body: GameObject = null
 var distance_to_parkour = 0
-var direction_to_parkour = 0
+var direction_to_parkour = Vector2.ZERO
+
 
 var is_hanging = false
+#var was_hanging = false
+#var off_wall = true
+var is_colliding = false
+
 
 var color_modifiers: Dictionary = {
 	"Default":Color.WHITE,
@@ -63,9 +68,12 @@ func _physics_process(delta):
 	velocity = (direction * speed) # + knockback
 	if move_and_slide():
 		#if dodging into a wall enter hanging
-		if get_last_slide_collision().get_collider().is_in_group("Wall") and is_dodging:
-			print("entering hanging")
+		if get_last_slide_collision().get_collider().is_in_group("Wall") and is_dodging:# and off_wall:
+			#off_wall = false
 			enter_hanging()
+	#elif was_hanging:
+		#off_wall = true
+		#was_hanging = false
 	#knockback = lerp(knockback,Vector2.ZERO,0.1)
 	#Globals.player_pos = global_position
 	
@@ -79,10 +87,13 @@ func _physics_process(delta):
 		#can_secondary = false
 		#$Timers/SecondaryTimer.start()
 		##side_weapon.slash()
-	if is_hanging and Input.is_action_pressed("Hit"):
-		exit_hanging((get_global_mouse_position() - global_position).normalized())
-	if Input.is_action_pressed("Dodge") and can_dodge:
-		dodge()
+	if Input.is_action_just_pressed("Dodge"):
+		
+		if can_dodge:
+			#print("can dodge")
+			dodge()
+		elif is_hanging:
+			exit_hanging((get_global_mouse_position() - global_position).normalized())
 #
 #func play_directional_walk(dir: Vector2):
 	#if dir.x != 0:
@@ -107,48 +118,56 @@ func _physics_process(delta):
 
 
 func enter_hanging():
+	#print("entering hanging")
 	can_direction = false
+	direction = Vector2.ZERO
 	is_dodging = false
+	#can_dodge = false
 	set_collision_mask_value(3,true)
 	$Timers/DodgeTimer.stop()
 	$Timers/DodgeRecoverTimer.stop()
 	$Timers/ParkourTimer.stop()
+	$Timers/HangJumpTimer.stop()
 	is_hanging = true
 
 
 func exit_hanging(dir):
+	#print("exiting hanging")
+	#was_hanging = true
 	is_hanging = false
 	is_dodging = true
 	direction = dir
 	speed = dodge_speed
-	$Timers/DodgeTimer.start()
+	$Timers/HangJumpTimer.start()
 
 
 func dodge():
 	can_dodge = false
 	can_direction = false
+	#parkour logic
 	if can_parkour and parkour_body != null:
 		direction_to_parkour = parkour_body.parkourable.get_parkour_direction(global_position) * -1
-		distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
-		#print(distance_to_parkour)
-		speed = distance_to_parkour / $Timers/ParkourTimer.wait_time
-		#print(speed)
-		direction = direction_to_parkour
-		#print(direction)
-		#make invulnerable to objects
-		set_collision_mask_value(3,false)
-		$Timers/ParkourTimer.start()
-	else:
-		is_dodging = true
-		speed = dodge_speed
-		#can_throw = false
-		#can_secondary = false
-		if direction == Vector2.ZERO:
-			direction = (get_global_mouse_position() - global_position).normalized()
-			#direction = last_direction
-	#	add_to_group("Invulnerable")
-		#$AnimationPlayer.play("forward_roll")
-		$Timers/DodgeTimer.start()
+		if direction_to_parkour != Vector2.ZERO:
+			distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
+			#print(distance_to_parkour)
+			speed = distance_to_parkour / $Timers/ParkourTimer.wait_time
+			#print(speed)
+			direction = direction_to_parkour
+			#print(direction)
+			#make invulnerable to objects
+			set_collision_mask_value(3,false)
+			$Timers/ParkourTimer.start()
+			return
+	is_dodging = true
+	speed = dodge_speed
+	#can_throw = false
+	#can_secondary = false
+	if direction == Vector2.ZERO:
+		direction = (get_global_mouse_position() - global_position).normalized()
+		#direction = last_direction
+#	add_to_group("Invulnerable")
+	#$AnimationPlayer.play("forward_roll")
+	$Timers/DodgeTimer.start()
 #
 #func _on_secondary_timer_timeout():
 	#$Timers/SecondaryTimer.stop()
@@ -180,13 +199,21 @@ func _on_dodge_timer_timeout():
 
 
 func _on_dodge_recover_timer_timeout():
+	#print("dodge recover")
 	can_dodge = true
 
 
 func _on_parkour_timer_timeout() -> void:
-	print("done parkouring")
+	#print("done parkouring")
 	speed = initial_speed
 	can_direction = true
 	set_collision_mask_value(3,true)
 	$Timers/DodgeRecoverTimer.start()
 	
+
+
+func _on_hang_jump_timer_timeout() -> void:
+	speed = initial_speed
+	can_direction = true
+	is_dodging = false
+	$Timers/DodgeRecoverTimer.start()
