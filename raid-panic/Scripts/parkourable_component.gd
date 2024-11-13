@@ -2,6 +2,11 @@ class_name ParkourableComponent extends Area2D
 
 @export var width = 100
 @export var height = 100
+
+#0 = static
+#1 = dynamic
+@export var mode = 0
+
 func _ready() -> void:
 	create_zone(Vector2(width,height))
 
@@ -32,6 +37,7 @@ func _on_parkourable_body_exited(body):
 			body.parkour_body = null
 		#print("cannot parkour")
 
+#This will only work for static hitboxes that are square
 func get_parkour_direction(vec:Vector2) -> Vector2:
 	var hb = get_parent().hitbox.shape.size
 	#print(hb)

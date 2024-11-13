@@ -9,6 +9,8 @@ radius = 31.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 14
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("2_8xaru")
 
 [node name="EntitySprite" type="Sprite2D" parent="."]
@@ -33,11 +35,11 @@ wait_time = 0.1
 one_shot = true
 
 [node name="ParkourTimer" type="Timer" parent="Timers"]
-wait_time = 0.1
+wait_time = 0.2
 one_shot = true
 
 [node name="HangJumpTimer" type="Timer" parent="Timers"]
-wait_time = 0.3
+wait_time = 0.2
 one_shot = true
 
 [node name="Weapon" type="Node2D" parent="."]
