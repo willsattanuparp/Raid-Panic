@@ -67,7 +67,6 @@ func _physics_process(delta):
 		direction_timer -= delta
 		if direction != Vector2.ZERO:
 			last_direction = direction
-		if direction != Vector2.ZERO:
 			# Accelerate in the direction of input
 			velocity = velocity.move_toward(direction * speed, acceleration * delta)
 			#print(velocity)
@@ -79,13 +78,27 @@ func _physics_process(delta):
 	#sticking to wall logic - if no longer moving its not going to be triggered
 	if velocity == Vector2.ZERO:
 		is_dodging = false
+		can_dodge = true
+		if !is_hanging:
+			can_direction = true
 	if move_and_slide():
+		#print("collision")
+		#if hitting an object stop movement
+		direction = Vector2.ZERO
+		velocity = Vector2.ZERO
+		#detect collision location so movement is away from collision
+		last_collision_location = get_last_slide_collision().get_position()
 		#if dodging into a wall enter hanging
 		if get_last_slide_collision().get_collider().is_in_group("Wall") and is_dodging:# and off_wall:
 			#off_wall = false
-			last_collision_location = get_last_slide_collision().get_position()
+			#last_collision_location = get_last_slide_collision().get_position()
 			print(last_collision_location)
 			enter_hanging()
+	#was running into issues with the collision bouncing off and entering a locked condition of can dodge and is hanging but null collision
+	elif can_direction:
+		last_collision_location = null
+	#else:
+		#last_collision_location = null
 	#elif was_hanging:
 		#off_wall = true
 		#was_hanging = false
@@ -105,9 +118,10 @@ func _physics_process(delta):
 		##side_weapon.slash()
 	if Input.is_action_just_pressed("Dodge"):
 		
-		if can_dodge:
+		if can_dodge and !is_hanging:
 			#print("can dodge")
-			dodge()
+			#conditional is either no collision or facing away
+			dodge((last_collision_location == null) or (last_collision_location - global_position).dot(get_global_mouse_position() - global_position) < 0)
 		elif is_hanging and last_collision_location != null and (last_collision_location - global_position).dot(get_global_mouse_position() - global_position) < 0:
 			#print((last_collision_location - global_position).normalized().dot((get_global_mouse_position() - global_position).normalized()))
 			exit_hanging((get_global_mouse_position() - global_position).normalized())
@@ -149,6 +163,7 @@ func enter_hanging():
 
 
 func exit_hanging(dir):
+	last_collision_location = null
 	#print("exiting hanging")
 	#was_hanging = true
 	is_hanging = false
@@ -158,35 +173,41 @@ func exit_hanging(dir):
 	$Timers/HangJumpTimer.start()
 
 
-func dodge():
-	can_dodge = false
-	can_direction = false
+func dodge(not_facing_object):
+	last_collision_location = null
 	#parkour logic
 	if can_parkour and parkour_body != null:
+		can_dodge = false
+		can_direction = false
 		direction_to_parkour = parkour_body.parkourable.get_parkour_direction(global_position) * -1
 		#print(direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()))
 		if direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()) > look_at_parkour_threshold:
 			if direction_to_parkour != Vector2.ZERO and parkour_body.parkourable.mode == 0:
 				distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
 				#print(distance_to_parkour)
-				speed = distance_to_parkour / $Timers/ParkourTimer.wait_time
+				var tween = get_tree().create_tween()
+				tween.tween_property(self,"position",global_position + (direction_to_parkour * distance_to_parkour),.1)
+				#speed = distance_to_parkour / $Timers/ParkourTimer.wait_time
 				#print(speed)
-				direction = direction_to_parkour
+				#direction = direction_to_parkour
 				#print(direction)
 				#make invulnerable to objects
 				set_collision_mask_value(3,false)
 				$Timers/ParkourTimer.start()
 				return
-	is_dodging = true
-	speed = dodge_speed
-	#can_throw = false
-	#can_secondary = false
-	if direction == Vector2.ZERO:
-		direction = (get_global_mouse_position() - global_position).normalized()
-		#direction = last_direction
-#	add_to_group("Invulnerable")
-	#$AnimationPlayer.play("forward_roll")
-	$Timers/DodgeTimer.start()
+	if not_facing_object:
+		can_dodge = false
+		can_direction = false
+		is_dodging = true
+		speed = dodge_speed
+		#can_throw = false
+		#can_secondary = false
+		if direction == Vector2.ZERO:
+			direction = (get_global_mouse_position() - global_position).normalized()
+			#direction = last_direction
+	#	add_to_group("Invulnerable")
+		#$AnimationPlayer.play("forward_roll")
+		$Timers/DodgeTimer.start()
 #
 #func _on_secondary_timer_timeout():
 	#$Timers/SecondaryTimer.stop()
