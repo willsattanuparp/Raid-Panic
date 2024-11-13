@@ -13,7 +13,7 @@ var direction_timer: float = .1
 
 #var knockback: Vector2 = Vector2.ZERO
 #threshold of looking at a parkourable component before parkouring
-var look_at_threshold = .3
+var look_at_parkour_threshold = .3
 
 @export var speed: float = 600
 var initial_speed: float
@@ -34,7 +34,7 @@ var is_hanging = false
 #var was_hanging = false
 #var off_wall = true
 var is_colliding = false
-
+var last_collision_location = null
 
 var color_modifiers: Dictionary = {
 	"Default":Color.WHITE,
@@ -76,12 +76,15 @@ func _physics_process(delta):
 			velocity = velocity.move_toward(Vector2.ZERO, deceleration * delta)
 	else:
 		velocity = (direction * speed) # + knockback
-	#if velocity == Vector2.ZERO:
-		#speed = initial_speed
+	#sticking to wall logic - if no longer moving its not going to be triggered
+	if velocity == Vector2.ZERO:
+		is_dodging = false
 	if move_and_slide():
 		#if dodging into a wall enter hanging
-		if get_last_slide_collision().get_collider().is_in_group("Wall") and !can_direction: #is_dodging:# and off_wall:
+		if get_last_slide_collision().get_collider().is_in_group("Wall") and is_dodging:# and off_wall:
 			#off_wall = false
+			last_collision_location = get_last_slide_collision().get_position()
+			print(last_collision_location)
 			enter_hanging()
 	#elif was_hanging:
 		#off_wall = true
@@ -105,7 +108,8 @@ func _physics_process(delta):
 		if can_dodge:
 			#print("can dodge")
 			dodge()
-		elif is_hanging:
+		elif is_hanging and last_collision_location != null and (last_collision_location - global_position).dot(get_global_mouse_position() - global_position) < 0:
+			#print((last_collision_location - global_position).normalized().dot((get_global_mouse_position() - global_position).normalized()))
 			exit_hanging((get_global_mouse_position() - global_position).normalized())
 #
 #func play_directional_walk(dir: Vector2):
@@ -160,8 +164,8 @@ func dodge():
 	#parkour logic
 	if can_parkour and parkour_body != null:
 		direction_to_parkour = parkour_body.parkourable.get_parkour_direction(global_position) * -1
-		print(direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()))
-		if direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()) > look_at_threshold:
+		#print(direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()))
+		if direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()) > look_at_parkour_threshold:
 			if direction_to_parkour != Vector2.ZERO and parkour_body.parkourable.mode == 0:
 				distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
 				#print(distance_to_parkour)
@@ -199,7 +203,7 @@ func _on_dodge_timer_timeout():
 	speed = initial_speed
 	can_direction = true
 	direction = Vector2.ZERO
-	is_dodging = false
+	#is_dodging = false
 	#set_collision_layer_value(1,true)
 	#set_collision_layer_value(10,false)
 	#set_collision_mask_value(4,true)
@@ -232,5 +236,5 @@ func _on_parkour_timer_timeout() -> void:
 func _on_hang_jump_timer_timeout() -> void:
 	speed = initial_speed
 	can_direction = true
-	is_dodging = false
+	#is_dodging = false
 	$Timers/DodgeRecoverTimer.start()

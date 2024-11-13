@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=4 uid="uid://bvrnyabtx35jj"]
+[gd_scene load_steps=10 format=4 uid="uid://bvrnyabtx35jj"]
 
 [ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="1_4c7jm"]
 [ext_resource type="PackedScene" uid="uid://ca4bee8aroijk" path="res://Scenes/player.tscn" id="2_ohf4e"]
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="3_vs14j"]
 [ext_resource type="PackedScene" uid="uid://1qnuetij5vs7" path="res://Scenes/Objects/table.tscn" id="4_j1eqs"]
 [ext_resource type="TileSet" uid="uid://brbowl1q48hp6" path="res://Scenes/Tileset/PlaceholderTileset.tres" id="5_msmyy"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_sy8uq"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_t160t"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_7yyiv"]
+
+[sub_resource type="Resource" id="Resource_idmi8"]
+script = ExtResource("8_7yyiv")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="TestLevel" type="Node2D"]
 
@@ -25,3 +34,19 @@ position = Vector2(333, 389)
 [node name="TileMapLayer" type="TileMapLayer" parent="." groups=["Wall"]]
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAcAAAABAAAAAQAAAAYAAAABAAEAAQAAAAYAAAACAAAAAQABAAcAAAACAAEAAQABAAgAAAAAAAEAAQAAAAgAAAA=")
 tile_set = ExtResource("5_msmyy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(333, 389)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_sy8uq")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(333, 389)
+script = ExtResource("7_t160t")
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_idmi8")
+follow_damping = true
