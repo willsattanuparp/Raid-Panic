@@ -1,7 +1,7 @@
 class_name GameObject extends StaticBody2D
 
 
-@export var parkourable: ParkourableComponent
+@export var parkourable: ParkourableParent
 @export var breakable: BreakableComponent
 @export var alarmable: AlarmableComponent
 
@@ -17,7 +17,7 @@ func initialize_object():
 		add_to_group("Breakable")
 	if is_parkourable():
 		add_to_group("Parkourable")
-		parkourable.connect_signals()
+		parkourable.connect_all_zones()
 
 func is_parkourable():
 	return parkourable != null

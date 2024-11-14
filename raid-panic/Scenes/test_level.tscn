@@ -36,6 +36,7 @@ tile_map_data = PackedByteArray("AAABAAEAAQAAAAYAAAACAAEAAQABAAgAAAAAAAEAAQAAAAg
 tile_set = ExtResource("5_msmyy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(333, 389)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]

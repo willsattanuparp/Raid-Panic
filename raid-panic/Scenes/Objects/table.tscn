@@ -2,16 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_ebwuq"]
 [ext_resource type="Script" path="res://Scripts/table.gd" id="2_82tqx"]
-[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="2_ionjd"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="3_pmq8n"]
+[ext_resource type="Script" path="res://Scripts/parkourable_parent.gd" id="4_r28gm"]
 
 [node name="Table" node_paths=PackedStringArray("parkourable", "breakable") instance=ExtResource("1_ebwuq")]
 script = ExtResource("2_82tqx")
-parkourable = NodePath("ParkourableComponent")
+parkourable = NodePath("ParkourableParent")
 breakable = NodePath("BreakableComponent")
 
 [node name="BreakableComponent" parent="." index="2" instance=ExtResource("3_pmq8n")]
 
-[node name="ParkourableComponent" parent="." index="3" instance=ExtResource("2_ionjd")]
-width = 150
-height = 150
+[node name="ParkourableParent" type="Node2D" parent="." index="3"]
+script = ExtResource("4_r28gm")

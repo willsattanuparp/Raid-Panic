@@ -49,6 +49,7 @@ func _physics_process(delta):
 	look_at(get_global_mouse_position())
 	#movement
 	if can_direction:
+		is_dodging = false
 		var input = Input.get_vector("Left","Right","Up","Down")
 		#play_directional_walk(input)
 		#Input buffer diagonal
@@ -179,14 +180,16 @@ func dodge(not_facing_object):
 	if can_parkour and parkour_body != null:
 		can_dodge = false
 		can_direction = false
-		direction_to_parkour = parkour_body.parkourable.get_parkour_direction(global_position) * -1
+		#direction_to_parkour = parkour_body.parkourable.get_parkour_direction(global_position) * -1
+		direction_to_parkour = parkour_body.parkourable.get_teleport_location()
 		#print(direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()))
 		if direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()) > look_at_parkour_threshold:
-			if direction_to_parkour != Vector2.ZERO and parkour_body.parkourable.mode == 0:
-				distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
+			#if direction_to_parkour != Vector2.ZERO and parkour_body.parkourable.mode == 0:
+			if direction_to_parkour != null:# and parkour_body.parkourable.mode == 0:
+				#distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
 				#print(distance_to_parkour)
 				var tween = get_tree().create_tween()
-				tween.tween_property(self,"position",global_position + (direction_to_parkour * distance_to_parkour),.1)
+				tween.tween_property(self,"position",global_position + direction_to_parkour,.1)
 				#speed = distance_to_parkour / $Timers/ParkourTimer.wait_time
 				#print(speed)
 				#direction = direction_to_parkour
