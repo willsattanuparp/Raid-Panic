@@ -47,6 +47,12 @@ func create_zones(size: Vector2,pos1: Vector2,pos2: Vector2):
 	$Area1/Hitbox1.shape = rect
 	$Area2/Hitbox2.shape = rect2
 
+func create_zones_with_shape(shape: Shape2D,pos1: Vector2,pos2: Vector2):
+	$Area1.position = pos1
+	$Area2.position = pos2
+	$Area1/Hitbox1.shape = shape
+	$Area2/Hitbox2.shape = shape.duplicate()
+
 #
 #func initialize():
 	#pass
