@@ -26,7 +26,8 @@ texture = ExtResource("1_4c7jm")
 position = Vector2(727, 338)
 
 [node name="Table" parent="." instance=ExtResource("4_j1eqs")]
-position = Vector2(528, 339)
+position = Vector2(523, 119)
+rotation = 0.862171
 
 [node name="Player" parent="." instance=ExtResource("2_ohf4e")]
 position = Vector2(333, 389)

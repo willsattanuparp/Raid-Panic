@@ -8,8 +8,13 @@ class_name ParkourableComponent extends Node2D
 #1 = dynamic
 @export var mode = 0
 
-var area1
-var area2
+#var area1
+#var area2
+@export var area1_shape: Shape2D
+@export var area2_shape: Shape2D
+@export var area1_pos: Vector2
+@export var area2_pos: Vector2
+
 
 var entered_area1 = false
 var entered_area2 = false
@@ -20,9 +25,18 @@ signal exited_zone(id)
 var transfer_vector
 
 func _ready() -> void:
-	area1 = $Area1
-	area2 = $Area2
+	if area1_shape != null:
+		$Area1/Hitbox1.shape = area1_shape
+	if area2_shape != null:
+		$Area2/Hitbox2.shape = area2_shape
+	if area1_pos != Vector2.ZERO:
+		$Area1.position = area1_pos
+	if area2_pos != Vector2.ZERO:
+		$Area2.position = area2_pos
+	#area1 = $Area1
+	#area2 = $Area2
 	#transfer_vector = $Area1.global_position - $Area2.global_position
+
 
 func create_zones(size: Vector2,pos1: Vector2,pos2: Vector2):
 	var rect = RectangleShape2D.new() as RectangleShape2D

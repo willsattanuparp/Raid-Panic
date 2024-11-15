@@ -1,1 +1,47 @@
 class_name AlarmableComponent extends Node2D
+
+var is_moving = false
+var loop = false
+var move_rate = .005
+var moving_forward = true
+
+@export var curve: Curve2D
+@export var shape: Shape2D
+
+signal detected()
+
+func _ready() -> void:
+	if curve != null:
+		#if first point pos is last point pos the curve is closed
+		if curve.get_point_position(0) == curve.get_point_position(curve.point_count - 1):
+			loop = true
+		$DetectionPath.curve = curve
+		is_moving = true
+	if shape != null:
+		$Path2D/PathFollow2D/DetectionArea/DetectionAreaHitbox.shape = shape
+
+
+func create_detection_zone(size: Vector2):
+	var rect = RectangleShape2D.new() as RectangleShape2D
+	rect.size = size
+	$Path2D/PathFollow2D/DetectionArea/DetectionAreaHitbox.shape = rect
+
+func set_curve(curve: Curve2D,should_loop: bool):
+	$DetectionPath.curve = curve
+	loop = should_loop
+
+func _physics_process(delta: float) -> void:
+	if is_moving:
+		if moving_forward:
+			$DetectionPath/DetectionFollow.progress_ratio += move_rate
+		else:
+			$DetectionPath/DetectionFollow.progress_ratio -= move_rate
+		if !loop:
+			if $DetectionPath/DetectionFollow.progress_ratio >= 1:
+				moving_forward = false
+			elif $DetectionPath/DetectionFollow.progress_ratio <= 0:
+				moving_forward = true
+
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		detected.emit()

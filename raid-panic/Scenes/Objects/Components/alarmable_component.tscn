@@ -4,3 +4,16 @@
 
 [node name="AlarmableComponent" type="Node2D"]
 script = ExtResource("1_pbg1g")
+
+[node name="DetectionPath" type="Path2D" parent="."]
+
+[node name="DetectionFollow" type="PathFollow2D" parent="DetectionPath"]
+position = Vector2(124, 40)
+rotation = 0.0123451
+loop = false
+
+[node name="DetectionArea" type="Area2D" parent="DetectionPath/DetectionFollow"]
+
+[node name="DetectionAreaHitbox" type="CollisionShape2D" parent="DetectionPath/DetectionFollow/DetectionArea"]
+
+[connection signal="body_entered" from="DetectionPath/DetectionFollow/DetectionArea" to="." method="_on_detection_area_body_entered"]
