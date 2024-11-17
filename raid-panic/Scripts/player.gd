@@ -29,7 +29,7 @@ var parkour_body: GameObject = null
 var distance_to_parkour = 0
 var direction_to_parkour = Vector2.ZERO
 
-
+var in_combo = false
 var is_hanging = false
 #var was_hanging = false
 #var off_wall = true
@@ -126,6 +126,7 @@ func _physics_process(delta):
 		#$Timers/SecondaryTimer.start()
 		##side_weapon.slash()
 	if Input.is_action_just_pressed("Dodge"):
+		in_combo = true
 		#if dodging stop the scoring timer
 		if !$Timers/NotParkouringTimer.is_stopped():
 			$Timers/NotParkouringTimer.stop()
@@ -283,4 +284,6 @@ func _on_hang_jump_timer_timeout() -> void:
 
 #fires if not moving for x seconds
 func _on_not_parkouring_timer_timeout() -> void:
-	combo_broken.emit()
+	if in_combo:
+		combo_broken.emit()
+	in_combo = false

@@ -7,7 +7,7 @@ class_name GameObject extends AnimatableBody2D
 
 @onready var hitbox = $ObjectHitbox
 
-var scoring_id
+var scoring_id = -1
 
 func _ready() -> void:
 	initialize_object()
