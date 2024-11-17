@@ -42,6 +42,10 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="NotParkouringTimer" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
+
 [node name="Weapon" type="Node2D" parent="."]
 
 [node name="Knife" parent="Weapon" instance=ExtResource("3_d8gpv")]
@@ -50,3 +54,4 @@ one_shot = true
 [connection signal="timeout" from="Timers/DodgeRecoverTimer" to="." method="_on_dodge_recover_timer_timeout"]
 [connection signal="timeout" from="Timers/ParkourTimer" to="." method="_on_parkour_timer_timeout"]
 [connection signal="timeout" from="Timers/HangJumpTimer" to="." method="_on_hang_jump_timer_timeout"]
+[connection signal="timeout" from="Timers/NotParkouringTimer" to="." method="_on_not_parkouring_timer_timeout"]

@@ -1,4 +1,4 @@
-class_name GameObject extends StaticBody2D
+class_name GameObject extends AnimatableBody2D
 
 
 @export var parkourable: ParkourableParent
@@ -6,6 +6,8 @@ class_name GameObject extends StaticBody2D
 @export var alarmable: AlarmableComponent
 
 @onready var hitbox = $ObjectHitbox
+
+var scoring_id
 
 func _ready() -> void:
 	initialize_object()

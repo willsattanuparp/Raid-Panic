@@ -36,6 +36,10 @@ var is_hanging = false
 var is_colliding = false
 var last_collision_location = null
 
+signal move_score(amount)
+signal body_parkoured(id)
+signal combo_broken()
+
 var color_modifiers: Dictionary = {
 	"Default":Color.WHITE,
 	"Frozen":Color.LIGHT_SKY_BLUE
@@ -52,6 +56,9 @@ func _physics_process(delta):
 		is_dodging = false
 		var input = Input.get_vector("Left","Right","Up","Down")
 		#play_directional_walk(input)
+		#for scoring, start scoring timer
+		if $Timers/NotParkouringTimer.is_stopped():
+			$Timers/NotParkouringTimer.start()
 		#Input buffer diagonal
 		if input == Vector2(-1,-1).normalized() or input == Vector2(1,-1).normalized() or input == Vector2(-1,1).normalized() or input == Vector2(1,1).normalized():
 			direction_timer = .1
@@ -76,6 +83,7 @@ func _physics_process(delta):
 			velocity = velocity.move_toward(Vector2.ZERO, deceleration * delta)
 	else:
 		velocity = (direction * speed) # + knockback
+	
 	#sticking to wall logic - if no longer moving its not going to be triggered
 	if velocity == Vector2.ZERO:
 		is_dodging = false
@@ -118,7 +126,9 @@ func _physics_process(delta):
 		#$Timers/SecondaryTimer.start()
 		##side_weapon.slash()
 	if Input.is_action_just_pressed("Dodge"):
-		
+		#if dodging stop the scoring timer
+		if !$Timers/NotParkouringTimer.is_stopped():
+			$Timers/NotParkouringTimer.stop()
 		if can_dodge and !is_hanging:
 			#print("can dodge")
 			#conditional is either no collision or facing away
@@ -150,6 +160,10 @@ func _physics_process(delta):
 
 
 func enter_hanging():
+	#scoring timer if stopped
+	move_score.emit(Global.MOVEMENT.HANG)
+	if $Timers/NotParkouringTimer.is_stopped():
+		$Timers/NotParkouringTimer.start()
 	#print("entering hanging")
 	can_direction = false
 	direction = Vector2.ZERO
@@ -164,6 +178,7 @@ func enter_hanging():
 
 
 func exit_hanging(dir):
+	move_score.emit(Global.MOVEMENT.HANGEXIT)
 	last_collision_location = null
 	#print("exiting hanging")
 	#was_hanging = true
@@ -188,6 +203,8 @@ func dodge(not_facing_object):
 			if direction_to_parkour != null:# and parkour_body.parkourable.mode == 0:
 				#distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
 				#print(distance_to_parkour)
+				move_score.emit(Global.MOVEMENT.PARKOUR)
+				body_parkoured.emit(parkour_body.scoring_id)
 				var tween = get_tree().create_tween()
 				tween.tween_property(self,"position",global_position + direction_to_parkour,.1)
 				#speed = distance_to_parkour / $Timers/ParkourTimer.wait_time
@@ -199,6 +216,7 @@ func dodge(not_facing_object):
 				$Timers/ParkourTimer.start()
 				return
 	if not_facing_object:
+		move_score.emit(Global.MOVEMENT.ROLL)
 		can_dodge = false
 		can_direction = false
 		is_dodging = true
@@ -262,3 +280,7 @@ func _on_hang_jump_timer_timeout() -> void:
 	can_direction = true
 	#is_dodging = false
 	$Timers/DodgeRecoverTimer.start()
+
+#fires if not moving for x seconds
+func _on_not_parkouring_timer_timeout() -> void:
+	combo_broken.emit()

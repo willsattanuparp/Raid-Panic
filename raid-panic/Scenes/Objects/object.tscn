@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ni1i"]
 size = Vector2(126, 126)
 
-[node name="Object" type="StaticBody2D"]
+[node name="Object" type="AnimatableBody2D"]
 collision_layer = 4
 script = ExtResource("1_i67q0")
 
