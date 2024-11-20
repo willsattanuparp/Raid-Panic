@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3idfsdcm2ina"]
+
+[ext_resource type="Script" path="res://Scripts/parkourable_parent.gd" id="1_tnitb"]
+
+[node name="ParkourableParent" type="Node2D"]
+script = ExtResource("1_tnitb")

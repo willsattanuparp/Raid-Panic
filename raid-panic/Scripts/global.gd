@@ -1,0 +1,3 @@
+extends Node2D
+
+enum MOVEMENT {ROLL,HANG,HANGEXIT,PARKOUR}

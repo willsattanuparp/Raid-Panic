@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctcdf0d5ca8to"]
+
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_u38tk"]
+[ext_resource type="Script" path="res://Scripts/floor_manager.gd" id="2_jbdge"]
+[ext_resource type="PackedScene" uid="uid://boyapvkseeika" path="res://Scenes/Levels/scoring_node.tscn" id="2_qbkxi"]
+[ext_resource type="PackedScene" uid="uid://ca4bee8aroijk" path="res://Scenes/player.tscn" id="4_jw8rj"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_ur5dt"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_xcimi"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_lcaxs"]
+
+[sub_resource type="Resource" id="Resource_k35is"]
+script = ExtResource("7_lcaxs")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_u38tk")
+
+[node name="ScoringNode" parent="." instance=ExtResource("2_qbkxi")]
+
+[node name="FloorManager" type="Node2D" parent="."]
+script = ExtResource("2_jbdge")
+
+[node name="Player" parent="." instance=ExtResource("4_jw8rj")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+process_callback = 0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_ur5dt")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+script = ExtResource("6_xcimi")
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_k35is")
+follow_damping = true
+
+[connection signal="body_parkoured" from="Player" to="ScoringNode" method="_on_player_body_parkoured"]
+[connection signal="combo_broken" from="Player" to="ScoringNode" method="_on_player_combo_broken"]
+[connection signal="move_score" from="Player" to="ScoringNode" method="_on_player_move_score"]

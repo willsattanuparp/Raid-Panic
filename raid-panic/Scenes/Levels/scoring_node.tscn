@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://boyapvkseeika"]
+
+[ext_resource type="Script" path="res://Scripts/scoring_node.gd" id="1_feofd"]
+
+[node name="ScoringNode" type="Node2D"]
+script = ExtResource("1_feofd")
+
+[node name="ComboChainTimer" type="Timer" parent="."]
+
+[node name="StoppedTimer" type="Timer" parent="."]
