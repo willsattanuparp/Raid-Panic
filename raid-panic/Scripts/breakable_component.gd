@@ -2,6 +2,9 @@ class_name BreakableComponent extends Node2D
 
 @export var health = 100
 
+var documents_contained = 0
+var required_document = false
+
 func _ready() -> void:
 	$HealthBar.max_value = health
 	$HealthBar.value = health

@@ -1,5 +1,8 @@
 class_name AlarmableComponent extends Node2D
 
+var activated = true
+
+var should_move = false
 var is_moving = false
 var loop = false
 var move_rate = .005
@@ -20,6 +23,16 @@ func _ready() -> void:
 	if shape != null:
 		$Path2D/PathFollow2D/DetectionArea/DetectionAreaHitbox.shape = shape
 
+func activate():
+	$DetectionPath/DetectionFollow/DetectionArea.monitoring = true
+	if should_move:
+		is_moving = true
+	activated = true
+
+func deactivate():
+	$DetectionPath/DetectionFollow/DetectionArea.monitoring = false
+	is_moving = false
+	activated = false
 
 func create_detection_zone(size: Vector2):
 	var rect = RectangleShape2D.new() as RectangleShape2D

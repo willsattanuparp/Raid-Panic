@@ -13,6 +13,7 @@ rotation = 0.0123451
 loop = false
 
 [node name="DetectionArea" type="Area2D" parent="DetectionPath/DetectionFollow"]
+collision_layer = 32
 
 [node name="DetectionAreaHitbox" type="CollisionShape2D" parent="DetectionPath/DetectionFollow/DetectionArea"]
 
