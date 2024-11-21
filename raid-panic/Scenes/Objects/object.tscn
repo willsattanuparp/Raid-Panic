@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/object.gd" id="1_i67q0"]
 [ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="2_6acmi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ni1i"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l44u"]
 size = Vector2(126, 126)
 
 [node name="Object" type="AnimatableBody2D"]
@@ -12,7 +12,7 @@ script = ExtResource("1_i67q0")
 
 [node name="ObjectHitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_8ni1i")
+shape = SubResource("RectangleShape2D_5l44u")
 
 [node name="ObjectSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_6acmi")

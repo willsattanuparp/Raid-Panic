@@ -24,8 +24,10 @@ var dodge_speed = speed * 2
 
 var on_fire: bool = false
 
-var can_parkour = false
-var parkour_body: GameObject = null
+
+#TODO: The parkour does not currently allow for the player to be in multiple areas - change this to an array
+#var can_parkour = false
+var parkour_bodies: Array[GameObject] = []
 var distance_to_parkour = 0
 var direction_to_parkour = Vector2.ZERO
 
@@ -189,15 +191,20 @@ func exit_hanging(dir):
 	speed = dodge_speed
 	$Timers/HangJumpTimer.start()
 
+#TODO: Choose which object based on direction and dot matrix
+func get_attached_parkour_body():
+	if !parkour_bodies.is_empty():
+		return parkour_bodies.back()
+	return null
 
 func dodge(not_facing_object):
 	last_collision_location = null
 	#parkour logic
-	if can_parkour and parkour_body != null:
+	if get_attached_parkour_body() != null:
 		can_dodge = false
 		can_direction = false
 		#direction_to_parkour = parkour_body.parkourable.get_parkour_direction(global_position) * -1
-		direction_to_parkour = parkour_body.parkourable.get_teleport_location()
+		direction_to_parkour = get_attached_parkour_body().parkourable.get_teleport_location()
 		#print(direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()))
 		if direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()) > look_at_parkour_threshold:
 			#if direction_to_parkour != Vector2.ZERO and parkour_body.parkourable.mode == 0:
@@ -205,7 +212,7 @@ func dodge(not_facing_object):
 				#distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
 				#print(distance_to_parkour)
 				move_score.emit(Global.MOVEMENT.PARKOUR)
-				body_parkoured.emit(parkour_body.scoring_id)
+				body_parkoured.emit(get_attached_parkour_body().scoring_id)
 				var tween = get_tree().create_tween()
 				tween.tween_property(self,"position",global_position + direction_to_parkour,.1)
 				#speed = distance_to_parkour / $Timers/ParkourTimer.wait_time

@@ -58,16 +58,18 @@ func connect_all_zones():
 #func populate_connections():
 	#pass
 
+#TODO: Parkour towards zone most looked at
 func _on_zone_entered(id,body):
 	statuses[id] = true
 	if statuses.find(true) != -1:
-		body.parkour_body = get_parent()
+		if body.parkour_bodies.find(get_parent()) == -1:
+			body.parkour_bodies.append(get_parent())
 		body.can_dodge = true
-		body.can_parkour = true
+		#body.can_parkour = true
 
 func _on_zone_exited(id,body):
 	statuses[id] = false
 	if statuses.find(true) == -1:
-		body.can_parkour = false
-		if body.parkour_body == get_parent():
-			body.parkour_body = null
+		#body.can_parkour = false
+		if body.parkour_bodies.find(get_parent()) != -1:
+			body.parkour_bodies.erase(get_parent())

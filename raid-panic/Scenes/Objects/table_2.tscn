@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://d34ll0jr4e4ha"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_t81li"]
+[ext_resource type="Texture2D" uid="uid://d2807qewp12bl" path="res://Assets/Sprites/Tables/table2.png" id="2_wtjyp"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_ftktf"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_np7rh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3heu"]
+size = Vector2(228, 465)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq13g"]
+size = Vector2(50, 470)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53c0s"]
+size = Vector2(50, 470)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pd6h6"]
+size = Vector2(230, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4734b"]
+size = Vector2(230, 40)
+
+[node name="Table2" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_t81li")]
+parkourable = NodePath("ParkourableParent2")
+
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_m3heu")
+
+[node name="ObjectSprite" parent="." index="1"]
+texture = ExtResource("2_wtjyp")
+
+[node name="ParkourableParent2" parent="." index="2" instance=ExtResource("3_ftktf")]
+
+[node name="ParkourableComponent" parent="ParkourableParent2" index="0" instance=ExtResource("4_np7rh")]
+area1_shape = SubResource("RectangleShape2D_tq13g")
+area2_shape = SubResource("RectangleShape2D_53c0s")
+area1_pos = Vector2(140, 0)
+area2_pos = Vector2(-140, 0)
+
+[node name="ParkourableComponent2" parent="ParkourableParent2" index="1" instance=ExtResource("4_np7rh")]
+area1_shape = SubResource("RectangleShape2D_pd6h6")
+area2_shape = SubResource("RectangleShape2D_4734b")
+area1_pos = Vector2(0, 250)
+area2_pos = Vector2(0, -250)

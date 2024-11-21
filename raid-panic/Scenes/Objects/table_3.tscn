@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://dob5j2sfg204o"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_66vmh"]
+[ext_resource type="Texture2D" uid="uid://bchwqy0fbky5e" path="res://Assets/Sprites/Tables/table3.png" id="2_rv65u"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_rp2ja"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_h7p7y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tddmu"]
+size = Vector2(413, 344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stheo"]
+size = Vector2(60, 350)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gokt1"]
+size = Vector2(60, 350)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hm5f"]
+size = Vector2(420, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a26yp"]
+size = Vector2(420, 60)
+
+[node name="Table3" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_66vmh")]
+parkourable = NodePath("ParkourableParent")
+
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_tddmu")
+
+[node name="ObjectSprite" parent="." index="1"]
+texture = ExtResource("2_rv65u")
+
+[node name="ParkourableParent" parent="." index="2" instance=ExtResource("3_rp2ja")]
+
+[node name="ParkourableComponent" parent="ParkourableParent" index="0" instance=ExtResource("4_h7p7y")]
+position = Vector2(0, -1)
+area1_shape = SubResource("RectangleShape2D_stheo")
+area2_shape = SubResource("RectangleShape2D_gokt1")
+area1_pos = Vector2(240, 0)
+area2_pos = Vector2(-240, 0)
+
+[node name="ParkourableComponent2" parent="ParkourableParent" index="1" instance=ExtResource("4_h7p7y")]
+area1_shape = SubResource("RectangleShape2D_1hm5f")
+area2_shape = SubResource("RectangleShape2D_a26yp")
+area1_pos = Vector2(0, 200)
+area2_pos = Vector2(0, -200)

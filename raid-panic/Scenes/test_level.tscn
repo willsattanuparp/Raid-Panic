@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=4 uid="uid://bvrnyabtx35jj"]
 
-[ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="1_4c7jm"]
+[ext_resource type="PackedScene" uid="uid://k5ej5u307v22" path="res://Scenes/Objects/table_1.tscn" id="1_utqgj"]
 [ext_resource type="PackedScene" uid="uid://ca4bee8aroijk" path="res://Scenes/player.tscn" id="2_ohf4e"]
-[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="3_vs14j"]
-[ext_resource type="PackedScene" uid="uid://1qnuetij5vs7" path="res://Scenes/Objects/table.tscn" id="4_j1eqs"]
+[ext_resource type="PackedScene" uid="uid://d34ll0jr4e4ha" path="res://Scenes/Objects/table_2.tscn" id="2_wsvuh"]
 [ext_resource type="TileSet" uid="uid://brbowl1q48hp6" path="res://Scenes/Tileset/PlaceholderTileset.tres" id="5_msmyy"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_sy8uq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_t160t"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_7yyiv"]
+[ext_resource type="PackedScene" uid="uid://dob5j2sfg204o" path="res://Scenes/Objects/table_3.tscn" id="11_vmmw6"]
 
 [sub_resource type="Resource" id="Resource_idmi8"]
 script = ExtResource("8_7yyiv")
@@ -17,17 +17,14 @@ ease = 2
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(606.5, 331)
-scale = Vector2(10.4766, 6.17188)
-texture = ExtResource("1_4c7jm")
+[node name="Table1" parent="." instance=ExtResource("1_utqgj")]
+position = Vector2(840, -272)
 
-[node name="Object" parent="." instance=ExtResource("3_vs14j")]
-position = Vector2(727, 338)
+[node name="Table2" parent="." instance=ExtResource("2_wsvuh")]
+position = Vector2(1477, -209)
 
-[node name="Table" parent="." instance=ExtResource("4_j1eqs")]
-position = Vector2(523, 119)
-rotation = 0.862171
+[node name="Table3" parent="." instance=ExtResource("11_vmmw6")]
+position = Vector2(623, 218)
 
 [node name="Player" parent="." instance=ExtResource("2_ohf4e")]
 position = Vector2(333, 389)
