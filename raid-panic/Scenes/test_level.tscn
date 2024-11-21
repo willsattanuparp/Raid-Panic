@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bvrnyabtx35jj"]
+[gd_scene load_steps=11 format=4 uid="uid://bvrnyabtx35jj"]
 
 [ext_resource type="PackedScene" uid="uid://k5ej5u307v22" path="res://Scenes/Objects/table_1.tscn" id="1_utqgj"]
 [ext_resource type="PackedScene" uid="uid://ca4bee8aroijk" path="res://Scenes/player.tscn" id="2_ohf4e"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_sy8uq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_t160t"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_7yyiv"]
+[ext_resource type="PackedScene" uid="uid://bhippf4q85ftt" path="res://Scenes/Objects/long_sofa_1.tscn" id="9_1jkx8"]
 [ext_resource type="PackedScene" uid="uid://dob5j2sfg204o" path="res://Scenes/Objects/table_3.tscn" id="11_vmmw6"]
 
 [sub_resource type="Resource" id="Resource_idmi8"]
@@ -26,11 +27,14 @@ position = Vector2(1477, -209)
 [node name="Table3" parent="." instance=ExtResource("11_vmmw6")]
 position = Vector2(623, 218)
 
+[node name="LongSofa1" parent="." instance=ExtResource("9_1jkx8")]
+position = Vector2(1556, 556)
+
 [node name="Player" parent="." instance=ExtResource("2_ohf4e")]
 position = Vector2(333, 389)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." groups=["Wall"]]
-tile_map_data = PackedByteArray("AAABAAEAAQAAAAYAAAACAAEAAQABAAgAAAAAAAEAAQAAAAgAAAAAAAAAAQABAAYAAAAAAP//AQABAAYAAAAAAP7/AQAAAAcAAAABAP7/AQAAAAYAAAACAP7/AQAAAAYAAAADAP7/AQAAAAYAAAAEAP7/AQABAAcAAAAEAP//AQABAAYAAAAEAAAAAQABAAgAAAACAAAAAQAAAAcAAAADAAAAAQAAAAYAAAA=")
+tile_map_data = PackedByteArray("AAABAAEAAQAAAAYAAAAAAAEAAQAAAAgAAAAAAAAAAQABAAYAAAAAAP//AQABAAYAAAAAAP7/AQAAAAcAAAABAP7/AQAAAAYAAAACAP7/AQAAAAYAAAADAP7/AQAAAAYAAAAEAP7/AQABAAcAAAAEAP//AQABAAYAAAACAAEAAQABAAcAAAACAAIAAQABAAYAAAACAAMAAQABAAYAAAACAAQAAQABAAYAAAACAAUAAQABAAYAAAACAAYAAQABAAYAAAACAAcAAQABAAYAAAACAAgAAQABAAYAAAACAAkAAQAAAAgAAAADAAkAAQAAAAYAAAAEAAkAAQAAAAYAAAAFAAkAAQAAAAYAAAAGAAkAAQAAAAYAAAAHAAkAAQAAAAYAAAAIAAkAAQAAAAYAAAAJAAkAAQAAAAYAAAAKAAkAAQAAAAYAAAALAAkAAQAAAAYAAAAMAAkAAQAAAAYAAAANAAkAAQAAAAYAAAAOAAkAAQAAAAYAAAAPAAkAAQAAAAYAAAAQAAkAAQAAAAYAAAARAAkAAQAAAAYAAAASAAkAAQAAAAYAAAATAAkAAQAAAAYAAAAUAAkAAQABAAgAAAAUAAgAAQABAAYAAAAUAAcAAQABAAYAAAAUAAYAAQABAAYAAAAUAAUAAQABAAYAAAAUAAQAAQABAAYAAAAUAAMAAQABAAYAAAAUAAIAAQABAAYAAAAUAAEAAQABAAYAAAAEAAAAAQAAAAgAAAAFAAAAAQAAAAYAAAAGAAAAAQAAAAYAAAAHAAAAAQAAAAYAAAAIAAAAAQAAAAYAAAAJAAAAAQAAAAYAAAAKAAAAAQAAAAYAAAALAAAAAQAAAAYAAAAMAAAAAQAAAAYAAAANAAAAAQAAAAYAAAAOAAAAAQAAAAYAAAAPAAAAAQAAAAYAAAAQAAAAAQAAAAYAAAARAAAAAQAAAAYAAAASAAAAAQAAAAYAAAATAAAAAQAAAAYAAAAUAAAAAQABAAcAAAA=")
 tile_set = ExtResource("5_msmyy")
 
 [node name="Camera2D" type="Camera2D" parent="."]

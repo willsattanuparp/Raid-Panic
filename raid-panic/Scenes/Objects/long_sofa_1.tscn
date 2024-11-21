@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhippf4q85ftt"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_30eqj"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="2_iwmux"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="3_4a8wd"]
+[ext_resource type="Texture2D" uid="uid://bauanp50q7w7p" path="res://Assets/Sprites/Sofas/longsofa1.png" id="4_x1tt8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7al0"]
+size = Vector2(490, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bl8y3"]
+size = Vector2(490, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ykhf"]
+size = Vector2(50, 174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37klb"]
+size = Vector2(50, 174)
+
+[node name="LongSofa1" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_30eqj")]
+parkourable = NodePath("ParkourableParent")
+
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(5, -16)
+shape = null
+
+[node name="PolyHitbox" parent="." index="1"]
+polygon = PackedVector2Array(-240, -111, 248, -110, 251, -74, 287, -75, 286, 98, 249, 97, 238, 106, -231, 106, -240, 97, -275, 97, -276, -75, -240, -74)
+
+[node name="ParkourableParent" parent="." index="2" instance=ExtResource("2_iwmux")]
+
+[node name="ParkourableComponent" parent="ParkourableParent" index="0" instance=ExtResource("3_4a8wd")]
+area1_shape = SubResource("RectangleShape2D_d7al0")
+area2_shape = SubResource("RectangleShape2D_bl8y3")
+area1_pos = Vector2(4, -132)
+area2_pos = Vector2(4, 125)
+width_buffer = 50
+
+[node name="ParkourableComponent2" parent="ParkourableParent" index="1" instance=ExtResource("3_4a8wd")]
+area1_shape = SubResource("RectangleShape2D_1ykhf")
+area2_shape = SubResource("RectangleShape2D_37klb")
+area1_pos = Vector2(-300, 10)
+area2_pos = Vector2(300, 10)
+width_buffer = 50
+
+[node name="ObjectSprite" parent="." index="3"]
+texture = ExtResource("4_x1tt8")

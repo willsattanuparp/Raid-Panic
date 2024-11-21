@@ -14,5 +14,7 @@ script = ExtResource("1_i67q0")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_5l44u")
 
+[node name="PolyHitbox" type="CollisionPolygon2D" parent="."]
+
 [node name="ObjectSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_6acmi")

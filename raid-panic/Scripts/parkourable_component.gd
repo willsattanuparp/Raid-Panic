@@ -14,7 +14,7 @@ class_name ParkourableComponent extends Node2D
 @export var area2_shape: Shape2D
 @export var area1_pos: Vector2
 @export var area2_pos: Vector2
-
+@export var width_buffer: int = 0
 
 var entered_area1 = false
 var entered_area2 = false
@@ -71,7 +71,7 @@ func connect_signals_area2():
 
 func _on_parkourable_body_entered_area1(body):
 	print("changed transfer vec")
-	transfer_vector = $Area2.global_position - $Area1.global_position
+	transfer_vector = $Area2.global_position - $Area1.global_position + (($Area2.global_position - $Area1.global_position).normalized() * width_buffer) 
 	print(transfer_vector)
 	entered_zone.emit(id,body)
 	entered_area1 = true
@@ -93,7 +93,7 @@ func _on_parkourable_body_exited_area1(body):
 
 func _on_parkourable_body_entered_area2(body):
 	print("changed transfer vec")
-	transfer_vector = $Area1.global_position - $Area2.global_position
+	transfer_vector = ($Area1.global_position - $Area2.global_position) + (($Area1.global_position - $Area2.global_position).normalized() * width_buffer) 
 	print(transfer_vector)
 	entered_zone.emit(id,body)
 	entered_area2 = true
