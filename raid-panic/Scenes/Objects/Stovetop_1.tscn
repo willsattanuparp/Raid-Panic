@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://0h5d62llinbr"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_yuakx"]
+[ext_resource type="Texture2D" uid="uid://b3s2cwlig06v8" path="res://Assets/Sprites/Kitchen/stovetop1.png" id="2_igl24"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_2ps0p"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_pu64v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewpp4"]
+size = Vector2(286, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1g8w"]
+size = Vector2(42.5, 209.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tvvf"]
+size = Vector2(42.5, 209.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx1ka"]
+size = Vector2(288, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nl26"]
+size = Vector2(288, 42)
+
+[node name="Stovetop" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_yuakx")]
+parkourable = NodePath("ParkourableParent")
+
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_ewpp4")
+
+[node name="PolyHitbox" parent="." index="1"]
+position = Vector2(1, 0)
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_igl24")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_2ps0p")]
+
+[node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_pu64v")]
+area1_shape = SubResource("RectangleShape2D_d1g8w")
+area2_shape = SubResource("RectangleShape2D_0tvvf")
+area1_pos = Vector2(-166, -8)
+area2_pos = Vector2(166, -8)
+
+[node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_pu64v")]
+area1_shape = SubResource("RectangleShape2D_vx1ka")
+area2_shape = SubResource("RectangleShape2D_0nl26")
+area1_pos = Vector2(0, 120)
+area2_pos = Vector2(0, -133)

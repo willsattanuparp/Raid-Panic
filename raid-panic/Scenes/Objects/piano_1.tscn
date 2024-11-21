@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://0ljqva62h0cc"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_tl7al"]
+[ext_resource type="Texture2D" uid="uid://ckiisamln3oup" path="res://Assets/Sprites/Instruments/grandpiano1.png" id="2_dcrng"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_kr2yp"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_2giff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpfj6"]
+size = Vector2(74, 105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5tfl"]
+size = Vector2(74, 105)
+
+[node name="Piano" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_tl7al")]
+parkourable = NodePath("ParkourableParent")
+
+[node name="ObjectHitbox" parent="." index="0"]
+shape = null
+
+[node name="PolyHitbox" parent="." index="1"]
+polygon = PackedVector2Array(-136, -282, -187, -254, -228, -195, -242, -136, -245, 164, -233, 164, -234, 231, -221, 230, -221, 282, -205, 282, -206, 275, 218, 276, 218, 281, 236, 282, 236, 232, 248, 231, 247, 91, 233, 63, 174, 7, 134, -69, 107, -165, 78, -216, 36, -251, 16, -258, -18, -281, -53, -288, -106, -288)
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_dcrng")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_kr2yp")]
+
+[node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_2giff")]
+area1_shape = SubResource("RectangleShape2D_wpfj6")
+area2_shape = SubResource("RectangleShape2D_q5tfl")
+area1_pos = Vector2(-260, 230)
+area2_pos = Vector2(275, 230)

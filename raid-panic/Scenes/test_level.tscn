@@ -1,14 +1,22 @@
-[gd_scene load_steps=11 format=4 uid="uid://bvrnyabtx35jj"]
+[gd_scene load_steps=19 format=4 uid="uid://bvrnyabtx35jj"]
 
+[ext_resource type="PackedScene" uid="uid://hmi5peqlb5tx" path="res://Scenes/Objects/safe_1.tscn" id="1_juia6"]
 [ext_resource type="PackedScene" uid="uid://k5ej5u307v22" path="res://Scenes/Objects/table_1.tscn" id="1_utqgj"]
 [ext_resource type="PackedScene" uid="uid://ca4bee8aroijk" path="res://Scenes/player.tscn" id="2_ohf4e"]
 [ext_resource type="PackedScene" uid="uid://d34ll0jr4e4ha" path="res://Scenes/Objects/table_2.tscn" id="2_wsvuh"]
+[ext_resource type="PackedScene" uid="uid://coaypp0xpd4ij" path="res://Scenes/Objects/right_angle_sofa_1.tscn" id="5_d6o7l"]
 [ext_resource type="TileSet" uid="uid://brbowl1q48hp6" path="res://Scenes/Tileset/PlaceholderTileset.tres" id="5_msmyy"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_sy8uq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_t160t"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_7yyiv"]
 [ext_resource type="PackedScene" uid="uid://bhippf4q85ftt" path="res://Scenes/Objects/long_sofa_1.tscn" id="9_1jkx8"]
+[ext_resource type="PackedScene" uid="uid://qcycp88s3h0p" path="res://Scenes/Objects/sofa_chair_1.tscn" id="11_aw86a"]
 [ext_resource type="PackedScene" uid="uid://dob5j2sfg204o" path="res://Scenes/Objects/table_3.tscn" id="11_vmmw6"]
+[ext_resource type="PackedScene" uid="uid://uo06l6mgpn6h" path="res://Scenes/Objects/sofa_chair_2.tscn" id="12_kds7w"]
+[ext_resource type="PackedScene" uid="uid://ku8wx7gs6mwo" path="res://Scenes/Objects/office_chair_1.tscn" id="14_b320p"]
+[ext_resource type="PackedScene" uid="uid://dygs55nhfii1c" path="res://Scenes/Objects/kitchen_bar_1.tscn" id="15_qxqrl"]
+[ext_resource type="PackedScene" uid="uid://b8ok7e6yfn2fp" path="res://Scenes/Objects/countertop_1.tscn" id="16_moo03"]
+[ext_resource type="PackedScene" uid="uid://0ljqva62h0cc" path="res://Scenes/Objects/piano_1.tscn" id="17_5ekc3"]
 
 [sub_resource type="Resource" id="Resource_idmi8"]
 script = ExtResource("8_7yyiv")
@@ -17,6 +25,9 @@ transition = 0
 ease = 2
 
 [node name="TestLevel" type="Node2D"]
+
+[node name="Safe1" parent="." instance=ExtResource("1_juia6")]
+position = Vector2(2122, 749)
 
 [node name="Table1" parent="." instance=ExtResource("1_utqgj")]
 position = Vector2(840, -272)
@@ -30,8 +41,8 @@ position = Vector2(623, 218)
 [node name="LongSofa1" parent="." instance=ExtResource("9_1jkx8")]
 position = Vector2(1556, 556)
 
-[node name="Player" parent="." instance=ExtResource("2_ohf4e")]
-position = Vector2(333, 389)
+[node name="RightAngleSofa1" parent="." instance=ExtResource("5_d6o7l")]
+position = Vector2(1606, 1174)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." groups=["Wall"]]
 tile_map_data = PackedByteArray("AAABAAEAAQAAAAYAAAAAAAEAAQAAAAgAAAAAAAAAAQABAAYAAAAAAP//AQABAAYAAAAAAP7/AQAAAAcAAAABAP7/AQAAAAYAAAACAP7/AQAAAAYAAAADAP7/AQAAAAYAAAAEAP7/AQABAAcAAAAEAP//AQABAAYAAAACAAEAAQABAAcAAAACAAIAAQABAAYAAAACAAMAAQABAAYAAAACAAQAAQABAAYAAAACAAUAAQABAAYAAAACAAYAAQABAAYAAAACAAcAAQABAAYAAAACAAgAAQABAAYAAAACAAkAAQAAAAgAAAADAAkAAQAAAAYAAAAEAAkAAQAAAAYAAAAFAAkAAQAAAAYAAAAGAAkAAQAAAAYAAAAHAAkAAQAAAAYAAAAIAAkAAQAAAAYAAAAJAAkAAQAAAAYAAAAKAAkAAQAAAAYAAAALAAkAAQAAAAYAAAAMAAkAAQAAAAYAAAANAAkAAQAAAAYAAAAOAAkAAQAAAAYAAAAPAAkAAQAAAAYAAAAQAAkAAQAAAAYAAAARAAkAAQAAAAYAAAASAAkAAQAAAAYAAAATAAkAAQAAAAYAAAAUAAkAAQABAAgAAAAUAAgAAQABAAYAAAAUAAcAAQABAAYAAAAUAAYAAQABAAYAAAAUAAUAAQABAAYAAAAUAAQAAQABAAYAAAAUAAMAAQABAAYAAAAUAAIAAQABAAYAAAAUAAEAAQABAAYAAAAEAAAAAQAAAAgAAAAFAAAAAQAAAAYAAAAGAAAAAQAAAAYAAAAHAAAAAQAAAAYAAAAIAAAAAQAAAAYAAAAJAAAAAQAAAAYAAAAKAAAAAQAAAAYAAAALAAAAAQAAAAYAAAAMAAAAAQAAAAYAAAANAAAAAQAAAAYAAAAOAAAAAQAAAAYAAAAPAAAAAQAAAAYAAAAQAAAAAQAAAAYAAAARAAAAAQAAAAYAAAASAAAAAQAAAAYAAAATAAAAAQAAAAYAAAAUAAAAAQABAAcAAAA=")
@@ -40,6 +51,7 @@ tile_set = ExtResource("5_msmyy")
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(333, 389)
+zoom = Vector2(0.5, 0.5)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -52,5 +64,27 @@ position = Vector2(333, 389)
 script = ExtResource("7_t160t")
 follow_mode = 2
 follow_target = NodePath("../Player")
+zoom = Vector2(0.5, 0.5)
 tween_resource = SubResource("Resource_idmi8")
 follow_damping = true
+
+[node name="SofaChair1" parent="." instance=ExtResource("11_aw86a")]
+position = Vector2(2590, 566)
+
+[node name="SofaChair2" parent="." instance=ExtResource("12_kds7w")]
+position = Vector2(2564, 997)
+
+[node name="Safe2" parent="." instance=ExtResource("14_b320p")]
+position = Vector2(2187, 1227)
+
+[node name="KitchenBar" parent="." instance=ExtResource("15_qxqrl")]
+position = Vector2(3514, 921)
+
+[node name="Countertop1" parent="." instance=ExtResource("16_moo03")]
+position = Vector2(2712, 1456)
+
+[node name="Player" parent="." instance=ExtResource("2_ohf4e")]
+position = Vector2(333, 389)
+
+[node name="Piano" parent="." instance=ExtResource("17_5ekc3")]
+position = Vector2(3856, 1755)

@@ -29,14 +29,14 @@ polygon = PackedVector2Array(-240, -111, 248, -110, 251, -74, 287, -75, 286, 98,
 
 [node name="ParkourableParent" parent="." index="2" instance=ExtResource("2_iwmux")]
 
-[node name="ParkourableComponent" parent="ParkourableParent" index="0" instance=ExtResource("3_4a8wd")]
+[node name="VerticalHB" parent="ParkourableParent" index="0" instance=ExtResource("3_4a8wd")]
 area1_shape = SubResource("RectangleShape2D_d7al0")
 area2_shape = SubResource("RectangleShape2D_bl8y3")
 area1_pos = Vector2(4, -132)
 area2_pos = Vector2(4, 125)
 width_buffer = 50
 
-[node name="ParkourableComponent2" parent="ParkourableParent" index="1" instance=ExtResource("3_4a8wd")]
+[node name="HorizontalHB" parent="ParkourableParent" index="1" instance=ExtResource("3_4a8wd")]
 area1_shape = SubResource("RectangleShape2D_1ykhf")
 area2_shape = SubResource("RectangleShape2D_37klb")
 area1_pos = Vector2(-300, 10)

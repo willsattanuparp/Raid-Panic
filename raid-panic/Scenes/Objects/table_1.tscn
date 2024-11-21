@@ -27,19 +27,19 @@ parkourable = NodePath("ParkourableParent")
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_pv08h")
 
-[node name="ObjectSprite" parent="." index="1"]
-texture = ExtResource("2_qejqt")
-
 [node name="ParkourableParent" parent="." index="2" instance=ExtResource("3_fo4ek")]
 
-[node name="ParkourableComponent" parent="ParkourableParent" index="0" instance=ExtResource("4_m770y")]
+[node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_m770y")]
 area1_shape = SubResource("RectangleShape2D_6smq7")
 area2_shape = SubResource("RectangleShape2D_egype")
 area1_pos = Vector2(360, 0)
 area2_pos = Vector2(-360, 0)
 
-[node name="ParkourableComponent2" parent="ParkourableParent" index="1" instance=ExtResource("4_m770y")]
+[node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_m770y")]
 area1_shape = SubResource("RectangleShape2D_xq0d1")
 area2_shape = SubResource("RectangleShape2D_vvkfx")
 area1_pos = Vector2(0, 200)
 area2_pos = Vector2(0, -200)
+
+[node name="ObjectSprite" parent="." index="3"]
+texture = ExtResource("2_qejqt")

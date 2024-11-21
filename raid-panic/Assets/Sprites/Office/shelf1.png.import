@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmy5yxj4nly77"
-path="res://.godot/imported/desk1.png-f8b22cab142c0949167b36d23383af3a.ctex"
+path="res://.godot/imported/shelf1.png-e39b11408790a76e2d0d39439edfaa9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Office/desk1.png"
-dest_files=["res://.godot/imported/desk1.png-f8b22cab142c0949167b36d23383af3a.ctex"]
+source_file="res://Assets/Sprites/Office/shelf1.png"
+dest_files=["res://.godot/imported/shelf1.png-e39b11408790a76e2d0d39439edfaa9e.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 class_name ParkourableComponent extends Node2D
 
-@export var width = 100
-@export var height = 100
+#@export var width = 100
+#@export var height = 100
 @export var id = -1
 
 #0 = static

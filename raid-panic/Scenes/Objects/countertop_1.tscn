@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8ok7e6yfn2fp"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_wo32t"]
+[ext_resource type="Texture2D" uid="uid://ck27dxp8bcxkf" path="res://Assets/Sprites/Kitchen/countertop1.png" id="2_eyuph"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_xgq5w"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_35gv1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01016"]
+size = Vector2(201, 221)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vubia"]
+size = Vector2(61.375, 221.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2l7sd"]
+size = Vector2(61.375, 221.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rxng"]
+size = Vector2(201.5, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok477"]
+size = Vector2(201.5, 39)
+
+[node name="Countertop1" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_wo32t")]
+parkourable = NodePath("ParkourableParent")
+
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(5.5, 4.5)
+shape = SubResource("RectangleShape2D_01016")
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_eyuph")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_xgq5w")]
+
+[node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_35gv1")]
+area1_shape = SubResource("RectangleShape2D_vubia")
+area2_shape = SubResource("RectangleShape2D_2l7sd")
+area1_pos = Vector2(-125, 5)
+area2_pos = Vector2(137, 5)
+
+[node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_35gv1")]
+area1_shape = SubResource("RectangleShape2D_7rxng")
+area2_shape = SubResource("RectangleShape2D_ok477")
+area1_pos = Vector2(5, -125)
+area2_pos = Vector2(5, 125)

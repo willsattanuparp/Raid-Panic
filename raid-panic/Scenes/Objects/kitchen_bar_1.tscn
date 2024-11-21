@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://dygs55nhfii1c"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_02ksj"]
+[ext_resource type="Texture2D" uid="uid://cslfv3w36j56n" path="res://Assets/Sprites/Kitchen/kitchenbar1.png" id="2_ldrvj"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_uhw1r"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_0eoqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opfal"]
+size = Vector2(1212, 211)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2uf6"]
+size = Vector2(61, 211)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us1bc"]
+size = Vector2(61, 211)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j52hg"]
+size = Vector2(1214, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyst5"]
+size = Vector2(1214, 75)
+
+[node name="KitchenBar" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_02ksj")]
+parkourable = NodePath("ParkourableParent")
+
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_opfal")
+
+[node name="PolyHitbox" parent="." index="1"]
+position = Vector2(1, 0)
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_ldrvj")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_uhw1r")]
+
+[node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_0eoqd")]
+area1_shape = SubResource("RectangleShape2D_k2uf6")
+area2_shape = SubResource("RectangleShape2D_us1bc")
+area1_pos = Vector2(-637, -9)
+area2_pos = Vector2(639, -8)
+
+[node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_0eoqd")]
+area1_shape = SubResource("RectangleShape2D_j52hg")
+area2_shape = SubResource("RectangleShape2D_cyst5")
+area1_pos = Vector2(0, -152)
+area2_pos = Vector2(0, 135)

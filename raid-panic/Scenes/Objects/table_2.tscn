@@ -21,21 +21,21 @@ size = Vector2(230, 40)
 size = Vector2(230, 40)
 
 [node name="Table2" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_t81li")]
-parkourable = NodePath("ParkourableParent2")
+parkourable = NodePath("ParkourableParent")
 
 [node name="ObjectHitbox" parent="." index="0"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_m3heu")
 
-[node name="ParkourableParent2" parent="." index="2" instance=ExtResource("3_ftktf")]
+[node name="ParkourableParent" parent="." index="2" instance=ExtResource("3_ftktf")]
 
-[node name="ParkourableComponent" parent="ParkourableParent2" index="0" instance=ExtResource("4_np7rh")]
+[node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_np7rh")]
 area1_shape = SubResource("RectangleShape2D_tq13g")
 area2_shape = SubResource("RectangleShape2D_53c0s")
 area1_pos = Vector2(140, 0)
 area2_pos = Vector2(-140, 0)
 
-[node name="ParkourableComponent2" parent="ParkourableParent2" index="1" instance=ExtResource("4_np7rh")]
+[node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_np7rh")]
 area1_shape = SubResource("RectangleShape2D_pd6h6")
 area2_shape = SubResource("RectangleShape2D_4734b")
 area1_pos = Vector2(0, 250)

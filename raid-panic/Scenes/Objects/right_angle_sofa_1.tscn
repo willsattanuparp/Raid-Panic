@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://coaypp0xpd4ij"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_2pdrn"]
+[ext_resource type="Texture2D" uid="uid://bcveopvx434x6" path="res://Assets/Sprites/Sofas/rightanglesofa1.png" id="2_v0f4v"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_0gv6y"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_71plw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2k32"]
+size = Vector2(47.375, 190.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h187d"]
+size = Vector2(47.375, 190.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcy8t"]
+size = Vector2(47.375, 377.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt7ks"]
+size = Vector2(47.375, 377.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr8f1"]
+size = Vector2(195.5, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk6fl"]
+size = Vector2(195.5, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juu8b"]
+size = Vector2(395, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_png08"]
+size = Vector2(395, 39)
+
+[node name="RightAngleSofa1" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_2pdrn")]
+parkourable = NodePath("ParkourableParent")
+
+[node name="ObjectHitbox" parent="." index="0"]
+shape = null
+
+[node name="PolyHitbox" parent="." index="1"]
+polygon = PackedVector2Array(110, -258, 111, 121, -286, 121, -285, 275, -251, 311, 266, 310, 309, 271, 311, -218, 278, -258)
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_v0f4v")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_0gv6y")]
+
+[node name="HorizontalLong" parent="ParkourableParent" index="0" instance=ExtResource("4_71plw")]
+area1_shape = SubResource("RectangleShape2D_v2k32")
+area2_shape = SubResource("RectangleShape2D_h187d")
+area1_pos = Vector2(-310, 215)
+area2_pos = Vector2(335, 216)
+
+[node name="HorizontalShort" parent="ParkourableParent" index="1" instance=ExtResource("4_71plw")]
+area1_shape = SubResource("RectangleShape2D_wcy8t")
+area2_shape = SubResource("RectangleShape2D_tt7ks")
+area1_pos = Vector2(87, -70)
+area2_pos = Vector2(337, -70)
+
+[node name="VerticalLong" parent="ParkourableParent" index="2" instance=ExtResource("4_71plw")]
+area1_shape = SubResource("RectangleShape2D_xr8f1")
+area2_shape = SubResource("RectangleShape2D_dk6fl")
+area1_pos = Vector2(210, -280)
+area2_pos = Vector2(210, 332)
+
+[node name="VerticalShort" parent="ParkourableParent" index="3" instance=ExtResource("4_71plw")]
+area1_shape = SubResource("RectangleShape2D_juu8b")
+area2_shape = SubResource("RectangleShape2D_png08")
+area1_pos = Vector2(-87, 100)
+area2_pos = Vector2(-87, 332)

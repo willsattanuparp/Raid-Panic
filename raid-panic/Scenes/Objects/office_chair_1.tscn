@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://ku8wx7gs6mwo"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_4o3lt"]
+[ext_resource type="Texture2D" uid="uid://day4iuwhb5011" path="res://Assets/Sprites/Office/officechair1.png" id="2_p2bei"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_266i5"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_5gbkk"]
+[ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="5_7b1p8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nobh"]
+size = Vector2(225, 185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6d2vv"]
+size = Vector2(36, 154)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ryx6"]
+size = Vector2(36, 154)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs63x"]
+size = Vector2(180, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05dnj"]
+size = Vector2(180, 27)
+
+[node name="Safe1" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_4o3lt")]
+parkourable = NodePath("ParkourableParent")
+
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_0nobh")
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_p2bei")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_266i5")]
+
+[node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_5gbkk")]
+area1_shape = SubResource("RectangleShape2D_6d2vv")
+area2_shape = SubResource("RectangleShape2D_7ryx6")
+area1_pos = Vector2(127, -13)
+area2_pos = Vector2(-127, -13)
+
+[node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_5gbkk")]
+area1_shape = SubResource("RectangleShape2D_rs63x")
+area2_shape = SubResource("RectangleShape2D_05dnj")
+area1_pos = Vector2(0, 110)
+area2_pos = Vector2(0, -120)
+
+[node name="BreakableComponent" parent="." index="4" instance=ExtResource("5_7b1p8")]
