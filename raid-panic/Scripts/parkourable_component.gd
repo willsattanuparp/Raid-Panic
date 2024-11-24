@@ -57,6 +57,15 @@ func create_zones_with_shape(shape: Shape2D,pos1: Vector2,pos2: Vector2):
 #func initialize():
 	#pass
 
+func disable():
+	$Area1.monitoring = false
+	$Area2.monitoring = false
+
+func enable():
+	$Area1.monitoring = true
+	$Area2.monitoring = true
+	
+
 func connect_signals_all():
 	connect_signals_area1()
 	connect_signals_area2()

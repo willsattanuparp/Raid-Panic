@@ -12,6 +12,12 @@ var scoring_id = -1
 func _ready() -> void:
 	initialize_object()
 
+func disableComponentPairing(index):
+	get_child(index).disable()
+
+func enableComponentPairing(index):
+	get_child(index).enable()
+
 func initialize_object():
 	if is_alarmable():
 		add_to_group("Alarmable")

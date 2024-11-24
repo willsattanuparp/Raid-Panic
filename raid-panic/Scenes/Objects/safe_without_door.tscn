@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://futpdbwvxu6r"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_q7rcp"]
+[ext_resource type="Texture2D" uid="uid://cncosbrp8h1ix" path="res://Assets/Sprites/Office/safe_no_door.png" id="2_2rfor"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_kgqvb"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_bses2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0b46"]
+size = Vector2(217, 179)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hfhj"]
+size = Vector2(50, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5cww"]
+size = Vector2(50, 178)
+
+[node name="SafeWithoutDoor" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_q7rcp")]
+parkourable = NodePath("ParkourableParent")
+
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_y0b46")
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_2rfor")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_kgqvb")]
+
+[node name="ParkourableComponent" parent="ParkourableParent" index="0" instance=ExtResource("4_bses2")]
+area1_shape = SubResource("RectangleShape2D_3hfhj")
+area2_shape = SubResource("RectangleShape2D_i5cww")
+area1_pos = Vector2(-133, 0)
+area2_pos = Vector2(133, 0)

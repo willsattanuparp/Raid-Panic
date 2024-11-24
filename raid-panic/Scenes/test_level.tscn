@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bvrnyabtx35jj"]
+[gd_scene load_steps=20 format=4 uid="uid://bvrnyabtx35jj"]
 
 [ext_resource type="PackedScene" uid="uid://hmi5peqlb5tx" path="res://Scenes/Objects/safe_1.tscn" id="1_juia6"]
 [ext_resource type="PackedScene" uid="uid://k5ej5u307v22" path="res://Scenes/Objects/table_1.tscn" id="1_utqgj"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dob5j2sfg204o" path="res://Scenes/Objects/table_3.tscn" id="11_vmmw6"]
 [ext_resource type="PackedScene" uid="uid://uo06l6mgpn6h" path="res://Scenes/Objects/sofa_chair_2.tscn" id="12_kds7w"]
 [ext_resource type="PackedScene" uid="uid://ku8wx7gs6mwo" path="res://Scenes/Objects/office_chair_1.tscn" id="14_b320p"]
+[ext_resource type="PackedScene" uid="uid://xiavs4qa7la2" path="res://Scenes/Objects/safe_with_door.tscn" id="15_6ageo"]
 [ext_resource type="PackedScene" uid="uid://dygs55nhfii1c" path="res://Scenes/Objects/kitchen_bar_1.tscn" id="15_qxqrl"]
 [ext_resource type="PackedScene" uid="uid://b8ok7e6yfn2fp" path="res://Scenes/Objects/countertop_1.tscn" id="16_moo03"]
 [ext_resource type="PackedScene" uid="uid://0ljqva62h0cc" path="res://Scenes/Objects/piano_1.tscn" id="17_5ekc3"]
@@ -82,6 +83,9 @@ position = Vector2(3514, 921)
 
 [node name="Countertop1" parent="." instance=ExtResource("16_moo03")]
 position = Vector2(2712, 1456)
+
+[node name="SafeWithDoor" parent="." instance=ExtResource("15_6ageo")]
+position = Vector2(1109, 274)
 
 [node name="Player" parent="." instance=ExtResource("2_ohf4e")]
 position = Vector2(333, 389)
