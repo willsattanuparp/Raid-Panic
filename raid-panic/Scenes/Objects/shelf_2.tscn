@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://v57kfiloygpr"]
+[gd_scene load_steps=6 format=3 uid="uid://v57kfiloygpr"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_d2sk3"]
 [ext_resource type="Texture2D" uid="uid://vb61b5bam8tw" path="res://Assets/Sprites/Office/shelf2.png" id="2_m7rkj"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="3_5c4cw"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="4_qexa5"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="5_klcg0"]
 
-[node name="Shelf1" node_paths=PackedStringArray("parkourable", "breakable") instance=ExtResource("1_d2sk3")]
-parkourable = NodePath("")
+[node name="Shelf1" node_paths=PackedStringArray("breakable") instance=ExtResource("1_d2sk3")]
 breakable = NodePath("BreakableComponent")
 
 [node name="ObjectHitbox" parent="." index="0"]
@@ -13,9 +14,15 @@ shape = null
 
 [node name="PolyHitbox" parent="." index="1"]
 position = Vector2(1, 0)
-polygon = PackedVector2Array(-260, -100, 257, -100, 257, 81, 220, 77, 202, 86, 196, 98, -194, 98, -203, 83, -225, 75, -260, 78)
+polygon = PackedVector2Array(-260, -100, 258, -100, 258, 80, 246.572, 79.1209, 232, 78, 220, 78, 209.497, 82.2515, 203, 88, 197, 98, -196, 98, -200, 92, -205, 84, -212, 80, -224, 77, -239, 77, -260, 79)
 
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_m7rkj")
 
 [node name="BreakableComponent" parent="." index="3" instance=ExtResource("3_5c4cw")]
+
+[node name="ParkourableParent" parent="." index="4" instance=ExtResource("4_qexa5")]
+
+[node name="ParkourableComponent" parent="ParkourableParent" index="0" instance=ExtResource("5_klcg0")]
+
+[node name="ParkourableComponent2" parent="ParkourableParent" index="1" instance=ExtResource("5_klcg0")]

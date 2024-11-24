@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ku8wx7gs6mwo"]
+[gd_scene load_steps=10 format=3 uid="uid://ku8wx7gs6mwo"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_4o3lt"]
 [ext_resource type="Texture2D" uid="uid://day4iuwhb5011" path="res://Assets/Sprites/Office/officechair1.png" id="2_p2bei"]
@@ -6,27 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_5gbkk"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="5_7b1p8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nobh"]
-size = Vector2(225, 185)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6d2vv"]
-size = Vector2(36, 154)
+size = Vector2(50, 180)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ryx6"]
-size = Vector2(36, 154)
+size = Vector2(50, 180)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rs63x"]
-size = Vector2(180, 27)
+size = Vector2(180, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05dnj"]
-size = Vector2(180, 27)
+size = Vector2(180, 50)
 
 [node name="Safe1" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_4o3lt")]
 parkourable = NodePath("ParkourableParent")
 
 [node name="ObjectHitbox" parent="." index="0"]
 position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_0nobh")
+shape = null
+
+[node name="PolyHitbox" parent="." index="1"]
+polygon = PackedVector2Array(-82, -86, -66, -95, -40, -99, 0, -100, 55, -98, 73, -92, 81, -84, 85, -72, 85, -67, 91, -72, 99, -73, 107, -71, 113, -64, 115, -8, 113, 14, 107, 18, 103, 19, 103, 31, 105, 33, 106, 35, 106, 52, 103, 55, 96, 56, 91, 55, 89, 63, 100, 63, 105, 66, 105, 71, 101, 77, 95, 84, 76, 93, 44, 102, 24, 103, 23, 108, 20, 111, -4, 112, -23, 111, -29, 109, -31, 103, -57, 100, -76, 95, -93, 88, -106, 77, -109, 70, -109, 66, -104, 63, -93, 63, -95, 56, -106, 56, -109, 51, -110, 34, -107, 30, -107, 18, -113, 16, -118, 7, -119, -8, -118, -60, -113, -69, -106, -73, -94, -73, -89, -69, -87, -64, -86, -80)
 
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_p2bei")
@@ -36,13 +36,13 @@ texture = ExtResource("2_p2bei")
 [node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_5gbkk")]
 area1_shape = SubResource("RectangleShape2D_6d2vv")
 area2_shape = SubResource("RectangleShape2D_7ryx6")
-area1_pos = Vector2(127, -13)
-area2_pos = Vector2(-127, -13)
+area1_pos = Vector2(137, -7)
+area2_pos = Vector2(-144, -7)
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_5gbkk")]
 area1_shape = SubResource("RectangleShape2D_rs63x")
 area2_shape = SubResource("RectangleShape2D_05dnj")
-area1_pos = Vector2(0, 110)
+area1_pos = Vector2(0, 130)
 area2_pos = Vector2(0, -120)
 
 [node name="BreakableComponent" parent="." index="4" instance=ExtResource("5_7b1p8")]

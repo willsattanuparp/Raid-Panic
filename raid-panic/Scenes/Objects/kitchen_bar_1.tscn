@@ -9,16 +9,16 @@
 size = Vector2(1212, 211)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2uf6"]
-size = Vector2(61, 211)
+size = Vector2(50, 211)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us1bc"]
-size = Vector2(61, 211)
+size = Vector2(50, 211)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j52hg"]
-size = Vector2(1214, 75)
+size = Vector2(1214, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyst5"]
-size = Vector2(1214, 75)
+size = Vector2(1214, 50)
 
 [node name="KitchenBar" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_02ksj")]
 parkourable = NodePath("ParkourableParent")
@@ -38,11 +38,11 @@ texture = ExtResource("2_ldrvj")
 [node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_0eoqd")]
 area1_shape = SubResource("RectangleShape2D_k2uf6")
 area2_shape = SubResource("RectangleShape2D_us1bc")
-area1_pos = Vector2(-637, -9)
-area2_pos = Vector2(639, -8)
+area1_pos = Vector2(-632, -9)
+area2_pos = Vector2(632, -8)
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_0eoqd")]
 area1_shape = SubResource("RectangleShape2D_j52hg")
 area2_shape = SubResource("RectangleShape2D_cyst5")
-area1_pos = Vector2(0, -152)
-area2_pos = Vector2(0, 135)
+area1_pos = Vector2(0, -140)
+area2_pos = Vector2(0, 120)

@@ -6,17 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_pteje"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="5_bhrfg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6d2vv"]
-size = Vector2(36, 154)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4ysx"]
+size = Vector2(50, 228)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ryx6"]
-size = Vector2(36, 154)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0eto"]
+size = Vector2(50, 228)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs63x"]
-size = Vector2(180, 27)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_av1tc"]
+size = Vector2(412, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_05dnj"]
-size = Vector2(180, 27)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvanr"]
+size = Vector2(412, 50)
 
 [node name="Shelf1" node_paths=PackedStringArray("parkourable", "breakable") instance=ExtResource("1_1pffd")]
 parkourable = NodePath("ParkourableParent")
@@ -27,7 +27,7 @@ shape = null
 
 [node name="PolyHitbox" parent="." index="1"]
 position = Vector2(1, 0)
-polygon = PackedVector2Array(-207, -124, -207, 100, -178, 94, -162, 104, -154, 124, 154, 124, 162, 106, 179, 96, 205, 100, 205, -124)
+polygon = PackedVector2Array(-207, -124, -207, 100, -195, 98, -182, 97, -171, 99, -165, 105, -161, 111, -158, 119, -155, 125, 157, 125, 161, 114, 164, 107, 170, 101, 178, 98, 189, 98, 205, 100, 205, -124)
 
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_1ed1n")
@@ -35,15 +35,15 @@ texture = ExtResource("2_1ed1n")
 [node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_wuq1q")]
 
 [node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_pteje")]
-area1_shape = SubResource("RectangleShape2D_6d2vv")
-area2_shape = SubResource("RectangleShape2D_7ryx6")
-area1_pos = Vector2(127, -13)
-area2_pos = Vector2(-127, -13)
+area1_shape = SubResource("RectangleShape2D_o4ysx")
+area2_shape = SubResource("RectangleShape2D_m0eto")
+area1_pos = Vector2(233, -13)
+area2_pos = Vector2(-233, -13)
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_pteje")]
-area1_shape = SubResource("RectangleShape2D_rs63x")
-area2_shape = SubResource("RectangleShape2D_05dnj")
-area1_pos = Vector2(0, 110)
-area2_pos = Vector2(0, -120)
+area1_shape = SubResource("RectangleShape2D_av1tc")
+area2_shape = SubResource("RectangleShape2D_dvanr")
+area1_pos = Vector2(0, 151)
+area2_pos = Vector2(0, -151)
 
 [node name="BreakableComponent" parent="." index="4" instance=ExtResource("5_bhrfg")]

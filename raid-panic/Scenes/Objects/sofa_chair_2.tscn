@@ -24,7 +24,7 @@ parkourable = NodePath("ParkourableParent")
 shape = null
 
 [node name="PolyHitbox" parent="." index="1"]
-polygon = PackedVector2Array(-79, -103, -110, -69, -110, 91, -103, 102, -73, 102, -65, 94, -55, 101, 56, 101, 64, 95, 74, 102, 104, 102, 111, 90, 111, -69, 80, -105)
+polygon = PackedVector2Array(-82, -104, -98, -87, -112, -68, -112, 91, -108, 99, -102, 103, -95, 105, -74, 105, -69, 102, -64, 96, -56, 103, 58, 103, 65, 97, 71, 103, 76, 105, 99, 105, 106, 102, 110, 96, 113, 90, 113, -67, 98, -87, 81, -105, 67, -107, -70, -107)
 
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_dpjrw")

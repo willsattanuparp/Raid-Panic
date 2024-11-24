@@ -40,6 +40,11 @@ follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_k35is")
 follow_damping = true
 
+[node name="FinishZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishZone"]
+
 [connection signal="body_parkoured" from="Player" to="ScoringNode" method="_on_player_body_parkoured"]
 [connection signal="combo_broken" from="Player" to="ScoringNode" method="_on_player_combo_broken"]
 [connection signal="move_score" from="Player" to="ScoringNode" method="_on_player_move_score"]
+[connection signal="body_entered" from="FinishZone" to="." method="_on_finish_zone_body_entered"]

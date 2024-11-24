@@ -1,31 +1,31 @@
-[gd_scene load_steps=10 format=3 uid="uid://e21vold366sx"]
+[gd_scene load_steps=9 format=3 uid="uid://e21vold366sx"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_mln82"]
 [ext_resource type="Texture2D" uid="uid://dhst6tdbx170b" path="res://Assets/Sprites/Bedroom/bed.png" id="2_poeys"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_01wos"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_p2dwe"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfqxd"]
-size = Vector2(565, 766)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otbrt"]
-size = Vector2(87.5, 765.5)
+size = Vector2(50, 765)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7v85"]
-size = Vector2(87.5, 765.5)
+size = Vector2(50, 765)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3pbc"]
-size = Vector2(566, 111)
+size = Vector2(566, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04fuy"]
-size = Vector2(566, 111)
+size = Vector2(566, 50)
 
 [node name="Bed1" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_mln82")]
 parkourable = NodePath("ParkourableParent")
 
 [node name="ObjectHitbox" parent="." index="0"]
 position = Vector2(4.5, 2)
-shape = SubResource("RectangleShape2D_pfqxd")
+shape = null
+
+[node name="PolyHitbox" parent="." index="1"]
+polygon = PackedVector2Array(-282, 348, -271, 348, -246, 387, 260, 387, 286, 348, 288, 348, 288, -335, 286, -335, 286, -364, 240, -384, -232, -384, -277, -364, -277, -335, -281, -335, -281, -94, -285, -88, -287, -75, -286, -24, -282, 14)
 
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_poeys")
@@ -35,11 +35,11 @@ texture = ExtResource("2_poeys")
 [node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_p2dwe")]
 area1_shape = SubResource("RectangleShape2D_otbrt")
 area2_shape = SubResource("RectangleShape2D_q7v85")
-area1_pos = Vector2(-320, 0)
-area2_pos = Vector2(334, 0)
+area1_pos = Vector2(-310, 0)
+area2_pos = Vector2(316, 0)
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_p2dwe")]
 area1_shape = SubResource("RectangleShape2D_y3pbc")
 area2_shape = SubResource("RectangleShape2D_04fuy")
-area1_pos = Vector2(4, -440)
-area2_pos = Vector2(4, 440)
+area1_pos = Vector2(4, -410)
+area2_pos = Vector2(4, 410)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bvrnyabtx35jj"]
+[gd_scene load_steps=23 format=4 uid="uid://bvrnyabtx35jj"]
 
 [ext_resource type="PackedScene" uid="uid://hmi5peqlb5tx" path="res://Scenes/Objects/safe_1.tscn" id="1_juia6"]
 [ext_resource type="PackedScene" uid="uid://k5ej5u307v22" path="res://Scenes/Objects/table_1.tscn" id="1_utqgj"]
@@ -13,11 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://qcycp88s3h0p" path="res://Scenes/Objects/sofa_chair_1.tscn" id="11_aw86a"]
 [ext_resource type="PackedScene" uid="uid://dob5j2sfg204o" path="res://Scenes/Objects/table_3.tscn" id="11_vmmw6"]
 [ext_resource type="PackedScene" uid="uid://uo06l6mgpn6h" path="res://Scenes/Objects/sofa_chair_2.tscn" id="12_kds7w"]
+[ext_resource type="PackedScene" uid="uid://dw1osfk1r4f2m" path="res://Scenes/Objects/shelf_1.tscn" id="12_vw5ru"]
+[ext_resource type="PackedScene" uid="uid://v57kfiloygpr" path="res://Scenes/Objects/shelf_2.tscn" id="13_lvi7p"]
 [ext_resource type="PackedScene" uid="uid://ku8wx7gs6mwo" path="res://Scenes/Objects/office_chair_1.tscn" id="14_b320p"]
 [ext_resource type="PackedScene" uid="uid://xiavs4qa7la2" path="res://Scenes/Objects/safe_with_door.tscn" id="15_6ageo"]
 [ext_resource type="PackedScene" uid="uid://dygs55nhfii1c" path="res://Scenes/Objects/kitchen_bar_1.tscn" id="15_qxqrl"]
 [ext_resource type="PackedScene" uid="uid://b8ok7e6yfn2fp" path="res://Scenes/Objects/countertop_1.tscn" id="16_moo03"]
 [ext_resource type="PackedScene" uid="uid://0ljqva62h0cc" path="res://Scenes/Objects/piano_1.tscn" id="17_5ekc3"]
+[ext_resource type="PackedScene" uid="uid://e21vold366sx" path="res://Scenes/Objects/bed_1.tscn" id="19_pqrqj"]
 
 [sub_resource type="Resource" id="Resource_idmi8"]
 script = ExtResource("8_7yyiv")
@@ -72,6 +75,12 @@ follow_damping = true
 [node name="SofaChair1" parent="." instance=ExtResource("11_aw86a")]
 position = Vector2(2590, 566)
 
+[node name="Shelf1" parent="." instance=ExtResource("12_vw5ru")]
+position = Vector2(1350, 1820)
+
+[node name="Shelf2" parent="." instance=ExtResource("13_lvi7p")]
+position = Vector2(1354, 859)
+
 [node name="SofaChair2" parent="." instance=ExtResource("12_kds7w")]
 position = Vector2(2564, 997)
 
@@ -92,3 +101,7 @@ position = Vector2(333, 389)
 
 [node name="Piano" parent="." instance=ExtResource("17_5ekc3")]
 position = Vector2(3856, 1755)
+
+[node name="Bed1" parent="." instance=ExtResource("19_pqrqj")]
+position = Vector2(2143, 1966)
+scale = Vector2(0.8, 0.8)
