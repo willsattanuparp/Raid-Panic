@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://blit2gwfpkihg"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_sc7th"]
+[ext_resource type="PackedScene" uid="uid://ddtdnk0pdk166" path="res://Scenes/MenuScenes/level_select.tscn" id="2_uq74a"]
+[ext_resource type="PackedScene" uid="uid://c3urepqfwemrw" path="res://Scenes/MenuScenes/options_menu.tscn" id="3_sqs3w"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sc7th")
+level_select_scene = ExtResource("2_uq74a")
+options_scene = ExtResource("3_sqs3w")
+
+[node name="VSplitContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = -50.5
+offset_right = 80.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 8.09775e-05
+vertical = true
+
+[node name="Play" type="Button" parent="VSplitContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="VSplitContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="VSplitContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VSplitContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VSplitContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VSplitContainer/Quit" to="." method="_on_quit_pressed"]

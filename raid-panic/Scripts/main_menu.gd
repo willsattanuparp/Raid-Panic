@@ -1,0 +1,15 @@
+extends Control
+
+@export var level_select_scene: PackedScene
+@export var options_scene: PackedScene
+
+func _on_play_pressed() -> void:
+	get_tree().change_scene_to_packed(level_select_scene)
+
+
+func _on_options_pressed() -> void:
+	get_tree().change_scene_to_packed(options_scene)
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

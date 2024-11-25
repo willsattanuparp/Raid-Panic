@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_u38tk"]
 [ext_resource type="Script" path="res://Scripts/floor_manager.gd" id="2_jbdge"]
-[ext_resource type="PackedScene" uid="uid://boyapvkseeika" path="res://Scenes/Levels/scoring_node.tscn" id="2_qbkxi"]
+[ext_resource type="PackedScene" uid="uid://boyapvkseeika" path="res://Scenes/LevelComponents/scoring_node.tscn" id="2_qbkxi"]
 [ext_resource type="PackedScene" uid="uid://ca4bee8aroijk" path="res://Scenes/player.tscn" id="4_jw8rj"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_ur5dt"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_xcimi"]

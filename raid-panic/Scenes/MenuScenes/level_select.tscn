@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddtdnk0pdk166"]
+
+[ext_resource type="Texture2D" uid="uid://i0kc1dxtcf58" path="res://Assets/Sprites/MenuItems/ArrowLeft.png" id="1_bf8dv"]
+[ext_resource type="Script" path="res://Scripts/level_select.gd" id="1_gwp8t"]
+[ext_resource type="Texture2D" uid="uid://b4rwam8igc6l" path="res://Assets/Sprites/MenuItems/ArrowRight.png" id="3_2bpo5"]
+[ext_resource type="PackedScene" uid="uid://cqo3tqn7bvrmo" path="res://Scenes/LevelComponents/level_holder.tscn" id="4_qqtrk"]
+[ext_resource type="PackedScene" uid="uid://bqxr5kebot1r3" path="res://Scenes/LevelComponents/Levels/level_1.tscn" id="5_xbh6p"]
+[ext_resource type="PackedScene" uid="uid://bqduey0wm2546" path="res://Scenes/LevelComponents/Levels/level_2.tscn" id="6_m8cgl"]
+[ext_resource type="PackedScene" uid="uid://b46vnbjt6qvcd" path="res://Scenes/LevelComponents/Levels/level_3.tscn" id="7_5h0od"]
+[ext_resource type="PackedScene" uid="uid://cm22c0k1u516u" path="res://Scenes/LevelComponents/Levels/level_4.tscn" id="8_tdqr1"]
+[ext_resource type="PackedScene" uid="uid://c2d0vu6ws6u1i" path="res://Scenes/LevelComponents/Levels/level_5.tscn" id="9_3lw3f"]
+
+[node name="LevelSelect" type="Control" node_paths=PackedStringArray("levels")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gwp8t")
+levels = [NodePath("Levels/LevelHolder1"), NodePath("Levels/LevelHolder2"), NodePath("Levels/LevelHolder3"), NodePath("Levels/LevelHolder4"), NodePath("Levels/LevelHolder5")]
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Back" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("1_bf8dv")
+expand_icon = true
+
+[node name="Level" type="Label" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="Forward" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3_2bpo5")
+icon_alignment = 2
+expand_icon = true
+
+[node name="Levels" type="Node2D" parent="."]
+position = Vector2(579, 311)
+
+[node name="LevelHolder5" parent="Levels" instance=ExtResource("4_qqtrk")]
+position = Vector2(48.165, 11.295)
+rotation = -0.0733038
+scale = Vector2(1, 1)
+level_scene = ExtResource("9_3lw3f")
+
+[node name="LevelHolder4" parent="Levels" instance=ExtResource("4_qqtrk")]
+position = Vector2(-3.59998, 25.915)
+rotation = 0.148353
+level_scene = ExtResource("8_tdqr1")
+
+[node name="LevelHolder3" parent="Levels" instance=ExtResource("4_qqtrk")]
+position = Vector2(-8.01001, -46.315)
+rotation = -0.148353
+level_scene = ExtResource("7_5h0od")
+
+[node name="LevelHolder2" parent="Levels" instance=ExtResource("4_qqtrk")]
+position = Vector2(-10.48, -3.125)
+rotation = 0.294961
+level_scene = ExtResource("6_m8cgl")
+
+[node name="LevelHolder1" parent="Levels" instance=ExtResource("4_qqtrk")]
+position = Vector2(-70.43, -34.23)
+rotation = -0.223402
+level_scene = ExtResource("5_xbh6p")
+
+[node name="FolderEndLocation" type="Marker2D" parent="."]
+position = Vector2(1393, -382)
+
+[connection signal="pressed" from="BoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="BoxContainer/Forward" to="." method="_on_forward_pressed"]

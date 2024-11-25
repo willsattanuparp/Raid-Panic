@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca4bee8aroijk"]
+[gd_scene load_steps=6 format=3 uid="uid://ca4bee8aroijk"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_8xaru"]
 [ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="2_bm7vx"]
+[ext_resource type="PackedScene" uid="uid://beuror6hpgrq0" path="res://Scenes/Player/Yves Francois Skeleton.tscn" id="2_eyymb"]
 [ext_resource type="PackedScene" uid="uid://ctmuygrl3apcm" path="res://Scenes/Weapons/knife.tscn" id="3_d8gpv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs6um"]
@@ -13,7 +14,11 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("2_8xaru")
 
+[node name="PlayerSkeleton" parent="." instance=ExtResource("2_eyymb")]
+scale = Vector2(0.2, 0.2)
+
 [node name="EntitySprite" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_bm7vx")
 
