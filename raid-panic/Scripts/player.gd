@@ -25,7 +25,7 @@ var dodge_speed = speed * 2
 var on_fire: bool = false
 
 
-#TODO: The parkour does not currently allow for the player to be in multiple areas - change this to an array
+#TODO: The parkour does not currently allow for the player to be in multiple areas - change this to an array - done
 #var can_parkour = false
 var parkour_bodies: Array[GameObject] = []
 var distance_to_parkour = 0
@@ -191,10 +191,15 @@ func exit_hanging(dir):
 	speed = dodge_speed
 	$Timers/HangJumpTimer.start()
 
-#TODO: Choose which object based on direction and dot matrix
+#TODO: Choose which object based on direction and dot matrix - done - this method retrieved the closest parkour body that the player is looking at
 func get_attached_parkour_body():
 	if !parkour_bodies.is_empty():
-		return parkour_bodies.back()
+		var mouse_direction = (get_global_mouse_position() - global_position).normalized()
+		var target = parkour_bodies[0]
+		for i in parkour_bodies:
+			if (i.global_position - global_position).dot(mouse_direction) > (target.global_position - global_position).dot(mouse_direction):
+				target = i
+		return target
 	return null
 
 func dodge(not_facing_object):
@@ -203,10 +208,11 @@ func dodge(not_facing_object):
 	if get_attached_parkour_body() != null:
 		can_dodge = false
 		can_direction = false
+		var player_facing = (get_global_mouse_position() - global_position).normalized()
 		#direction_to_parkour = parkour_body.parkourable.get_parkour_direction(global_position) * -1
-		direction_to_parkour = get_attached_parkour_body().parkourable.get_teleport_location()
+		direction_to_parkour = get_attached_parkour_body().parkourable.get_teleport_location(player_facing)
 		#print(direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()))
-		if direction_to_parkour.dot((get_global_mouse_position() - global_position).normalized()) > look_at_parkour_threshold:
+		if direction_to_parkour.dot(player_facing) > look_at_parkour_threshold:
 			#if direction_to_parkour != Vector2.ZERO and parkour_body.parkourable.mode == 0:
 			if direction_to_parkour != null:# and parkour_body.parkourable.mode == 0:
 				#distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()

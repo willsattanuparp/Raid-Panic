@@ -24,16 +24,22 @@ func create_zone_with_shape(shape: Shape2D,pos1: Vector2,pos2: Vector2):
 	assign_zone_ids()
 
 #TODO: get input direction vector as a parameter, choose the closest transfer vector
-func get_teleport_location():
-	var index = statuses.find(true)
+func get_teleport_location(player_facing):
+	var indices = []
+	for i in range(statuses.size()):
+		if statuses[i] == true:
+			indices.append(i)
+	#var index = statuses.find(true)
 	#if no parkouring is detected, return null
-	if index == -1:
+	#if index == -1:
+		#return null
+	if indices.is_empty():
 		return null
 	#TODO
 	var component
 	for i in get_children():
-		if i.id == index:
-			component = i
+		if indices.has(i.id) and (component == null or i.transfer_vector.dot(player_facing) > component.transfer_vector.dot(player_facing)):
+				component = i
 	if component == null:
 		printerr("No component found")
 	#component is the correct component - use this to get the tele location

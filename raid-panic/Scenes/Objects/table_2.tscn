@@ -6,40 +6,39 @@
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_np7rh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3heu"]
-size = Vector2(228, 465)
+size = Vector2(227, 466)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq13g"]
-size = Vector2(50, 470)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnq0d"]
+size = Vector2(50, 466)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_53c0s"]
-size = Vector2(50, 470)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5il7"]
+size = Vector2(50, 466)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pd6h6"]
-size = Vector2(230, 40)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cpyf"]
+size = Vector2(228, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4734b"]
-size = Vector2(230, 40)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnxeq"]
+size = Vector2(228, 50)
 
 [node name="Table2" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_t81li")]
 parkourable = NodePath("ParkourableParent")
 
 [node name="ObjectHitbox" parent="." index="0"]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_m3heu")
 
 [node name="ParkourableParent" parent="." index="2" instance=ExtResource("3_ftktf")]
 
 [node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_np7rh")]
-area1_shape = SubResource("RectangleShape2D_tq13g")
-area2_shape = SubResource("RectangleShape2D_53c0s")
-area1_pos = Vector2(140, 0)
-area2_pos = Vector2(-140, 0)
+area1_shape = SubResource("RectangleShape2D_pnq0d")
+area2_shape = SubResource("RectangleShape2D_m5il7")
+area1_pos = Vector2(-139, 0)
+area2_pos = Vector2(139, 0)
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_np7rh")]
-area1_shape = SubResource("RectangleShape2D_pd6h6")
-area2_shape = SubResource("RectangleShape2D_4734b")
-area1_pos = Vector2(0, 250)
-area2_pos = Vector2(0, -250)
+area1_shape = SubResource("RectangleShape2D_6cpyf")
+area2_shape = SubResource("RectangleShape2D_wnxeq")
+area1_pos = Vector2(0, -259)
+area2_pos = Vector2(0, 259)
 
 [node name="ObjectSprite" parent="." index="3"]
 texture = ExtResource("2_wtjyp")

@@ -8,17 +8,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewpp4"]
 size = Vector2(286, 208)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1g8w"]
-size = Vector2(42.5, 209.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myhbk"]
+size = Vector2(50, 210)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tvvf"]
-size = Vector2(42.5, 209.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxjf8"]
+size = Vector2(50, 210)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx1ka"]
-size = Vector2(288, 42)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j47dd"]
+size = Vector2(288, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nl26"]
-size = Vector2(288, 42)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plljd"]
+size = Vector2(288, 50)
 
 [node name="Stovetop" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_yuakx")]
 parkourable = NodePath("ParkourableParent")
@@ -36,13 +36,13 @@ texture = ExtResource("2_igl24")
 [node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_2ps0p")]
 
 [node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_pu64v")]
-area1_shape = SubResource("RectangleShape2D_d1g8w")
-area2_shape = SubResource("RectangleShape2D_0tvvf")
-area1_pos = Vector2(-166, -8)
-area2_pos = Vector2(166, -8)
+area1_shape = SubResource("RectangleShape2D_myhbk")
+area2_shape = SubResource("RectangleShape2D_fxjf8")
+area1_pos = Vector2(-169, -8)
+area2_pos = Vector2(169, -8)
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_pu64v")]
-area1_shape = SubResource("RectangleShape2D_vx1ka")
-area2_shape = SubResource("RectangleShape2D_0nl26")
-area1_pos = Vector2(0, 120)
-area2_pos = Vector2(0, -133)
+area1_shape = SubResource("RectangleShape2D_j47dd")
+area2_shape = SubResource("RectangleShape2D_plljd")
+area1_pos = Vector2(0, 122)
+area2_pos = Vector2(0, -138)

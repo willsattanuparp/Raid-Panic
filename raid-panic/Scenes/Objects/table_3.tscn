@@ -8,17 +8,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tddmu"]
 size = Vector2(413, 344)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_stheo"]
-size = Vector2(60, 350)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76g58"]
+size = Vector2(50, 344)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gokt1"]
-size = Vector2(60, 350)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw60p"]
+size = Vector2(50, 344)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hm5f"]
-size = Vector2(420, 60)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjotf"]
+size = Vector2(414, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a26yp"]
-size = Vector2(420, 60)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd1xn"]
+size = Vector2(414, 50)
 
 [node name="Table3" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_66vmh")]
 parkourable = NodePath("ParkourableParent")
@@ -31,16 +31,16 @@ shape = SubResource("RectangleShape2D_tddmu")
 
 [node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_h7p7y")]
 position = Vector2(0, -1)
-area1_shape = SubResource("RectangleShape2D_stheo")
-area2_shape = SubResource("RectangleShape2D_gokt1")
-area1_pos = Vector2(240, 0)
-area2_pos = Vector2(-240, 0)
+area1_shape = SubResource("RectangleShape2D_76g58")
+area2_shape = SubResource("RectangleShape2D_yw60p")
+area1_pos = Vector2(231, 0)
+area2_pos = Vector2(-232, 0)
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_h7p7y")]
-area1_shape = SubResource("RectangleShape2D_1hm5f")
-area2_shape = SubResource("RectangleShape2D_a26yp")
-area1_pos = Vector2(0, 200)
-area2_pos = Vector2(0, -200)
+area1_shape = SubResource("RectangleShape2D_qjotf")
+area2_shape = SubResource("RectangleShape2D_jd1xn")
+area1_pos = Vector2(0, -197)
+area2_pos = Vector2(0, 198)
 
 [node name="ObjectSprite" parent="." index="3"]
 texture = ExtResource("2_rv65u")

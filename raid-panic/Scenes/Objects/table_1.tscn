@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://k5ej5u307v22"]
+[gd_scene load_steps=9 format=3 uid="uid://k5ej5u307v22"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_r2bqg"]
 [ext_resource type="Texture2D" uid="uid://ep1f44iq7b7f" path="res://Assets/Sprites/Tables/table1.png" id="2_qejqt"]
@@ -8,17 +8,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv08h"]
 size = Vector2(681, 362)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6smq7"]
-size = Vector2(40, 360)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_egype"]
-size = Vector2(40, 360)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tfnb"]
+size = Vector2(50, 363)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xq0d1"]
-size = Vector2(680, 40)
+size = Vector2(682, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvkfx"]
-size = Vector2(680, 40)
+size = Vector2(682, 50)
 
 [node name="Table1" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_r2bqg")]
 parkourable = NodePath("ParkourableParent")
@@ -30,16 +27,18 @@ shape = SubResource("RectangleShape2D_pv08h")
 [node name="ParkourableParent" parent="." index="2" instance=ExtResource("3_fo4ek")]
 
 [node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_m770y")]
-area1_shape = SubResource("RectangleShape2D_6smq7")
-area2_shape = SubResource("RectangleShape2D_egype")
-area1_pos = Vector2(360, 0)
-area2_pos = Vector2(-360, 0)
+area1_shape = SubResource("RectangleShape2D_0tfnb")
+area2_shape = SubResource("RectangleShape2D_0tfnb")
+area1_pos = Vector2(-366, 0)
+area2_pos = Vector2(-366, 0)
+width_buffer = 50
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_m770y")]
 area1_shape = SubResource("RectangleShape2D_xq0d1")
 area2_shape = SubResource("RectangleShape2D_vvkfx")
-area1_pos = Vector2(0, 200)
-area2_pos = Vector2(0, -200)
+area1_pos = Vector2(0, 206)
+area2_pos = Vector2(0, -206)
+width_buffer = 50
 
 [node name="ObjectSprite" parent="." index="3"]
 texture = ExtResource("2_qejqt")
