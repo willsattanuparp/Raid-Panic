@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://qcycp88s3h0p"]
+[gd_scene load_steps=10 format=3 uid="uid://qcycp88s3h0p"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_vsbm7"]
 [ext_resource type="Texture2D" uid="uid://ck1uupqxlmpv8" path="res://Assets/Sprites/Sofas/sofachair1.png" id="2_ln3c7"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_jcrhb"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_xigg4"]
+[ext_resource type="Texture2D" uid="uid://b6llk378tqg7l" path="res://Assets/Sprites/FinalFurnitureItems/SofaChair1.png" id="5_xoxgl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nekxq"]
 size = Vector2(50, 156)
@@ -43,3 +44,7 @@ area1_shape = SubResource("RectangleShape2D_d0vyq")
 area2_shape = SubResource("RectangleShape2D_6fa1w")
 area1_pos = Vector2(3, 124)
 area2_pos = Vector2(3, -131)
+
+[node name="SofaChair1" type="Sprite2D" parent="." index="4"]
+position = Vector2(-3, -2)
+texture = ExtResource("5_xoxgl")

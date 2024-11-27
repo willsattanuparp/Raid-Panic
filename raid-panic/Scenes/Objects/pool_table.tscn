@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://xoshyhyf31m3"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_uwuhr"]
+[ext_resource type="Texture2D" uid="uid://c6yxscb0dmr3q" path="res://Assets/Sprites/FinalFurnitureItems/PoolTable.png" id="2_osuuj"]
+
+[node name="PoolTable" instance=ExtResource("1_uwuhr")]
+
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(15.5, 13)
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_osuuj")

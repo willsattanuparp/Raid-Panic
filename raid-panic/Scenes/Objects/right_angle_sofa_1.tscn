@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://coaypp0xpd4ij"]
+[gd_scene load_steps=14 format=3 uid="uid://coaypp0xpd4ij"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_2pdrn"]
 [ext_resource type="Texture2D" uid="uid://bcveopvx434x6" path="res://Assets/Sprites/Sofas/rightanglesofa1.png" id="2_v0f4v"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_0gv6y"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_71plw"]
+[ext_resource type="Texture2D" uid="uid://2v6br8urqfqv" path="res://Assets/Sprites/FinalFurnitureItems/LSofa.png" id="5_v83wx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2k32"]
 size = Vector2(50, 190)
@@ -67,3 +68,7 @@ area1_shape = SubResource("RectangleShape2D_juu8b")
 area2_shape = SubResource("RectangleShape2D_png08")
 area1_pos = Vector2(-87, 95)
 area2_pos = Vector2(-87, 337)
+
+[node name="LSofa" type="Sprite2D" parent="." index="4"]
+position = Vector2(6, -8)
+texture = ExtResource("5_v83wx")

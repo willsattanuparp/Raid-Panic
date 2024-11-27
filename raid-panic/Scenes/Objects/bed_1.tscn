@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://e21vold366sx"]
+[gd_scene load_steps=10 format=3 uid="uid://e21vold366sx"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_mln82"]
 [ext_resource type="Texture2D" uid="uid://dhst6tdbx170b" path="res://Assets/Sprites/Bedroom/bed.png" id="2_poeys"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_01wos"]
+[ext_resource type="Texture2D" uid="uid://byyxrab06afuc" path="res://Assets/Sprites/FinalFurnitureItems/Bed.png" id="3_2rdoc"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_p2dwe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otbrt"]
@@ -30,7 +31,11 @@ polygon = PackedVector2Array(-282, 348, -271, 348, -246, 387, 260, 387, 286, 348
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_poeys")
 
-[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_01wos")]
+[node name="Bed" type="Sprite2D" parent="." index="3"]
+position = Vector2(4, 3)
+texture = ExtResource("3_2rdoc")
+
+[node name="ParkourableParent" parent="." index="4" instance=ExtResource("3_01wos")]
 
 [node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_p2dwe")]
 area1_shape = SubResource("RectangleShape2D_otbrt")

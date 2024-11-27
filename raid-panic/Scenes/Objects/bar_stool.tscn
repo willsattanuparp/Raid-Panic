@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://brxgijk8n1k6e"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_3x3l0"]
+[ext_resource type="Texture2D" uid="uid://20q8oxxall2a" path="res://Assets/Sprites/FinalFurnitureItems/BarSeat.png" id="2_4x4id"]
+
+[node name="BarStool" instance=ExtResource("1_3x3l0")]
+
+[node name="ObjectHitbox" parent="." index="0"]
+shape = null
+
+[node name="PolyHitbox" parent="." index="1"]
+polygon = PackedVector2Array(68, -67, 47, 8, 32, 33, 15, 46, 0, 48, -15, 45, -30, 33, -42, 13, -64, -67)
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_4x4id")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8ok7e6yfn2fp"]
+[gd_scene load_steps=11 format=3 uid="uid://b8ok7e6yfn2fp"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_wo32t"]
 [ext_resource type="Texture2D" uid="uid://ck27dxp8bcxkf" path="res://Assets/Sprites/Kitchen/countertop1.png" id="2_eyuph"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_xgq5w"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_35gv1"]
+[ext_resource type="Texture2D" uid="uid://cbl8gkhtouben" path="res://Assets/Sprites/FinalFurnitureItems/CounterTop.png" id="5_omctl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrtta"]
 size = Vector2(201, 221)
@@ -43,3 +44,7 @@ area1_shape = SubResource("RectangleShape2D_7rxng")
 area2_shape = SubResource("RectangleShape2D_ok477")
 area1_pos = Vector2(5, -130)
 area2_pos = Vector2(5, 140)
+
+[node name="CounterTop" type="Sprite2D" parent="." index="4"]
+position = Vector2(4, 4)
+texture = ExtResource("5_omctl")

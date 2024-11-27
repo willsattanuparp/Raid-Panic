@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctnkman2vkbq5"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_dtgdt"]
+[ext_resource type="Texture2D" uid="uid://nenv03fcnwiw" path="res://Assets/Sprites/FinalFurnitureItems/Guitar.png" id="2_ll7ur"]
+
+[node name="Guitar" instance=ExtResource("1_dtgdt")]
+
+[node name="ObjectHitbox" parent="." index="0"]
+shape = null
+
+[node name="PolyHitbox" parent="." index="1"]
+polygon = PackedVector2Array(-52, -48, -51, 12, -49, 12, -49, 15, -55, 20, -59, 27, -58, 36, -56, 41, -49, 48, -55, 53, -57, 59, -57, 64, -54, 69, -51, 72, -51, 113, -40, 113, -40, 76, -20, 79, 13, 79, 34, 79, 45, 77, 45, 113, 56, 113, 56, 68, 59, 64, 59, 57, 56, 52, 54, 49, 59, 44, 61, 39, 61, 33, 58, 28, 54, 25, 54, 13, 56, 13, 57, -48, 46, -48, 46, -4, 18, -6, 18, -54, 22, -59, 29, -61, 33, -62, 35, -64, 35, -89, 43, -93, 47, -96, 48, -104, 48, -112, 43, -120, 34, -122, 27, -122, 19, -119, 15, -115, 13, -114, 11, -114, 10, -119, 7, -119, 2, -114, 1, -110, -5, -105, -10, -98, -10, -96, -15, -91, -15, -89, -23, -80, -22, -76, -19, -76, -17, -76, -19, -72, -19, -59, -15, -53, -14, -6, -40, -5, -40, -48)
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_ll7ur")

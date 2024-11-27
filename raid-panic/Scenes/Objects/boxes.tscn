@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://epqt5kosb7wi"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_ththj"]
+[ext_resource type="Texture2D" uid="uid://78wm2s3h6r14" path="res://Assets/Sprites/FinalFurnitureItems/Boxes.png" id="2_2ctlf"]
+[ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="3_2v6x3"]
+
+[node name="Boxes" node_paths=PackedStringArray("breakable") instance=ExtResource("1_ththj")]
+breakable = NodePath("BreakableComponent")
+
+[node name="ObjectHitbox" parent="." index="0"]
+shape = null
+
+[node name="PolyHitbox" parent="." index="1"]
+polygon = PackedVector2Array(-72, -86, 20, -86, 71, -94, 72, -85, 91, -85, 91, 29, 97, 68, 90, 69, 90, 80, 27, 80, -62, 95, -65, 80, -72, 79, -72, 35, -89, -68, -72, -71)
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_2ctlf")
+
+[node name="BreakableComponent" parent="." index="3" instance=ExtResource("3_2v6x3")]

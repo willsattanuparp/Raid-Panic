@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://0ljqva62h0cc"]
+[gd_scene load_steps=8 format=3 uid="uid://0ljqva62h0cc"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_tl7al"]
 [ext_resource type="Texture2D" uid="uid://ckiisamln3oup" path="res://Assets/Sprites/Instruments/grandpiano1.png" id="2_dcrng"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_kr2yp"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_2giff"]
+[ext_resource type="Texture2D" uid="uid://c330gorbjw4r3" path="res://Assets/Sprites/FinalFurnitureItems/Piano.png" id="5_uasj7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpfj6"]
 size = Vector2(50, 105)
@@ -30,3 +31,7 @@ area1_shape = SubResource("RectangleShape2D_wpfj6")
 area2_shape = SubResource("RectangleShape2D_q5tfl")
 area1_pos = Vector2(-248, 230)
 area2_pos = Vector2(263, 230)
+
+[node name="Piano" type="Sprite2D" parent="." index="4"]
+position = Vector2(-2, 0)
+texture = ExtResource("5_uasj7")

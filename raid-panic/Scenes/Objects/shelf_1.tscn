@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw1osfk1r4f2m"]
+[gd_scene load_steps=11 format=3 uid="uid://dw1osfk1r4f2m"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_1pffd"]
 [ext_resource type="Texture2D" uid="uid://dmy5yxj4nly77" path="res://Assets/Sprites/Office/shelf1.png" id="2_1ed1n"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_wuq1q"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_pteje"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="5_bhrfg"]
+[ext_resource type="Texture2D" uid="uid://bsecwteloyidi" path="res://Assets/Sprites/FinalFurnitureItems/Shelf1.png" id="6_6k3nb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4ysx"]
 size = Vector2(50, 228)
@@ -47,3 +48,7 @@ area1_pos = Vector2(0, 151)
 area2_pos = Vector2(0, -151)
 
 [node name="BreakableComponent" parent="." index="4" instance=ExtResource("5_bhrfg")]
+
+[node name="Shelf1" type="Sprite2D" parent="." index="5"]
+position = Vector2(1, -7)
+texture = ExtResource("6_6k3nb")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://i5cc0jtygct8"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_5ae3f"]
+[ext_resource type="Texture2D" uid="uid://gvv306d4r63v" path="res://Assets/Sprites/FinalFurnitureItems/Treadmill.png" id="2_bfjsj"]
+
+[node name="Treadmill" instance=ExtResource("1_5ae3f")]
+
+[node name="ObjectHitbox" parent="." index="0"]
+shape = null
+
+[node name="PolyHitbox" parent="." index="1"]
+polygon = PackedVector2Array(-125, 87, -121, 91, -111, 91, -111, 270, -106, 274, 102, 274, 106, 270, 106, 91, 117, 91, 121, 87, 121, -62, 115, -66, 115, -188, 111, -204, 103, -216, 92, -225, 78, -230, 65, -231, -74, -231, -90, -228, -100, -223, -108, -216, -115, -206, -120, -192, -120, -66, -125, -63)
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_bfjsj")

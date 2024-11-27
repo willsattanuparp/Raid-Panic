@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d34ll0jr4e4ha"]
+[gd_scene load_steps=11 format=3 uid="uid://d34ll0jr4e4ha"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_t81li"]
 [ext_resource type="Texture2D" uid="uid://d2807qewp12bl" path="res://Assets/Sprites/Tables/table2.png" id="2_wtjyp"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_ftktf"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_np7rh"]
+[ext_resource type="Texture2D" uid="uid://dhk341iryqxhu" path="res://Assets/Sprites/FinalFurnitureItems/Table2.png" id="5_5c7fe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3heu"]
 size = Vector2(227, 466)
@@ -42,3 +43,7 @@ area2_pos = Vector2(0, 259)
 
 [node name="ObjectSprite" parent="." index="3"]
 texture = ExtResource("2_wtjyp")
+
+[node name="Table2" type="Sprite2D" parent="." index="4"]
+position = Vector2(3, -4)
+texture = ExtResource("5_5c7fe")

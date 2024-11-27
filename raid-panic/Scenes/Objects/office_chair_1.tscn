@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ku8wx7gs6mwo"]
+[gd_scene load_steps=11 format=3 uid="uid://ku8wx7gs6mwo"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_4o3lt"]
 [ext_resource type="Texture2D" uid="uid://day4iuwhb5011" path="res://Assets/Sprites/Office/officechair1.png" id="2_p2bei"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_266i5"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_5gbkk"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="5_7b1p8"]
+[ext_resource type="Texture2D" uid="uid://c334cxa8vyy2g" path="res://Assets/Sprites/FinalFurnitureItems/OfficeChair.png" id="6_7ytra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6d2vv"]
 size = Vector2(50, 180)
@@ -46,3 +47,7 @@ area1_pos = Vector2(0, 130)
 area2_pos = Vector2(0, -120)
 
 [node name="BreakableComponent" parent="." index="4" instance=ExtResource("5_7b1p8")]
+
+[node name="OfficeChair" type="Sprite2D" parent="." index="5"]
+position = Vector2(0, 3)
+texture = ExtResource("6_7ytra")

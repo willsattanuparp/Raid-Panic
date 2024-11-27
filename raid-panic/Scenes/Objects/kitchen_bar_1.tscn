@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dygs55nhfii1c"]
+[gd_scene load_steps=11 format=3 uid="uid://dygs55nhfii1c"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_02ksj"]
 [ext_resource type="Texture2D" uid="uid://cslfv3w36j56n" path="res://Assets/Sprites/Kitchen/kitchenbar1.png" id="2_ldrvj"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_uhw1r"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_0eoqd"]
+[ext_resource type="Texture2D" uid="uid://dqicc1yodtqqw" path="res://Assets/Sprites/FinalFurnitureItems/KitchenBar.png" id="5_m6882"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opfal"]
 size = Vector2(1212, 211)
@@ -46,3 +47,7 @@ area1_shape = SubResource("RectangleShape2D_j52hg")
 area2_shape = SubResource("RectangleShape2D_cyst5")
 area1_pos = Vector2(0, -140)
 area2_pos = Vector2(0, 120)
+
+[node name="KitchenBar" type="Sprite2D" parent="." index="4"]
+position = Vector2(4, 0)
+texture = ExtResource("5_m6882")

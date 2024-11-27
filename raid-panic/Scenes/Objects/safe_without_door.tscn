@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://futpdbwvxu6r"]
+[gd_scene load_steps=9 format=3 uid="uid://futpdbwvxu6r"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_q7rcp"]
 [ext_resource type="Texture2D" uid="uid://cncosbrp8h1ix" path="res://Assets/Sprites/Office/safe_no_door.png" id="2_2rfor"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_kgqvb"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_bses2"]
+[ext_resource type="Texture2D" uid="uid://cwc5qnbud2hcf" path="res://Assets/Sprites/FinalFurnitureItems/SafeNoDoor.png" id="5_81gpy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0b46"]
 size = Vector2(217, 179)
@@ -31,3 +32,7 @@ area1_shape = SubResource("RectangleShape2D_3hfhj")
 area2_shape = SubResource("RectangleShape2D_i5cww")
 area1_pos = Vector2(-133, 0)
 area2_pos = Vector2(133, 0)
+
+[node name="SafeNoDoor" type="Sprite2D" parent="." index="4"]
+position = Vector2(0, 1)
+texture = ExtResource("5_81gpy")

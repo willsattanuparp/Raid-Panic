@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://br63s1sp07r5o"]
+[gd_scene load_steps=5 format=3 uid="uid://br63s1sp07r5o"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_bsfgf"]
 [ext_resource type="Texture2D" uid="uid://gpwr0ghe354d" path="res://Assets/Sprites/Office/safe_door.png" id="2_kopj6"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="3_h6vxb"]
+[ext_resource type="Texture2D" uid="uid://c3hsfsq64i3sh" path="res://Assets/Sprites/FinalFurnitureItems/SafeDoor.png" id="4_gee0v"]
 
 [node name="SafeCover1" node_paths=PackedStringArray("breakable") instance=ExtResource("1_bsfgf")]
 breakable = NodePath("BreakableComponent")
@@ -17,3 +18,7 @@ polygon = PackedVector2Array(-86, -16, 86, -16, 86, 4, 49, 4, 41, 16, -39, 16, -
 texture = ExtResource("2_kopj6")
 
 [node name="BreakableComponent" parent="." index="3" instance=ExtResource("3_h6vxb")]
+
+[node name="SafeDoor" type="Sprite2D" parent="." index="4"]
+position = Vector2(1, 1)
+texture = ExtResource("4_gee0v")

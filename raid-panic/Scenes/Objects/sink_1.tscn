@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://oatuu4asucap"]
+[gd_scene load_steps=11 format=3 uid="uid://oatuu4asucap"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_fl6y5"]
 [ext_resource type="Texture2D" uid="uid://dg0ghgjg81054" path="res://Assets/Sprites/Kitchen/sink1.png" id="2_rq3ym"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_hyco2"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_2lem3"]
+[ext_resource type="Texture2D" uid="uid://jem3ok5fpejt" path="res://Assets/Sprites/FinalFurnitureItems/Sink.png" id="5_jcwwn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opfal"]
 size = Vector2(310, 210)
@@ -46,3 +47,7 @@ area1_shape = SubResource("RectangleShape2D_vx1ka")
 area2_shape = SubResource("RectangleShape2D_0nl26")
 area1_pos = Vector2(0, 130)
 area2_pos = Vector2(0, -130)
+
+[node name="Sink" type="Sprite2D" parent="." index="4"]
+position = Vector2(-1, -2)
+texture = ExtResource("5_jcwwn")

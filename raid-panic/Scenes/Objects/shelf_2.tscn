@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://v57kfiloygpr"]
+[gd_scene load_steps=10 format=3 uid="uid://v57kfiloygpr"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_d2sk3"]
 [ext_resource type="Texture2D" uid="uid://vb61b5bam8tw" path="res://Assets/Sprites/Office/shelf2.png" id="2_m7rkj"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="3_5c4cw"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="4_qexa5"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="5_klcg0"]
+[ext_resource type="Texture2D" uid="uid://cb5qh2gbiw5cb" path="res://Assets/Sprites/FinalFurnitureItems/Shelf2.png" id="6_40q4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2c200"]
 size = Vector2(518, 50)
@@ -44,3 +45,7 @@ area1_shape = SubResource("RectangleShape2D_j6q6j")
 area2_shape = SubResource("RectangleShape2D_j6q6j")
 area1_pos = Vector2(284, -10)
 area2_pos = Vector2(-284, -10)
+
+[node name="Shelf2" type="Sprite2D" parent="." index="5"]
+position = Vector2(-8, -4)
+texture = ExtResource("6_40q4a")

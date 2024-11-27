@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhippf4q85ftt"]
+[gd_scene load_steps=10 format=3 uid="uid://bhippf4q85ftt"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_30eqj"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="2_iwmux"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="3_4a8wd"]
 [ext_resource type="Texture2D" uid="uid://bauanp50q7w7p" path="res://Assets/Sprites/Sofas/longsofa1.png" id="4_x1tt8"]
+[ext_resource type="Texture2D" uid="uid://b5nysmo8c72qp" path="res://Assets/Sprites/FinalFurnitureItems/LongSofa.png" id="5_j1oap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7al0"]
 size = Vector2(490, 50)
@@ -45,3 +46,7 @@ width_buffer = 50
 
 [node name="ObjectSprite" parent="." index="3"]
 texture = ExtResource("4_x1tt8")
+
+[node name="LongSofa" type="Sprite2D" parent="." index="4"]
+position = Vector2(2, 0)
+texture = ExtResource("5_j1oap")

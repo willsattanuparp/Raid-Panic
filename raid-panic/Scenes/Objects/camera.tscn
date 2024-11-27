@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b16hc244wxgio"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_86vp7"]
+[ext_resource type="Texture2D" uid="uid://byfn2wx7cx66m" path="res://Assets/Sprites/FinalFurnitureItems/CameraStand.png" id="2_syxs1"]
+[ext_resource type="Texture2D" uid="uid://dt2eqgpg7yx2m" path="res://Assets/Sprites/FinalFurnitureItems/CameraHead.png" id="3_km32h"]
+[ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="4_yo53j"]
+[ext_resource type="PackedScene" uid="uid://dwhiyu5u1s6cb" path="res://Scenes/Objects/Components/alarmable_component.tscn" id="5_est1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4x6p"]
+size = Vector2(123, 54)
+
+[node name="Camera" node_paths=PackedStringArray("breakable", "alarmable") instance=ExtResource("1_86vp7")]
+breakable = NodePath("BreakableComponent")
+alarmable = NodePath("AlarmableComponent")
+
+[node name="CameraStand" type="Sprite2D" parent="." index="0"]
+position = Vector2(45, 0)
+texture = ExtResource("2_syxs1")
+
+[node name="ObjectHitbox" parent="." index="1"]
+position = Vector2(4.5, 0)
+shape = null
+
+[node name="RotationPoint" type="StaticBody2D" parent="." index="3"]
+position = Vector2(33, 0)
+
+[node name="CameraHead" type="Sprite2D" parent="RotationPoint" index="0"]
+position = Vector2(-37, 3)
+texture = ExtResource("3_km32h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationPoint" index="1"]
+position = Vector2(-27.5, 0)
+shape = SubResource("RectangleShape2D_b4x6p")
+
+[node name="ObjectSprite" parent="." index="4"]
+position = Vector2(-13, 3)
+texture = null
+
+[node name="BreakableComponent" parent="." index="5" instance=ExtResource("4_yo53j")]
+
+[node name="AlarmableComponent" parent="." index="6" instance=ExtResource("5_est1p")]
+position = Vector2(-47.7793, 11.6438)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b08npnr2xarvp"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_0g50n"]
+[ext_resource type="Texture2D" uid="uid://d4nvibhj2ytb1" path="res://Assets/Sprites/FinalFurnitureItems/TV.png" id="2_l1oxm"]
+
+[node name="TV" instance=ExtResource("1_0g50n")]
+
+[node name="ObjectHitbox" parent="." index="0"]
+shape = null
+
+[node name="PolyHitbox" parent="." index="1"]
+polygon = PackedVector2Array(-60, -155, 0, -155, 0, -185, 19, -199, 29, -203, 34, -203, 34, -155, 60, -155, 63, -152, 63, 161, 59, 164, 34, 164, 34, 215, 29, 215, 18, 210, -1, 192, -1, 163, -59, 163, -62, 161, -62, -152)
+
+[node name="ObjectSprite" parent="." index="2"]
+texture = ExtResource("2_l1oxm")
