@@ -218,10 +218,10 @@ func dodge(not_facing_object):
 				#distance_to_parkour = ((parkour_body.global_position - global_position) * 2 * direction_to_parkour).length()
 				#print(distance_to_parkour)
 				move_score.emit(Global.MOVEMENT.PARKOUR)
-				$PlayerSkeleton.hide()
-				$Screenshot207.show()
+				#$PlayerSkeleton.hide()
 				body_parkoured.emit(get_attached_parkour_body().scoring_id)
 				var tween = get_tree().create_tween()
+				#TODO: since tween time is constant, the parkour speed isnt constant
 				tween.tween_property(self,"position",global_position + direction_to_parkour,.5)
 				##TODO: connect finished signal to tween
 				#speed = distance_to_parkour / $Timers/ParkourTimer.wait_time

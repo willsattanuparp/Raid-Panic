@@ -1,42 +1,49 @@
-[gd_scene load_steps=7 format=3 uid="uid://b16hc244wxgio"]
+[gd_scene load_steps=9 format=3 uid="uid://b16hc244wxgio"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_86vp7"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_kmj8x"]
 [ext_resource type="Texture2D" uid="uid://byfn2wx7cx66m" path="res://Assets/Sprites/FinalFurnitureItems/CameraStand.png" id="2_syxs1"]
 [ext_resource type="Texture2D" uid="uid://dt2eqgpg7yx2m" path="res://Assets/Sprites/FinalFurnitureItems/CameraHead.png" id="3_km32h"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="4_yo53j"]
 [ext_resource type="PackedScene" uid="uid://dwhiyu5u1s6cb" path="res://Scenes/Objects/Components/alarmable_component.tscn" id="5_est1p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4x6p"]
-size = Vector2(123, 54)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1xhk"]
+size = Vector2(40, 34)
+
+[sub_resource type="Curve2D" id="Curve2D_4v5on"]
+_data = {
+"points": PackedVector2Array(174.486, -60.433, -174.486, 60.433, -116, -594, 73.3529, -57.3439, -73.3529, 57.3439, -402, -434, 36.102, -73.296, -36.102, 73.296, -528, -256, -0.57656, -111.033, 0.57656, 111.033, -580, 1, -34.8569, -95.5903, 34.8569, 95.5903, -540, 254, -52.0588, -69.4117, 52.0588, 69.4117, -418, 463, -45.3846, -21.3574, 45.3846, 21.3574, -250, 595, 0, 0, 0, 0, -114, 637)
+}
+point_count = 8
 
 [node name="Camera" node_paths=PackedStringArray("breakable", "alarmable") instance=ExtResource("1_86vp7")]
+script = ExtResource("2_kmj8x")
 breakable = NodePath("BreakableComponent")
 alarmable = NodePath("AlarmableComponent")
 
-[node name="CameraStand" type="Sprite2D" parent="." index="0"]
-position = Vector2(45, 0)
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_b1xhk")
+
+[node name="ObjectSprite" parent="." index="2"]
+position = Vector2(17, -1)
 texture = ExtResource("2_syxs1")
 
-[node name="ObjectHitbox" parent="." index="1"]
-position = Vector2(4.5, 0)
-shape = null
+[node name="BreakableComponent" parent="." index="3" instance=ExtResource("4_yo53j")]
 
-[node name="RotationPoint" type="StaticBody2D" parent="." index="3"]
-position = Vector2(33, 0)
-
-[node name="CameraHead" type="Sprite2D" parent="RotationPoint" index="0"]
-position = Vector2(-37, 3)
-texture = ExtResource("3_km32h")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationPoint" index="1"]
-position = Vector2(-27.5, 0)
-shape = SubResource("RectangleShape2D_b4x6p")
-
-[node name="ObjectSprite" parent="." index="4"]
-position = Vector2(-13, 3)
-texture = null
-
-[node name="BreakableComponent" parent="." index="5" instance=ExtResource("4_yo53j")]
-
-[node name="AlarmableComponent" parent="." index="6" instance=ExtResource("5_est1p")]
+[node name="AlarmableComponent" parent="." index="4" instance=ExtResource("5_est1p")]
 position = Vector2(-47.7793, 11.6438)
+curve = SubResource("Curve2D_4v5on")
+shape = PackedVector2Array(281, -161, 281, 161, -391, 229, -391, -229)
+
+[node name="Path2D" type="Path2D" parent="." index="5"]
+position = Vector2(-209, -20.8733)
+scale = Vector2(1, 1.04062)
+curve = SubResource("Curve2D_4v5on")
+
+[node name="RotationPoint" type="Marker2D" parent="." index="6"]
+
+[node name="CamHead" type="Sprite2D" parent="RotationPoint" index="0"]
+position = Vector2(43, -3)
+rotation = 3.14159
+texture = ExtResource("3_km32h")

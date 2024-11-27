@@ -9,7 +9,8 @@ var move_rate = .005
 var moving_forward = true
 
 @export var curve: Curve2D
-@export var shape: Shape2D
+@export var shape: PackedVector2Array
+@export var pos: Vector2
 
 signal detected()
 
@@ -21,7 +22,12 @@ func _ready() -> void:
 		$DetectionPath.curve = curve
 		is_moving = true
 	if shape != null:
-		$Path2D/PathFollow2D/DetectionArea/DetectionAreaHitbox.shape = shape
+		$DetectionPath/DetectionFollow/DetectionArea/DetectionAreaHitbox.set_polygon(shape)
+		$DetectionPath/DetectionFollow/DetectionArea/DetectionAreaHitbox.rotation_degrees = 270
+		if pos != Vector2.ZERO:
+			$DetectionPath/DetectionFollow/DetectionArea.position = pos
+		else:
+			pos = $DetectionPath/DetectionFollow.position
 
 func activate():
 	$DetectionPath/DetectionFollow/DetectionArea.monitoring = true
@@ -54,7 +60,9 @@ func _physics_process(delta: float) -> void:
 				moving_forward = false
 			elif $DetectionPath/DetectionFollow.progress_ratio <= 0:
 				moving_forward = true
+		pos = $DetectionPath/DetectionFollow.global_position
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		print("detected")
 		detected.emit()

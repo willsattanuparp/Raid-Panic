@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca4bee8aroijk"]
+[gd_scene load_steps=6 format=3 uid="uid://ca4bee8aroijk"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_8xaru"]
 [ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="2_bm7vx"]
 [ext_resource type="PackedScene" uid="uid://beuror6hpgrq0" path="res://Scenes/Player/Yves Francois Skeleton.tscn" id="2_eyymb"]
 [ext_resource type="PackedScene" uid="uid://ctmuygrl3apcm" path="res://Scenes/Weapons/knife.tscn" id="3_d8gpv"]
-[ext_resource type="Texture2D" uid="uid://cg5rmabtyxyga" path="res://Assets/Sprites/Screenshot_207.png" id="5_7r81w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs6um"]
 radius = 31.0
@@ -55,11 +54,6 @@ one_shot = true
 [node name="Weapon" type="Node2D" parent="."]
 
 [node name="Knife" parent="Weapon" instance=ExtResource("3_d8gpv")]
-
-[node name="Screenshot207" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(7, -9)
-texture = ExtResource("5_7r81w")
 
 [connection signal="timeout" from="Timers/DodgeTimer" to="." method="_on_dodge_timer_timeout"]
 [connection signal="timeout" from="Timers/DodgeRecoverTimer" to="." method="_on_dodge_recover_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bvrnyabtx35jj"]
+[gd_scene load_steps=28 format=4 uid="uid://bvrnyabtx35jj"]
 
 [ext_resource type="PackedScene" uid="uid://hmi5peqlb5tx" path="res://Scenes/Objects/safe_1.tscn" id="1_juia6"]
 [ext_resource type="PackedScene" uid="uid://k5ej5u307v22" path="res://Scenes/Objects/table_1.tscn" id="1_utqgj"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://0ljqva62h0cc" path="res://Scenes/Objects/piano_1.tscn" id="17_5ekc3"]
 [ext_resource type="PackedScene" uid="uid://e21vold366sx" path="res://Scenes/Objects/bed_1.tscn" id="19_pqrqj"]
 [ext_resource type="PackedScene" uid="uid://oatuu4asucap" path="res://Scenes/Objects/sink_1.tscn" id="22_o0hjh"]
+[ext_resource type="PackedScene" uid="uid://b16hc244wxgio" path="res://Scenes/Objects/camera.tscn" id="24_xxvix"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tw56o"]
 texture = ExtResource("7_7ju78")
@@ -136,3 +137,6 @@ scale = Vector2(0.8, 0.8)
 
 [node name="Sink1" parent="." instance=ExtResource("22_o0hjh")]
 position = Vector2(706, 221)
+
+[node name="Camera" parent="." instance=ExtResource("24_xxvix")]
+position = Vector2(1672, 112)
