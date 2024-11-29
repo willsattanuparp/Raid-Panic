@@ -48,6 +48,7 @@ var skeleton
 var current_skeleton
 
 var documents = 0
+var main_doc_collected = false
 
 var color_modifiers: Dictionary = {
 	"Default":Color.WHITE,

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://epqt5kosb7wi"]
+[gd_scene load_steps=5 format=3 uid="uid://epqt5kosb7wi"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_ththj"]
 [ext_resource type="Texture2D" uid="uid://78wm2s3h6r14" path="res://Assets/Sprites/FinalFurnitureItems/Boxes.png" id="2_2ctlf"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="3_2v6x3"]
+[ext_resource type="PackedScene" uid="uid://bh46j34qs5pdf" path="res://Scenes/Objects/document.tscn" id="4_r6ad3"]
 
 [node name="Boxes" node_paths=PackedStringArray("breakable") instance=ExtResource("1_ththj")]
 breakable = NodePath("BreakableComponent")
@@ -16,4 +17,16 @@ polygon = PackedVector2Array(-72, -86, 20, -86, 71, -94, 72, -85, 91, -85, 91, 2
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_2ctlf")
 
-[node name="BreakableComponent" parent="." index="3" instance=ExtResource("3_2v6x3")]
+[node name="BreakableComponent" parent="." index="3" node_paths=PackedStringArray("documents") instance=ExtResource("3_2v6x3")]
+documents = NodePath("Docs")
+
+[node name="Docs" type="Node2D" parent="BreakableComponent" index="1"]
+
+[node name="Document" parent="BreakableComponent/Docs" index="0" instance=ExtResource("4_r6ad3")]
+singular = true
+
+[node name="Document2" parent="BreakableComponent/Docs" index="1" instance=ExtResource("4_r6ad3")]
+singular = true
+
+[node name="Document3" parent="BreakableComponent/Docs" index="2" instance=ExtResource("4_r6ad3")]
+singular = true

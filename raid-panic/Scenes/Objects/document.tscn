@@ -40,5 +40,10 @@ texture = ExtResource("4_5rwtf")
 visible = false
 texture = ExtResource("5_qsvb6")
 
+[node name="EjectionTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="MagnetArea" to="." method="_on_magnet_area_body_entered"]
+[connection signal="timeout" from="EjectionTimer" to="." method="_on_ejection_timer_timeout"]

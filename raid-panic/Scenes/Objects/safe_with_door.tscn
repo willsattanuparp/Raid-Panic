@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://xiavs4qa7la2"]
+[gd_scene load_steps=4 format=3 uid="uid://xiavs4qa7la2"]
 
+[ext_resource type="Script" path="res://Scripts/safe_with_door.gd" id="1_1wlfs"]
 [ext_resource type="PackedScene" uid="uid://br63s1sp07r5o" path="res://Scenes/Objects/safe_cover_1.tscn" id="1_3uuow"]
 [ext_resource type="PackedScene" uid="uid://futpdbwvxu6r" path="res://Scenes/Objects/safe_without_door.tscn" id="2_d3mwq"]
 
 [node name="SafeWithDoor" type="Node2D"]
+script = ExtResource("1_1wlfs")
 
 [node name="SafeCover1" parent="." instance=ExtResource("1_3uuow")]
 position = Vector2(0, 105)

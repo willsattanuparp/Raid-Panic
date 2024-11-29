@@ -16,9 +16,10 @@ size = Vector2(518, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6q6j"]
 size = Vector2(50, 180)
 
-[node name="Shelf2" node_paths=PackedStringArray("parkourable", "breakable") instance=ExtResource("1_d2sk3")]
+[node name="Shelf2" node_paths=PackedStringArray("parkourable", "breakable", "sprite") instance=ExtResource("1_d2sk3")]
 parkourable = NodePath("ParkourableParent")
 breakable = NodePath("BreakableComponent")
+sprite = NodePath("Shelf2")
 
 [node name="ObjectHitbox" parent="." index="0"]
 shape = null

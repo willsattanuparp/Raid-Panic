@@ -5,6 +5,8 @@ class_name GameObject extends AnimatableBody2D
 @export var breakable: BreakableComponent
 @export var alarmable: AlarmableComponent
 
+@export var sprite : Sprite2D
+
 @onready var hitbox = $ObjectHitbox
 
 @export var scoring_id = -1
@@ -13,10 +15,10 @@ func _ready() -> void:
 	initialize_object()
 
 func disableComponentPairing(index):
-	get_child(index).disable()
+	$ParkourableParent.get_child(index).disable()
 
 func enableComponentPairing(index):
-	get_child(index).enable()
+	$ParkourableParent.get_child(index).enable()
 
 func initialize_object():
 	if is_alarmable():
@@ -35,3 +37,12 @@ func is_breakable():
 
 func is_alarmable():
 	return alarmable != null
+
+func delete():
+	if sprite != null:
+		sprite.hide()
+	$ObjectSprite.hide()
+	set_collision_layer_value(3,false)
+	set_collision_mask_value(1,false)
+	if is_alarmable():
+		queue_free()

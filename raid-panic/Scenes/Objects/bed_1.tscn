@@ -18,8 +18,9 @@ size = Vector2(566, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04fuy"]
 size = Vector2(566, 50)
 
-[node name="Bed1" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_mln82")]
+[node name="Bed1" node_paths=PackedStringArray("parkourable", "sprite") instance=ExtResource("1_mln82")]
 parkourable = NodePath("ParkourableParent")
+sprite = NodePath("Bed")
 
 [node name="ObjectHitbox" parent="." index="0"]
 position = Vector2(4.5, 2)

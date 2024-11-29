@@ -19,7 +19,7 @@ size = Vector2(180, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05dnj"]
 size = Vector2(180, 50)
 
-[node name="Safe1" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_4o3lt")]
+[node name="OfficeChair" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_4o3lt")]
 parkourable = NodePath("ParkourableParent")
 
 [node name="ObjectHitbox" parent="." index="0"]

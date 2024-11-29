@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bvrnyabtx35jj"]
+[gd_scene load_steps=30 format=3 uid="uid://bvrnyabtx35jj"]
 
 [ext_resource type="PackedScene" uid="uid://hmi5peqlb5tx" path="res://Scenes/Objects/safe_1.tscn" id="1_juia6"]
 [ext_resource type="PackedScene" uid="uid://k5ej5u307v22" path="res://Scenes/Objects/table_1.tscn" id="1_utqgj"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://uo06l6mgpn6h" path="res://Scenes/Objects/sofa_chair_2.tscn" id="12_kds7w"]
 [ext_resource type="PackedScene" uid="uid://dw1osfk1r4f2m" path="res://Scenes/Objects/shelf_1.tscn" id="12_vw5ru"]
 [ext_resource type="PackedScene" uid="uid://v57kfiloygpr" path="res://Scenes/Objects/shelf_2.tscn" id="13_lvi7p"]
+[ext_resource type="PackedScene" uid="uid://epqt5kosb7wi" path="res://Scenes/Objects/boxes.tscn" id="14_53ctl"]
 [ext_resource type="PackedScene" uid="uid://ku8wx7gs6mwo" path="res://Scenes/Objects/office_chair_1.tscn" id="14_b320p"]
 [ext_resource type="PackedScene" uid="uid://xiavs4qa7la2" path="res://Scenes/Objects/safe_with_door.tscn" id="15_6ageo"]
 [ext_resource type="PackedScene" uid="uid://dygs55nhfii1c" path="res://Scenes/Objects/kitchen_bar_1.tscn" id="15_qxqrl"]
@@ -122,6 +123,9 @@ position = Vector2(1354, 859)
 
 [node name="SofaChair2" parent="." instance=ExtResource("12_kds7w")]
 position = Vector2(2564, 997)
+
+[node name="Boxes" parent="." instance=ExtResource("14_53ctl")]
+position = Vector2(60, 194)
 
 [node name="Safe2" parent="." instance=ExtResource("14_b320p")]
 position = Vector2(2187, 1227)

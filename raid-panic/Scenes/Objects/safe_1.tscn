@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://hmi5peqlb5tx"]
+[gd_scene load_steps=11 format=3 uid="uid://hmi5peqlb5tx"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_yefvk"]
 [ext_resource type="Texture2D" uid="uid://bx1mil8kckfet" path="res://Assets/Sprites/Office/safe1.png" id="2_ufq1q"]
 [ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_la8be"]
 [ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_7dwqk"]
 [ext_resource type="PackedScene" uid="uid://cs56gxuajc6ke" path="res://Scenes/Objects/Components/breakable_component.tscn" id="5_lc3lo"]
+[ext_resource type="PackedScene" uid="uid://bh46j34qs5pdf" path="res://Scenes/Objects/document.tscn" id="6_w51b1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6d2vv"]
 size = Vector2(36, 154)
@@ -45,4 +46,10 @@ area2_shape = SubResource("RectangleShape2D_05dnj")
 area1_pos = Vector2(0, 110)
 area2_pos = Vector2(0, -120)
 
-[node name="BreakableComponent" parent="." index="4" instance=ExtResource("5_lc3lo")]
+[node name="BreakableComponent" parent="." index="4" node_paths=PackedStringArray("documents") instance=ExtResource("5_lc3lo")]
+documents = NodePath("Docs")
+
+[node name="Docs" type="Node2D" parent="BreakableComponent" index="1"]
+
+[node name="Document" parent="BreakableComponent/Docs" index="0" instance=ExtResource("6_w51b1")]
+ejection_direction = Vector2(0, 1)
