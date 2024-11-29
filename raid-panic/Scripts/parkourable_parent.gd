@@ -70,7 +70,8 @@ func _on_zone_entered(id,body):
 	if statuses.find(true) != -1:
 		if body.parkour_bodies.find(get_parent()) == -1:
 			body.parkour_bodies.append(get_parent())
-		body.can_dodge = true
+		if !body.is_parkouring:
+			body.can_dodge = true
 		#body.can_parkour = true
 
 func _on_zone_exited(id,body):

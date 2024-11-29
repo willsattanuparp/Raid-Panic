@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2eo6xfdrn8fh"]
+
+[ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_60bci"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="2_1cv7y"]
+[ext_resource type="Texture2D" uid="uid://c1xnpr8yd08i7" path="res://Assets/Sprites/FinalFurnitureItems/door.png" id="3_wkvc0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mufcb"]
+size = Vector2(354, 46)
+
+[node name="Door" groups=["Door"] instance=ExtResource("1_60bci")]
+script = ExtResource("2_1cv7y")
+
+[node name="ObjectHitbox" parent="." index="0"]
+position = Vector2(153, 0)
+shape = SubResource("RectangleShape2D_mufcb")
+
+[node name="ObjectSprite" parent="." index="2"]
+position = Vector2(155, 2)
+texture = ExtResource("3_wkvc0")
+
+[node name="OpenCounterClockwise" type="Marker2D" parent="." index="3"]
+position = Vector2(0, -100)
+
+[node name="OpenClockwise" type="Marker2D" parent="." index="4"]
+position = Vector2(0, 100)

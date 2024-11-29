@@ -30,6 +30,7 @@ var on_fire: bool = false
 var parkour_bodies: Array[GameObject] = []
 var distance_to_parkour = 0
 var direction_to_parkour = Vector2.ZERO
+var parkour_speed_per_unit = .0008
 
 var in_combo = false
 var is_hanging = false
@@ -37,10 +38,16 @@ var is_hanging = false
 #var off_wall = true
 var is_colliding = false
 var last_collision_location = null
+var is_parkouring = false
 
 signal move_score(amount)
 signal body_parkoured(id)
 signal combo_broken()
+
+var skeleton
+var current_skeleton
+
+var documents = 0
 
 var color_modifiers: Dictionary = {
 	"Default":Color.WHITE,
@@ -49,6 +56,8 @@ var color_modifiers: Dictionary = {
 
 func _ready():
 	initial_speed = speed
+	skeleton = $PlayerSkeleton.duplicate()
+	current_skeleton = $PlayerSkeleton
 
 func _physics_process(delta):
 	#rotate to the mouse position
@@ -88,10 +97,17 @@ func _physics_process(delta):
 	
 	#sticking to wall logic - if no longer moving its not going to be triggered
 	if velocity == Vector2.ZERO:
+		if current_skeleton != null and current_skeleton.is_walking():
+			current_skeleton.stop_anim()
 		is_dodging = false
-		can_dodge = true
+		
+		if !is_parkouring:
+			can_dodge = true
 		if !is_hanging:
 			can_direction = true
+	else:
+		if current_skeleton != null and !current_skeleton.is_walking() and !current_skeleton.is_punching():
+			current_skeleton.walk()
 	if move_and_slide():
 		#print("collision")
 		#if hitting an object stop movement
@@ -222,15 +238,21 @@ func dodge(not_facing_object):
 				body_parkoured.emit(get_attached_parkour_body().scoring_id)
 				var tween = get_tree().create_tween()
 				#TODO: since tween time is constant, the parkour speed isnt constant
-				tween.tween_property(self,"position",global_position + direction_to_parkour,.5)
-				##TODO: connect finished signal to tween
+				print(direction_to_parkour.angle())
+				if current_skeleton != null:
+					current_skeleton.queue_free()
+				$PlayerSlide.show()
+				is_parkouring = true
+				tween.tween_property(self,"position",global_position + direction_to_parkour,direction_to_parkour.length() * parkour_speed_per_unit)
+				tween.finished.connect(_on_parkour_finish)
+				##TODO: connect finished signal to tween - done
 				#speed = distance_to_parkour / $Timers/ParkourTimer.wait_time
 				#print(speed)
 				#direction = direction_to_parkour
 				#print(direction)
 				#make invulnerable to objects
 				set_collision_mask_value(3,false)
-				$Timers/ParkourTimer.start()
+				#$Timers/ParkourTimer.start()
 				return
 	if not_facing_object:
 		move_score.emit(Global.MOVEMENT.ROLL)
@@ -257,6 +279,19 @@ func dodge(not_facing_object):
 	##Globals.current_belt_item = 0
 	#is_reloading = false
 
+func _on_parkour_finish():
+	is_parkouring = false
+	var skel = skeleton.duplicate()
+	#skel.name = "PlayerSkeleton"
+	current_skeleton = skel
+	add_child(skel)
+	$PlayerSlide.hide()
+	speed = initial_speed
+	can_direction = true
+	can_dodge = true
+	set_collision_mask_value(3,true)
+	$Timers/DodgeRecoverTimer.start()
+	print("parkour_finish")
 
 func _on_dodge_timer_timeout():
 	speed = initial_speed
@@ -279,14 +314,16 @@ func _on_dodge_timer_timeout():
 
 func _on_dodge_recover_timer_timeout():
 	#print("dodge recover")
-	can_dodge = true
+	if !is_parkouring:
+		can_dodge = true
 
 
 func _on_parkour_timer_timeout() -> void:
 	#print("done parkouring")
 	speed = initial_speed
 	can_direction = true
-	can_dodge = true
+	if !is_parkouring:
+		can_dodge = true
 	set_collision_mask_value(3,true)
 	$Timers/DodgeRecoverTimer.start()
 	

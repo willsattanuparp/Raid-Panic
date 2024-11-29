@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4jvpioorkdgx"
-path="res://.godot/imported/Walls_and_Floors_final.png-10d9a75d1966d47c2c9d6d15ff5945b2.ctex"
+uid="uid://dxfse5w0moddk"
+path="res://.godot/imported/Mr Hold Ya Walls.png-8100751d4938f2fa693f89f74f05ab74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemaps/Walls_and_Floors_final.png"
-dest_files=["res://.godot/imported/Walls_and_Floors_final.png-10d9a75d1966d47c2c9d6d15ff5945b2.ctex"]
+source_file="res://Assets/Sprites/Player/Mr Hold Ya Walls.png"
+dest_files=["res://.godot/imported/Mr Hold Ya Walls.png-8100751d4938f2fa693f89f74f05ab74.ctex"]
 
 [params]
 

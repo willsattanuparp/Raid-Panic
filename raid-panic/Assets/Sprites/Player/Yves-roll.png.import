@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp5vtngvfdtm8"
-path="res://.godot/imported/Walls_and_Floors_20241124808.png-8395cf74bca9f49b87266111c697dac8.ctex"
+uid="uid://pkq340j46prl"
+path="res://.godot/imported/Yves-roll.png-fcc0199a454a5902475c071720b0678b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemaps/Walls_and_Floors_20241124808.png"
-dest_files=["res://.godot/imported/Walls_and_Floors_20241124808.png-8395cf74bca9f49b87266111c697dac8.ctex"]
+source_file="res://Assets/Sprites/Player/Yves-roll.png"
+dest_files=["res://.godot/imported/Yves-roll.png-fcc0199a454a5902475c071720b0678b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcrukanu83nq8"
-path="res://.godot/imported/Walls_and_Floors_final2.png-93ebba414aa9965c2e612a6da3ab0111.ctex"
+uid="uid://c1xnpr8yd08i7"
+path="res://.godot/imported/door.png-f3f4263a800da3b206edbc88b0d267a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemaps/Walls_and_Floors_final2.png"
-dest_files=["res://.godot/imported/Walls_and_Floors_final2.png-93ebba414aa9965c2e612a6da3ab0111.ctex"]
+source_file="res://Assets/Sprites/FinalFurnitureItems/door.png"
+dest_files=["res://.godot/imported/door.png-f3f4263a800da3b206edbc88b0d267a5.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm34weqj0pft8"
-path="res://.godot/imported/interior.png-21d2893d4c4719f703b78b4daf8c4e04.ctex"
+uid="uid://c6es4iyew1l2r"
+path="res://.godot/imported/player_slide.png-5b6defd8707ba4d1d4a7be6802fa274e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemaps/interior.png"
-dest_files=["res://.godot/imported/interior.png-21d2893d4c4719f703b78b4daf8c4e04.ctex"]
+source_file="res://Assets/Sprites/Player/player_slide.png"
+dest_files=["res://.godot/imported/player_slide.png-5b6defd8707ba4d1d4a7be6802fa274e.ctex"]
 
 [params]
 

@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh46j34qs5pdf"]
+
+[ext_resource type="Script" path="res://Scripts/document.gd" id="1_7mper"]
+[ext_resource type="Texture2D" uid="uid://diif3f0b74xg1" path="res://Assets/Sprites/FinalFurnitureItems/Documents.png" id="2_syqol"]
+[ext_resource type="Texture2D" uid="uid://da7hfwok32xio" path="res://Assets/Sprites/FinalFurnitureItems/Document1.png" id="3_ppwws"]
+[ext_resource type="Texture2D" uid="uid://carvdhiptmd7n" path="res://Assets/Sprites/FinalFurnitureItems/Document2.png" id="4_5rwtf"]
+[ext_resource type="Texture2D" uid="uid://0reu5ga7olcl" path="res://Assets/Sprites/FinalFurnitureItems/Document3.png" id="5_qsvb6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsoem"]
+radius = 75.4321
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aioxm"]
+radius = 635.315
+
+[node name="Document" type="Area2D"]
+script = ExtResource("1_7mper")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bsoem")
+
+[node name="MagnetArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetArea"]
+shape = SubResource("CircleShape2D_aioxm")
+
+[node name="Documents" type="Sprite2D" parent="."]
+texture = ExtResource("2_syqol")
+
+[node name="DocTypes" type="Node2D" parent="."]
+
+[node name="Document1" type="Sprite2D" parent="DocTypes"]
+visible = false
+texture = ExtResource("3_ppwws")
+
+[node name="Document2" type="Sprite2D" parent="DocTypes"]
+visible = false
+texture = ExtResource("4_5rwtf")
+
+[node name="Document3" type="Sprite2D" parent="DocTypes"]
+visible = false
+texture = ExtResource("5_qsvb6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="MagnetArea" to="." method="_on_magnet_area_body_entered"]

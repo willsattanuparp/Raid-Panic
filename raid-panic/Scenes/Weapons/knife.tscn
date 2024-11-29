@@ -3,10 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://5ltu62tsincr" path="res://Scenes/Weapons/weapon.tscn" id="1_ynjd7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vaibl"]
-size = Vector2(24.75, 61.75)
+size = Vector2(63.375, 43)
 
 [node name="Knife" instance=ExtResource("1_ynjd7")]
 
 [node name="CollisionShape2D" parent="WeaponArea" index="0"]
-position = Vector2(44, 0)
+position = Vector2(86.3125, -18.5)
 shape = SubResource("RectangleShape2D_vaibl")
+
+[node name="HitTimer" type="Timer" parent="." index="1"]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
