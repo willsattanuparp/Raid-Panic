@@ -181,6 +181,8 @@ func _physics_process(delta):
 
 func enter_hanging():
 	#scoring timer if stopped
+	if $AnimationPlayer.is_playing():
+		$AnimationPlayer.stop()
 	move_score.emit(Global.MOVEMENT.HANG)
 	if $Timers/NotParkouringTimer.is_stopped():
 		$Timers/NotParkouringTimer.start()
@@ -189,6 +191,9 @@ func enter_hanging():
 	direction = Vector2.ZERO
 	is_dodging = false
 	#can_dodge = false
+	$PlayerSkeleton.hide()
+	$MrHoldYaWalls.show()
+	$"Yves-roll".hide()
 	set_collision_mask_value(3,true)
 	$Timers/DodgeTimer.stop()
 	$Timers/DodgeRecoverTimer.stop()
@@ -206,6 +211,7 @@ func exit_hanging(dir):
 	is_dodging = true
 	direction = dir
 	speed = dodge_speed
+	$AnimationPlayer.play("Roll_out_of_wall")
 	$Timers/HangJumpTimer.start()
 
 #TODO: Choose which object based on direction and dot matrix - done - this method retrieved the closest parkour body that the player is looking at
@@ -268,6 +274,7 @@ func dodge(not_facing_object):
 			#direction = last_direction
 	#	add_to_group("Invulnerable")
 		#$AnimationPlayer.play("forward_roll")
+		$AnimationPlayer.play("Roll")
 		$Timers/DodgeTimer.start()
 #
 #func _on_secondary_timer_timeout():
