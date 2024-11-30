@@ -53,6 +53,15 @@ func create_zones_with_shape(shape: Shape2D,pos1: Vector2,pos2: Vector2):
 	$Area1/Hitbox1.shape = shape
 	$Area2/Hitbox2.shape = shape.duplicate()
 
+func _draw() -> void:
+	if area1_shape != null and $Area1.monitoring == true:
+		draw_rect(Rect2(area1_pos - (Vector2(area1_shape.get_rect().size)/2),area1_shape.get_rect().size),Color(.5,1,.5,1),false)
+	if area2_shape != null and $Area2.monitoring == true:
+		draw_rect(Rect2(area2_pos - (Vector2(area2_shape.get_rect().size)/2),area2_shape.get_rect().size),Color(.5,1,.5,1),false)
+
+#func draw_zones():
+	#print($Area1/Hitbox1.position)
+	#print($Area1/Hitbox1.shape.extents)
 #
 #func initialize():
 	#pass
@@ -79,9 +88,9 @@ func connect_signals_area2():
 	$Area2.body_exited.connect(_on_parkourable_body_exited_area2)
 
 func _on_parkourable_body_entered_area1(body):
-	print("changed transfer vec")
+	#print("changed transfer vec")
 	transfer_vector = $Area2.global_position - $Area1.global_position + (($Area2.global_position - $Area1.global_position).normalized() * width_buffer) 
-	print(transfer_vector)
+	#print(transfer_vector)
 	entered_zone.emit(id,body)
 	entered_area1 = true
 	#if body.is_in_group("Player") and !entered_area2:
@@ -101,9 +110,9 @@ func _on_parkourable_body_exited_area1(body):
 		#print("cannot parkour")
 
 func _on_parkourable_body_entered_area2(body):
-	print("changed transfer vec")
+	#print("changed transfer vec")
 	transfer_vector = ($Area1.global_position - $Area2.global_position) + (($Area1.global_position - $Area2.global_position).normalized() * width_buffer) 
-	print(transfer_vector)
+	#print(transfer_vector)
 	entered_zone.emit(id,body)
 	entered_area2 = true
 	#if body.is_in_group("Player") and !entered_area1:

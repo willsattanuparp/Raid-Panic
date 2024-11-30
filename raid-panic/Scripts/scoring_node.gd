@@ -1,7 +1,7 @@
 extends Node2D
 
 #Scoring based on time spent, fluidity, documents gathered (theres a main doc to get but the more you get the better) penalty for alarms tripped
-var score = 0
+var final_score = 0
 var documents_gathered = 0
 
 var time_elapsed = 0
@@ -14,6 +14,7 @@ var parkour_ids = []
 func _process(delta: float) -> void:
 	if run_timer:
 		time_elapsed += delta
+		$"../UI/Container/Timer".text = "Time: " + str(snapped(time_elapsed,.01))
 
 func calculate_score():
 	var score = 0
@@ -35,14 +36,14 @@ func calculate_score():
 
 
 func _on_player_combo_broken() -> void:
-	print("combo broken")
+	#print("combo broken")
 	all_combos.append([combo,parkour_ids])
 	combo = []
 	parkour_ids = []
 
 
 func _on_player_move_score(amount: Variant) -> void:
-	print("move: " + str(amount))
+	#print("move: " + str(amount))
 	combo.append(amount)
 
 

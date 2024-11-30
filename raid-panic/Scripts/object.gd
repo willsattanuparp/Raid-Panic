@@ -28,6 +28,7 @@ func initialize_object():
 	if is_parkourable():
 		add_to_group("Parkourable")
 		parkourable.connect_all_zones()
+		#parkourable.draw_zones()
 
 func is_parkourable():
 	return parkourable != null

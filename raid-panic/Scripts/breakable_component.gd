@@ -20,7 +20,7 @@ func _ready() -> void:
 func deal_damage(damage):
 	health -= damage
 	$HealthBar.value = health
-	print(health)
+	#print(health)
 	if health <= 0:
 		destroy()
 

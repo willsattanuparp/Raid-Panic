@@ -1,9 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://b08npnr2xarvp"]
+[gd_scene load_steps=9 format=3 uid="uid://b08npnr2xarvp"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_0g50n"]
 [ext_resource type="Texture2D" uid="uid://d4nvibhj2ytb1" path="res://Assets/Sprites/FinalFurnitureItems/TV.png" id="2_l1oxm"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_8ojqn"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_0tnk3"]
 
-[node name="TV" instance=ExtResource("1_0g50n")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkbej"]
+size = Vector2(50, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjsgr"]
+size = Vector2(50, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e04ko"]
+size = Vector2(121, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3bce"]
+size = Vector2(121, 103)
+
+[node name="TV" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_0g50n")]
+parkourable = NodePath("ParkourableParent")
 
 [node name="ObjectHitbox" parent="." index="0"]
 shape = null
@@ -13,3 +28,18 @@ polygon = PackedVector2Array(-60, -155, 0, -155, 0, -185, 19, -199, 29, -203, 34
 
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_l1oxm")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_8ojqn")]
+
+[node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_0tnk3")]
+area1_shape = SubResource("RectangleShape2D_pkbej")
+area2_shape = SubResource("RectangleShape2D_gjsgr")
+area1_pos = Vector2(-88, 5)
+area2_pos = Vector2(87, 5)
+
+[node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_0tnk3")]
+area1_shape = SubResource("RectangleShape2D_e04ko")
+area2_shape = SubResource("RectangleShape2D_q3bce")
+area1_pos = Vector2(0, 215)
+area2_pos = Vector2(0, -207)
+width_buffer = 50

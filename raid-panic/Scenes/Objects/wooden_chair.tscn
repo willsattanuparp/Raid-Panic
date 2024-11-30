@@ -1,9 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgpkpbwjrp3ta"]
+[gd_scene load_steps=9 format=3 uid="uid://bgpkpbwjrp3ta"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_m3q10"]
 [ext_resource type="Texture2D" uid="uid://2wjl0sjqrnhk" path="res://Assets/Sprites/FinalFurnitureItems/WoodenChair.png" id="2_2hcfl"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_86xn0"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_41yut"]
 
-[node name="WoodenChair" instance=ExtResource("1_m3q10")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fuy8"]
+size = Vector2(149, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xtpt"]
+size = Vector2(149, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1650"]
+size = Vector2(50, 174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl6ko"]
+size = Vector2(50, 174)
+
+[node name="WoodenChair" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_m3q10")]
+parkourable = NodePath("ParkourableParent")
 
 [node name="ObjectHitbox" parent="." index="0"]
 shape = null
@@ -13,3 +28,17 @@ polygon = PackedVector2Array(-9, -91, -32, -87, -53, -80, -70, -69, -75, -60, -7
 
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_2hcfl")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_86xn0")]
+
+[node name="VerticalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_41yut")]
+area1_shape = SubResource("RectangleShape2D_6fuy8")
+area2_shape = SubResource("RectangleShape2D_5xtpt")
+area1_pos = Vector2(3, -112)
+area2_pos = Vector2(3, 115)
+
+[node name="HorizontalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_41yut")]
+area1_shape = SubResource("RectangleShape2D_m1650")
+area2_shape = SubResource("RectangleShape2D_dl6ko")
+area1_pos = Vector2(-88, 3)
+area2_pos = Vector2(94, 3)

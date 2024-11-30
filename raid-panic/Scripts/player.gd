@@ -15,9 +15,9 @@ var direction_timer: float = .1
 #threshold of looking at a parkourable component before parkouring
 var look_at_parkour_threshold = .3
 
-@export var speed: float = 600
+@export var speed: float = 1000
 var initial_speed: float
-var acceleration = 4000
+var acceleration = 5000
 var deceleration = 4000
 
 var dodge_speed = speed * 2
@@ -30,7 +30,7 @@ var on_fire: bool = false
 var parkour_bodies: Array[GameObject] = []
 var distance_to_parkour = 0
 var direction_to_parkour = Vector2.ZERO
-var parkour_speed_per_unit = .0008
+var parkour_speed_per_unit = .0004
 
 var in_combo = false
 var is_hanging = false
@@ -47,8 +47,16 @@ signal combo_broken()
 var skeleton
 var current_skeleton
 
-var documents = 0
-var main_doc_collected = false
+signal total_documents
+var documents: int = 0:
+	set(value):
+		documents = value
+		total_documents.emit(value)
+signal main_doc
+var main_doc_collected:bool = false:
+	set(value):
+		main_doc_collected = value
+		main_doc.emit(value)
 
 var color_modifiers: Dictionary = {
 	"Default":Color.WHITE,
@@ -120,7 +128,7 @@ func _physics_process(delta):
 		if get_last_slide_collision().get_collider().is_in_group("Wall") and is_dodging:# and off_wall:
 			#off_wall = false
 			#last_collision_location = get_last_slide_collision().get_position()
-			print(last_collision_location)
+			#print(last_collision_location)
 			enter_hanging()
 	#was running into issues with the collision bouncing off and entering a locked condition of can dodge and is hanging but null collision
 	elif can_direction:
@@ -245,7 +253,7 @@ func dodge(not_facing_object):
 				body_parkoured.emit(get_attached_parkour_body().scoring_id)
 				var tween = get_tree().create_tween()
 				#TODO: since tween time is constant, the parkour speed isnt constant
-				print(direction_to_parkour.angle())
+				#print(direction_to_parkour.angle())
 				if current_skeleton != null:
 					current_skeleton.queue_free()
 				$PlayerSlide.show()
@@ -299,7 +307,7 @@ func _on_parkour_finish():
 	can_dodge = true
 	set_collision_mask_value(3,true)
 	$Timers/DodgeRecoverTimer.start()
-	print("parkour_finish")
+	#print("parkour_finish")
 
 func _on_dodge_timer_timeout():
 	speed = initial_speed

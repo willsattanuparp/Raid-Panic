@@ -7,7 +7,7 @@ var to_open = []
 
 #signal hit(dmg)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Hit"):
 		get_parent().get_parent().get_node("PlayerSkeleton").punch()
 		if $HitTimer.is_stopped():
@@ -22,7 +22,7 @@ func open(i: GameObject):
 func _on_weapon_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Breakable"):
 		to_break.append(body)
-		print(to_break)
+		#print(to_break)
 	if body.is_in_group("Door"):
 		to_open.append(body)
 

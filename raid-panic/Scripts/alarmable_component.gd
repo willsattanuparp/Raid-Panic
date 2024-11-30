@@ -45,11 +45,11 @@ func create_detection_zone(size: Vector2):
 	rect.size = size
 	$Path2D/PathFollow2D/DetectionArea/DetectionAreaHitbox.shape = rect
 
-func set_curve(curve: Curve2D,should_loop: bool):
-	$DetectionPath.curve = curve
+func set_curve(cur: Curve2D,should_loop: bool):
+	$DetectionPath.curve = cur
 	loop = should_loop
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_moving:
 		if moving_forward:
 			$DetectionPath/DetectionFollow.progress_ratio += move_rate
@@ -64,5 +64,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		print("detected")
+		#print("detected")
 		detected.emit()

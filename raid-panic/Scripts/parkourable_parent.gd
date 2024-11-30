@@ -9,6 +9,10 @@ func _ready() -> void:
 		i = false
 	assign_zone_ids()
 
+#func draw_zones():
+	#for i in get_children():
+		#i.draw_zones()
+
 func create_zone(size: Vector2,pos1: Vector2,pos2: Vector2):
 	var parkour_component = parkour_component_scene.instantiate() as ParkourableComponent
 	parkour_component.create_zones(size,pos1,pos2)

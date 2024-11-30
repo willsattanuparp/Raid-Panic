@@ -1,12 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://xoshyhyf31m3"]
+[gd_scene load_steps=10 format=3 uid="uid://xoshyhyf31m3"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_uwuhr"]
 [ext_resource type="Texture2D" uid="uid://c6yxscb0dmr3q" path="res://Assets/Sprites/FinalFurnitureItems/PoolTable.png" id="2_osuuj"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_2u3rp"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_1acl6"]
 
-[node name="PoolTable" instance=ExtResource("1_uwuhr")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nyal"]
+size = Vector2(681, 362)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wixd"]
+size = Vector2(50, 363)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfgt6"]
+size = Vector2(50, 363)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2quu6"]
+size = Vector2(683, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_refdc"]
+size = Vector2(683, 50)
+
+[node name="PoolTable" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_uwuhr")]
+parkourable = NodePath("ParkourableParent")
 
 [node name="ObjectHitbox" parent="." index="0"]
 position = Vector2(15.5, 13)
+shape = SubResource("RectangleShape2D_2nyal")
 
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_osuuj")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_2u3rp")]
+
+[node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_1acl6")]
+area1_shape = SubResource("RectangleShape2D_7wixd")
+area2_shape = SubResource("RectangleShape2D_cfgt6")
+area1_pos = Vector2(-351, 13)
+area2_pos = Vector2(382, 13)
+
+[node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_1acl6")]
+area1_shape = SubResource("RectangleShape2D_2quu6")
+area2_shape = SubResource("RectangleShape2D_refdc")
+area1_pos = Vector2(15, 219)
+area2_pos = Vector2(15, -194)

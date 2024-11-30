@@ -29,11 +29,11 @@ func _on_magnet_area_body_entered(body: Node2D) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.documents += document_value
-		if singular:
+		if !singular:
 			body.main_doc_collected = true
 		queue_free()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if magnet and player_body != null:
 		global_position += global_position.direction_to(player_body.global_position) * collection_speed
 		collection_speed += collection_acc
