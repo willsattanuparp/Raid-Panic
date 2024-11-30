@@ -1,7 +1,6 @@
 extends Control
 
 @export var levels: Array[LevelHolder] = []
-@export var main_scene: PackedScene
 
 var selected_level
 # Called when the node enters the scene tree for the first time.
@@ -45,4 +44,4 @@ func _on_level_holder_play_level(lvl: Variant) -> void:
 
 
 func _on_texture_button_pressed() -> void:
-	get_tree().change_scene_to_packed(main_scene)
+	get_tree().change_scene_to_file("res://Scenes/MenuScenes/start_screen.tscn")

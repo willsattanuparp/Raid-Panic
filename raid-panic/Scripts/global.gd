@@ -4,6 +4,10 @@ enum MOVEMENT {ROLL,HANG,HANGEXIT,PARKOUR}
 
 var high_scores: Array = [0,0,0,0,0]
 
+var fx_sound_level = 80
+var music_level = 80 :
+	set(value):
+		$MenuMusic.volume_db = value - 80
 
 func read_score():
 	var file = FileAccess.open("user://SaveFile.json", FileAccess.READ)

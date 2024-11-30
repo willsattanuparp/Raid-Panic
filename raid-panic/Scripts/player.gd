@@ -67,6 +67,10 @@ var color_modifiers: Dictionary = {
 }
 
 func _ready():
+	for i in $DodgeSounds.get_children():
+		i.volume_db = Global.fx_sound_level - 80
+	for j in $FootstepSounds.get_children():
+		j.volume_db = Global.fx_sound_level - 80
 	initial_speed = speed
 	skeleton = $PlayerSkeleton.duplicate()
 	current_skeleton = $PlayerSkeleton

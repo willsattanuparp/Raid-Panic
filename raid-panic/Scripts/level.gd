@@ -32,6 +32,8 @@ var final_score = 0
 @onready var current_high_score = Global.high_scores[level - 1]
 
 func _ready() -> void:
+	$Camera2D/GameMusic.volume_db = Global.music_level - 80
+	$PaperSound/PaperSound.volume_db = Global.fx_sound_level - 80
 	fade_in()
 	Global.fade_menu_music()
 
@@ -176,3 +178,4 @@ func _on_scoring_node_clear_combo() -> void:
 
 func _on_continue_button_pressed() -> void:
 	finish.emit(final_score)
+	get_tree().change_scene_to_file("res://Scenes/MenuScenes/level_select.tscn")
