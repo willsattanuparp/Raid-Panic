@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dob5j2sfg204o" path="res://Scenes/Objects/table_3.tscn" id="7_34o3c"]
 [ext_resource type="PackedScene" uid="uid://xiavs4qa7la2" path="res://Scenes/Objects/safe_with_door.tscn" id="9_i2n17"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyna2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbvcp"]
 texture = ExtResource("3_8ih8h")
 texture_region_size = Vector2i(400, 400)
 3:1/0 = 0
@@ -50,7 +50,7 @@ texture_region_size = Vector2i(400, 400)
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-23.5, 200, -23.5, 177.5, 24.5, 177.5, 24.5, 200)
 2:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(-23.5, -200, -23.5, -179, 24.5, -179, 24.5, -200)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vt70t"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0elt5"]
 texture = ExtResource("3_8ih8h")
 texture_region_size = Vector2i(200, 200)
 12:6/0 = 0
@@ -66,7 +66,7 @@ texture_region_size = Vector2i(200, 200)
 13:2/0 = 0
 12:2/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8obt"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nr2l"]
 texture = ExtResource("4_w6b6m")
 texture_region_size = Vector2i(32, 32)
 3:2/0 = 0
@@ -120,9 +120,9 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_ha715"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 2
-sources/0 = SubResource("TileSetAtlasSource_dyna2")
-sources/1 = SubResource("TileSetAtlasSource_vt70t")
-sources/2 = SubResource("TileSetAtlasSource_k8obt")
+sources/0 = SubResource("TileSetAtlasSource_nbvcp")
+sources/1 = SubResource("TileSetAtlasSource_0elt5")
+sources/2 = SubResource("TileSetAtlasSource_1nr2l")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhefo"]
 size = Vector2(595, 783)
