@@ -458,6 +458,54 @@ position = Vector2(-4093, -7786)
 [node name="Boxes7" parent="GameObjects" index="84" instance=ExtResource("8_tqbeq")]
 position = Vector2(-3678, -7782)
 
+[node name="Succulent1" type="Sprite2D" parent="GameObjects" index="85"]
+position = Vector2(239, -1490)
+texture = ExtResource("23_3651t")
+
+[node name="Succulent2" type="Sprite2D" parent="GameObjects" index="86"]
+position = Vector2(239, -1626)
+texture = ExtResource("24_keiq3")
+
+[node name="Succulent3" type="Sprite2D" parent="GameObjects" index="87"]
+position = Vector2(227, -1762)
+texture = ExtResource("25_pn8rk")
+
+[node name="Succulent4" type="Sprite2D" parent="GameObjects" index="88"]
+position = Vector2(223, -1922)
+texture = ExtResource("25_pn8rk")
+
+[node name="Succulent5" type="Sprite2D" parent="GameObjects" index="89"]
+position = Vector2(223, -2078)
+texture = ExtResource("23_3651t")
+
+[node name="Succulent6" type="Sprite2D" parent="GameObjects" index="90"]
+position = Vector2(219, -2214)
+texture = ExtResource("24_keiq3")
+
+[node name="Mug" type="Sprite2D" parent="GameObjects" index="91"]
+position = Vector2(448, -3920)
+texture = ExtResource("26_wk15k")
+
+[node name="Pot" type="Sprite2D" parent="GameObjects" index="92"]
+position = Vector2(1933, -3811)
+texture = ExtResource("27_iiktv")
+
+[node name="Mug2" type="Sprite2D" parent="GameObjects" index="93"]
+position = Vector2(4751, -3402)
+texture = ExtResource("26_wk15k")
+
+[node name="Succulent7" type="Sprite2D" parent="GameObjects" index="94"]
+position = Vector2(4791, -3548)
+texture = ExtResource("24_keiq3")
+
+[node name="Succulent8" type="Sprite2D" parent="GameObjects" index="95"]
+position = Vector2(4791, -4163)
+texture = ExtResource("25_pn8rk")
+
+[node name="Succulent9" type="Sprite2D" parent="GameObjects" index="96"]
+position = Vector2(4801, -4808)
+texture = ExtResource("23_3651t")
+
 [node name="Doors" type="Node2D" parent="." index="6"]
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource("22_udott")]
@@ -491,51 +539,3 @@ collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Invisible_Wall" index="0"]
 polygon = PackedVector2Array(-93, -574, -153, -574, -154, 298, 585, 298, 585, -577, 505, -577, 506, 208, -91, 207)
-
-[node name="Succulent1" type="Sprite2D" parent="." index="15"]
-position = Vector2(239, -1490)
-texture = ExtResource("23_3651t")
-
-[node name="Succulent2" type="Sprite2D" parent="." index="16"]
-position = Vector2(239, -1626)
-texture = ExtResource("24_keiq3")
-
-[node name="Succulent3" type="Sprite2D" parent="." index="17"]
-position = Vector2(227, -1762)
-texture = ExtResource("25_pn8rk")
-
-[node name="Succulent4" type="Sprite2D" parent="." index="18"]
-position = Vector2(223, -1922)
-texture = ExtResource("25_pn8rk")
-
-[node name="Succulent5" type="Sprite2D" parent="." index="19"]
-position = Vector2(223, -2078)
-texture = ExtResource("23_3651t")
-
-[node name="Succulent6" type="Sprite2D" parent="." index="20"]
-position = Vector2(219, -2214)
-texture = ExtResource("24_keiq3")
-
-[node name="Mug" type="Sprite2D" parent="." index="21"]
-position = Vector2(448, -3920)
-texture = ExtResource("26_wk15k")
-
-[node name="Pot" type="Sprite2D" parent="." index="22"]
-position = Vector2(1933, -3811)
-texture = ExtResource("27_iiktv")
-
-[node name="Mug2" type="Sprite2D" parent="." index="23"]
-position = Vector2(4751, -3402)
-texture = ExtResource("26_wk15k")
-
-[node name="Succulent7" type="Sprite2D" parent="." index="24"]
-position = Vector2(4791, -3548)
-texture = ExtResource("24_keiq3")
-
-[node name="Succulent8" type="Sprite2D" parent="." index="25"]
-position = Vector2(4791, -4163)
-texture = ExtResource("25_pn8rk")
-
-[node name="Succulent9" type="Sprite2D" parent="." index="26"]
-position = Vector2(4801, -4808)
-texture = ExtResource("23_3651t")
