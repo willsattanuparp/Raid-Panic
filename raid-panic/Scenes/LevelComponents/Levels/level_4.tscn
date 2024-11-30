@@ -135,3 +135,9 @@ tile_set = ExtResource("5_bkgi6")
 [node name="GameObjects" type="Node2D" parent="." index="5"]
 
 [node name="Doors" type="Node2D" parent="." index="6"]
+
+[node name="Camera2D" parent="." index="8"]
+zoom = Vector2(0.6, 0.6)
+
+[node name="PhantomCamera2D" parent="." index="9"]
+zoom = Vector2(0.6, 0.6)

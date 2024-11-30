@@ -15,9 +15,9 @@ func stop_anim():
 
 func is_playing():
 	return $AnimationPlayer.is_playing()
-
-func tweak_arm():
-	$"Skeleton2D/Torso/R Arm TOP/R Arm BOT".position = Vector2(252,-16)
+#
+#func tweak_arm():
+	#$"Skeleton2D/Torso/R Arm TOP/R Arm BOT".position = Vector2(252,-16)
 
 func reset():
 	$AnimationPlayer.play("RESET")

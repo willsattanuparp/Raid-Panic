@@ -90,6 +90,10 @@ layout_mode = 2
 text = "Documents Collected: 0"
 fit_content = true
 
+[node name="TimesDetected" type="Label" parent="UI/TopRightHUD"]
+layout_mode = 2
+text = "Times Detected: 0"
+
 [node name="MainDoc" type="Label" parent="UI/TopRightHUD"]
 visible = false
 layout_mode = 2
@@ -164,6 +168,7 @@ one_shot = true
 [connection signal="score_str" from="ScoringNode" to="." method="_on_scoring_node_score_str"]
 [connection signal="body_parkoured" from="Player" to="ScoringNode" method="_on_player_body_parkoured"]
 [connection signal="combo_broken" from="Player" to="ScoringNode" method="_on_player_combo_broken"]
+[connection signal="detected_number" from="Player" to="." method="_on_player_detected_number"]
 [connection signal="main_doc" from="Player" to="." method="_on_player_main_doc"]
 [connection signal="move_score" from="Player" to="ScoringNode" method="_on_player_move_score"]
 [connection signal="total_documents" from="Player" to="." method="_on_player_total_documents"]

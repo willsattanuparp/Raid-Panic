@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=4 uid="uid://bqduey0wm2546"]
 
 [ext_resource type="PackedScene" uid="uid://ctcdf0d5ca8to" path="res://Scenes/LevelComponents/level.tscn" id="1_xg7jv"]
-[ext_resource type="Script" path="res://Scripts/level_1.gd" id="2_jv8og"]
+[ext_resource type="Script" path="res://Scripts/level_2.gd" id="2_7w8g7"]
 [ext_resource type="TileSet" uid="uid://r1nd0b4oxfy7" path="res://Assets/Tilemaps/TileMapFloors.tres" id="3_0dsyt"]
 [ext_resource type="Texture2D" uid="uid://d2tbn16wlgy4s" path="res://Assets/Tilemaps/Walls_and_Floors_Sheerfix_20241127442.png" id="3_ftwpp"]
 [ext_resource type="Texture2D" uid="uid://3865uh37eeta" path="res://Assets/Tilemaps/Grass_and_dirt_testing.png" id="4_iwv7e"]
@@ -133,7 +133,7 @@ sources/2 = SubResource("TileSetAtlasSource_fpsss")
 size = Vector2(589, 733)
 
 [node name="Level2" instance=ExtResource("1_xg7jv")]
-script = ExtResource("2_jv8og")
+script = ExtResource("2_7w8g7")
 
 [node name="outside" type="TileMapLayer" parent="." index="2"]
 modulate = Color(0.313726, 0.313726, 0.313726, 1)

@@ -261,6 +261,7 @@ stream = ExtResource("12_2j7l6")
 [node name="Footstep4" type="AudioStreamPlayer" parent="FootstepSounds"]
 stream = ExtResource("13_ttcvg")
 
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Timers/DodgeTimer" to="." method="_on_dodge_timer_timeout"]
 [connection signal="timeout" from="Timers/DodgeRecoverTimer" to="." method="_on_dodge_recover_timer_timeout"]
 [connection signal="timeout" from="Timers/ParkourTimer" to="." method="_on_parkour_timer_timeout"]

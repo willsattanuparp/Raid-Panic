@@ -13,3 +13,4 @@ func _ready() -> void:
 	$GameObjects/WoodenChair.disableComponentPairing(0)
 	$GameObjects/TV.disableComponentPairing(0)
 	queue_redraw()
+	super._ready()

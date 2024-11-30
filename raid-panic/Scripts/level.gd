@@ -26,6 +26,8 @@ var time_bonus_multiplier = 50
 var document_bonus_multiplier = 400
 var combo_bonus_multiplier = 2
 var combo_bonus_max = 1999
+var times_detected = 0
+var detected_multiplier = -100
 
 var final_score = 0
 
@@ -106,7 +108,8 @@ func _on_fade_out():
 		combo_bonus_squeezed = combo_bonus_max
 	$UI/FinalScoreHud/ComboScoreLabel.text = "Combo Score (max 1999): " + str(combo_score) + " x " + str(combo_bonus_multiplier) + " = " + str(combo_bonus_squeezed)
 	$UI/FinalScoreHud/DocumentsCollected.text = "Documents Collected: " + str(documents_collected) + " x " + str(document_bonus_multiplier) + " = " + str(documents_collected * document_bonus_multiplier)
-	final_score = time_score + (final_time_bonus * time_bonus_multiplier) + (combo_bonus_squeezed) + (documents_collected * document_bonus_multiplier)
+	$UI/TopRightHUD/TimesDetected.text = "Times Detected: " + str(times_detected) + " x " + str(detected_multiplier) + " = " + str(times_detected * detected_multiplier)
+	final_score = time_score + (final_time_bonus * time_bonus_multiplier) + (combo_bonus_squeezed) + (documents_collected * document_bonus_multiplier) - (times_detected * detected_multiplier)
 	$UI/FinalScoreHud/FinalScore.text = "Final Score: " + str(final_score)
 	$Timers/FinalScoreTimer.start()
 	await $Timers/FinalScoreTimer.timeout
@@ -120,6 +123,9 @@ func _on_fade_out():
 	$Timers/FinalScoreTimer.start()
 	await $Timers/FinalScoreTimer.timeout
 	$UI/FinalScoreHud/DocumentsCollected.show()
+	$Timers/FinalScoreTimer.start()
+	await $Timers/FinalScoreTimer.timeout
+	$UI/TopRightHUD/TimesDetected.show()
 	$Timers/FinalScoreTimer.start()
 	await $Timers/FinalScoreTimer.timeout
 	$UI/FinalScoreHud/FinalScore.show()
@@ -179,3 +185,8 @@ func _on_scoring_node_clear_combo() -> void:
 func _on_continue_button_pressed() -> void:
 	finish.emit(final_score)
 	get_tree().change_scene_to_file("res://Scenes/MenuScenes/level_select.tscn")
+
+
+func _on_player_detected_number(value) -> void:
+	$UI/TopRightHUD/TimesDetected.text = "Times Detected: " + str(value)
+	times_detected = value

@@ -50,6 +50,12 @@ var current_skeleton
 var dodge_sound :AudioStreamPlayer
 var walk_sound :AudioStreamPlayer
 
+signal detected_number
+var times_detected:int = 0:
+	set(value):
+		times_detected = value
+		detected_number.emit(value)
+
 signal total_documents
 var documents: int = 0:
 	set(value):
@@ -376,3 +382,8 @@ func _on_not_parkouring_timer_timeout() -> void:
 
 func _on_sound_timer_timeout() -> void:
 	dodge_sound.stop()
+
+
+#to fix the leaking skeleton
+func _on_tree_exiting() -> void:
+	skeleton.queue_free()

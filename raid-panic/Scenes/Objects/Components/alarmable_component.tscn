@@ -16,4 +16,7 @@ collision_layer = 32
 
 [node name="DetectionAreaHitbox" type="CollisionPolygon2D" parent="DetectionPath/DetectionFollow/DetectionArea"]
 
+[node name="Polygon2D" type="Polygon2D" parent="DetectionPath/DetectionFollow/DetectionArea"]
+color = Color(0.543163, 0.000211775, 0.54316, 1)
+
 [connection signal="body_entered" from="DetectionPath/DetectionFollow/DetectionArea" to="." method="_on_detection_area_body_entered"]

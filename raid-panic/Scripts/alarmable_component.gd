@@ -12,7 +12,11 @@ var moving_forward = true
 @export var shape: PackedVector2Array
 @export var pos: Vector2
 
-signal detected()
+#signal detected()
+
+
+#func _physics_process(delta: float) -> void:
+	#queue_redraw()
 
 func _ready() -> void:
 	if curve != null:
@@ -24,6 +28,8 @@ func _ready() -> void:
 	if shape != null:
 		$DetectionPath/DetectionFollow/DetectionArea/DetectionAreaHitbox.set_polygon(shape)
 		$DetectionPath/DetectionFollow/DetectionArea/DetectionAreaHitbox.rotation_degrees = 270
+		$DetectionPath/DetectionFollow/DetectionArea/Polygon2D.polygon = shape
+		$DetectionPath/DetectionFollow/DetectionArea/Polygon2D.rotation_degrees = 270
 		if pos != Vector2.ZERO:
 			$DetectionPath/DetectionFollow/DetectionArea.position = pos
 		else:
@@ -64,5 +70,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		body.times_detected += 1
 		#print("detected")
-		detected.emit()
+		#detected.emit()

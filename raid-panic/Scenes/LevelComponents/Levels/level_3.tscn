@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://b46vnbjt6qvcd"]
+[gd_scene load_steps=11 format=4 uid="uid://b46vnbjt6qvcd"]
 
 [ext_resource type="PackedScene" uid="uid://ctcdf0d5ca8to" path="res://Scenes/LevelComponents/level.tscn" id="1_7cva4"]
 [ext_resource type="Texture2D" uid="uid://d2tbn16wlgy4s" path="res://Assets/Tilemaps/Walls_and_Floors_Sheerfix_20241127442.png" id="2_3g45x"]
 [ext_resource type="Texture2D" uid="uid://3865uh37eeta" path="res://Assets/Tilemaps/Grass_and_dirt_testing.png" id="3_5liik"]
 [ext_resource type="TileSet" uid="uid://r1nd0b4oxfy7" path="res://Assets/Tilemaps/TileMapFloors.tres" id="4_jf6wl"]
 [ext_resource type="TileSet" uid="uid://jmn824y57bw8" path="res://Assets/Tilemaps/TileMapWallsFloors.tres" id="5_khqbe"]
+[ext_resource type="PackedScene" uid="uid://b16hc244wxgio" path="res://Scenes/Objects/camera.tscn" id="6_y3euh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3fqlv"]
 texture = ExtResource("2_3g45x")
@@ -134,4 +135,14 @@ tile_set = ExtResource("5_khqbe")
 
 [node name="GameObjects" type="Node2D" parent="." index="5"]
 
+[node name="Camera" parent="GameObjects" index="0" instance=ExtResource("6_y3euh")]
+position = Vector2(1701, -3754)
+rotation = -0.990414
+
 [node name="Doors" type="Node2D" parent="." index="6"]
+
+[node name="Camera2D" parent="." index="8"]
+zoom = Vector2(0.6, 0.6)
+
+[node name="PhantomCamera2D" parent="." index="9"]
+zoom = Vector2(0.6, 0.6)
