@@ -1,6 +1,6 @@
 Programming by Will 'its cold in here' Sattanuparp
 
-Art by Sheba 'Fawndering' Laufman
+Art by Sheba 'Fawndering' Laufman @fawndering
 
 Music, Sound, and Voice by Maz Fernando @mazfnando
 
