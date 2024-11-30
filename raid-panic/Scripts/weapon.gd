@@ -13,7 +13,7 @@ func _ready() -> void:
 		i.volume_db = Global.fx_sound_level - 80
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Hit") and !get_parent().get_parent().get_node("PlayerSkeleton").is_punching():
+	if Input.is_action_just_pressed("Hit") and get_parent().get_parent().get_node("PlayerSkeleton") != null and !get_parent().get_parent().get_node("PlayerSkeleton").is_punching():
 		get_parent().get_parent().get_node("PlayerSkeleton").punch()
 		if $HitTimer.is_stopped():
 			$HitTimer.start()
