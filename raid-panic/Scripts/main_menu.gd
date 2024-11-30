@@ -14,7 +14,7 @@ func _on_play_pressed() -> void:
 func _on_options_pressed() -> void:
 	get_tree().change_scene_to_packed(options_scene)
 
-
+"res://Scenes/MenuScenes/main_menu.tscn"
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 

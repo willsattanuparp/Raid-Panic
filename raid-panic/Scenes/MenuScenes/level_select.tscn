@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddtdnk0pdk166"]
+[gd_scene load_steps=18 format=3 uid="uid://ddtdnk0pdk166"]
 
 [ext_resource type="Texture2D" uid="uid://i0kc1dxtcf58" path="res://Assets/Sprites/MenuItems/ArrowLeft.png" id="1_bf8dv"]
 [ext_resource type="Script" path="res://Scripts/level_select.gd" id="1_gwp8t"]
+[ext_resource type="PackedScene" uid="uid://dqlx1ovahgsqd" path="res://Scenes/MenuScenes/main_menu1.tscn" id="2_mebxo"]
+[ext_resource type="Texture2D" uid="uid://dmn1yje0a0urn" path="res://Assets/Sprites/Black.png" id="2_tfl4b"]
 [ext_resource type="Texture2D" uid="uid://b4rwam8igc6l" path="res://Assets/Sprites/MenuItems/ArrowRight.png" id="3_2bpo5"]
 [ext_resource type="PackedScene" uid="uid://cqo3tqn7bvrmo" path="res://Scenes/LevelComponents/level_holder.tscn" id="4_qqtrk"]
 [ext_resource type="PackedScene" uid="uid://bqxr5kebot1r3" path="res://Scenes/LevelComponents/Levels/level_1.tscn" id="5_xbh6p"]
@@ -9,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://b46vnbjt6qvcd" path="res://Scenes/LevelComponents/Levels/level_3.tscn" id="7_5h0od"]
 [ext_resource type="PackedScene" uid="uid://cm22c0k1u516u" path="res://Scenes/LevelComponents/Levels/level_4.tscn" id="8_tdqr1"]
 [ext_resource type="PackedScene" uid="uid://c2d0vu6ws6u1i" path="res://Scenes/LevelComponents/Levels/level_5.tscn" id="9_3lw3f"]
+[ext_resource type="Texture2D" uid="uid://cwye2kg4dn0oq" path="res://Assets/Sprites/MenuItems/Level1Photo.png" id="11_jluag"]
+[ext_resource type="Texture2D" uid="uid://bth10sby8p1o4" path="res://Assets/Sprites/MenuItems/Level2Photo.png" id="12_4wu1h"]
+[ext_resource type="Texture2D" uid="uid://8j83sjospxs6" path="res://Assets/Sprites/MenuItems/Level3Photo.png" id="13_nyat0"]
+[ext_resource type="Texture2D" uid="uid://c3d8ic4rm87dv" path="res://Assets/Sprites/MenuItems/Level4Photo.png" id="14_0nees"]
+[ext_resource type="Texture2D" uid="uid://cbs84aactvakp" path="res://Assets/Sprites/MenuItems/Level5Photo.png" id="15_tc715"]
+[ext_resource type="Texture2D" uid="uid://df8eengm018fc" path="res://Assets/Sprites/MenuItems/x_button.png" id="16_dbuxs"]
 
 [node name="LevelSelect" type="Control" node_paths=PackedStringArray("levels")]
 layout_mode = 3
@@ -19,6 +27,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gwp8t")
 levels = [NodePath("Levels/LevelHolder1"), NodePath("Levels/LevelHolder2"), NodePath("Levels/LevelHolder3"), NodePath("Levels/LevelHolder4"), NodePath("Levels/LevelHolder5")]
+main_scene = ExtResource("2_mebxo")
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(573, 274)
+scale = Vector2(4, 4)
+texture = ExtResource("2_tfl4b")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
@@ -54,33 +68,90 @@ expand_icon = true
 [node name="Levels" type="Node2D" parent="."]
 position = Vector2(579, 311)
 
-[node name="LevelHolder5" parent="Levels" instance=ExtResource("4_qqtrk")]
+[node name="LevelHolder5" parent="Levels" node_paths=PackedStringArray("photo") instance=ExtResource("4_qqtrk")]
 position = Vector2(48.165, 11.295)
 rotation = -0.0733038
 level_scene = ExtResource("9_3lw3f")
+level = 5
+photo = NodePath("../../LevelPhotos/PhotoLevel5")
+level_name = "President's Mansion"
 
-[node name="LevelHolder4" parent="Levels" instance=ExtResource("4_qqtrk")]
+[node name="LevelHolder4" parent="Levels" node_paths=PackedStringArray("photo") instance=ExtResource("4_qqtrk")]
 position = Vector2(-3.59998, 25.915)
 rotation = 0.148353
 level_scene = ExtResource("8_tdqr1")
+level = 4
+photo = NodePath("../../LevelPhotos/PhotoLevel4")
+level_name = "Celebrity's Mansion"
 
-[node name="LevelHolder3" parent="Levels" instance=ExtResource("4_qqtrk")]
+[node name="LevelHolder3" parent="Levels" node_paths=PackedStringArray("photo") instance=ExtResource("4_qqtrk")]
 position = Vector2(-8.01001, -46.315)
 rotation = -0.148353
 level_scene = ExtResource("7_5h0od")
+level = 3
+photo = NodePath("../../LevelPhotos/PhotoLevel3")
+level_name = "Senator's House"
 
-[node name="LevelHolder2" parent="Levels" instance=ExtResource("4_qqtrk")]
-position = Vector2(-10.48, -3.125)
+[node name="LevelHolder2" parent="Levels" node_paths=PackedStringArray("photo") instance=ExtResource("4_qqtrk")]
+position = Vector2(-9, -1)
 rotation = 0.294961
 level_scene = ExtResource("6_m8cgl")
+level = 2
+photo = NodePath("../../LevelPhotos/PhotoLevel2")
+level_name = "Athlete's Mansion"
 
-[node name="LevelHolder1" parent="Levels" instance=ExtResource("4_qqtrk")]
+[node name="LevelHolder1" parent="Levels" node_paths=PackedStringArray("photo") instance=ExtResource("4_qqtrk")]
 position = Vector2(-70.43, -34.23)
 rotation = -0.223402
 level_scene = ExtResource("5_xbh6p")
+level = 1
+photo = NodePath("../../LevelPhotos/PhotoLevel1")
+level_name = "Principal's House"
 
 [node name="FolderEndLocation" type="Marker2D" parent="."]
 position = Vector2(1393, -382)
 
+[node name="BlackTransition" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(554, 142)
+scale = Vector2(5, 5)
+texture = ExtResource("2_tfl4b")
+
+[node name="LevelPhotos" type="Node2D" parent="."]
+position = Vector2(-157, -182)
+
+[node name="PhotoLevel1" type="Sprite2D" parent="LevelPhotos"]
+texture = ExtResource("11_jluag")
+
+[node name="PhotoLevel2" type="Sprite2D" parent="LevelPhotos"]
+texture = ExtResource("12_4wu1h")
+
+[node name="PhotoLevel3" type="Sprite2D" parent="LevelPhotos"]
+texture = ExtResource("13_nyat0")
+
+[node name="PhotoLevel4" type="Sprite2D" parent="LevelPhotos"]
+texture = ExtResource("14_0nees")
+
+[node name="PhotoLevel5" type="Sprite2D" parent="LevelPhotos"]
+texture = ExtResource("15_tc715")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_right = 77.0
+offset_bottom = 128.0
+grow_horizontal = 0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("16_dbuxs")
+
 [connection signal="pressed" from="BoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="BoxContainer/Forward" to="." method="_on_forward_pressed"]
+[connection signal="play_level" from="Levels/LevelHolder5" to="." method="_on_level_holder_play_level"]
+[connection signal="play_level" from="Levels/LevelHolder4" to="." method="_on_level_holder_play_level"]
+[connection signal="play_level" from="Levels/LevelHolder3" to="." method="_on_level_holder_play_level"]
+[connection signal="play_level" from="Levels/LevelHolder2" to="." method="_on_level_holder_play_level"]
+[connection signal="play_level" from="Levels/LevelHolder1" to="." method="_on_level_holder_play_level"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

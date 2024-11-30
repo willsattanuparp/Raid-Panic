@@ -1,6 +1,8 @@
 extends Control
 
 @export var levels: Array[LevelHolder] = []
+@export var main_scene: PackedScene
+
 var selected_level
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,3 +32,17 @@ func _on_back_pressed() -> void:
 
 func load_level():
 	get_tree().change_scene_to_packed(levels[selected_level].level_scene)
+
+
+func _on_level_holder_play_level(lvl: Variant) -> void:
+	$BoxContainer/Back.disabled = true
+	$BoxContainer/Forward.disabled = true
+	var scene = $Levels.get_child($Levels.get_child_count() - lvl).level_scene
+	var tween = get_tree().create_tween()
+	tween.tween_property($BlackTransition,"modulate:a",1,5)
+	await tween.finished
+	get_tree().change_scene_to_packed(scene)
+
+
+func _on_texture_button_pressed() -> void:
+	get_tree().change_scene_to_packed(main_scene)
