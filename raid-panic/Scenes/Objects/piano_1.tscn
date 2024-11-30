@@ -31,6 +31,7 @@ area1_shape = SubResource("RectangleShape2D_wpfj6")
 area2_shape = SubResource("RectangleShape2D_q5tfl")
 area1_pos = Vector2(-248, 230)
 area2_pos = Vector2(263, 230)
+width_buffer = 50
 
 [node name="Piano" type="Sprite2D" parent="." index="4"]
 position = Vector2(-2, 0)

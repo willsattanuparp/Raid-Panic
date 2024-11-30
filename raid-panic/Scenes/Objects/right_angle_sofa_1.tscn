@@ -50,24 +50,28 @@ area1_shape = SubResource("RectangleShape2D_v2k32")
 area2_shape = SubResource("RectangleShape2D_h187d")
 area1_pos = Vector2(-310, 215)
 area2_pos = Vector2(335, 216)
+width_buffer = 50
 
 [node name="HorizontalShort" parent="ParkourableParent" index="1" instance=ExtResource("4_71plw")]
 area1_shape = SubResource("RectangleShape2D_wcy8t")
 area2_shape = SubResource("RectangleShape2D_tt7ks")
 area1_pos = Vector2(87, -70)
 area2_pos = Vector2(337, -70)
+width_buffer = 50
 
 [node name="VerticalLong" parent="ParkourableParent" index="2" instance=ExtResource("4_71plw")]
 area1_shape = SubResource("RectangleShape2D_xr8f1")
 area2_shape = SubResource("RectangleShape2D_dk6fl")
 area1_pos = Vector2(210, -285)
 area2_pos = Vector2(210, 337)
+width_buffer = 50
 
 [node name="VerticalShort" parent="ParkourableParent" index="3" instance=ExtResource("4_71plw")]
 area1_shape = SubResource("RectangleShape2D_juu8b")
 area2_shape = SubResource("RectangleShape2D_png08")
 area1_pos = Vector2(-87, 95)
 area2_pos = Vector2(-87, 337)
+width_buffer = 50
 
 [node name="LSofa" type="Sprite2D" parent="." index="4"]
 position = Vector2(6, -8)

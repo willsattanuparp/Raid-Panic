@@ -130,10 +130,10 @@ size = Vector2(595, 783)
 [node name="Level1" instance=ExtResource("1_yradb")]
 script = ExtResource("2_e24mt")
 level = 1
-time_gold = 10.0
-time_silver = 20.0
-time_bronze = 30.0
-time_author = 7.0
+time_gold = 15.0
+time_silver = 17.0
+time_bronze = 22.0
+time_author = 12.0
 
 [node name="outside" type="TileMapLayer" parent="." index="2"]
 modulate = Color(0.313726, 0.313726, 0.313726, 1)
@@ -160,6 +160,9 @@ position = Vector2(-1008, -1011)
 
 [node name="Boxes" parent="GameObjects" index="4" instance=ExtResource("3_82dcr")]
 position = Vector2(2067, -716)
+
+[node name="Boxes2" parent="GameObjects" index="5" instance=ExtResource("3_82dcr")]
+position = Vector2(-1285, -2083)
 
 [node name="Doors" type="Node2D" parent="." index="5"]
 
@@ -214,10 +217,7 @@ zoom = Vector2(0.6, 0.6)
 position = Vector2(207.5, -184.5)
 shape = SubResource("RectangleShape2D_xhefo")
 
-[node name="Boxes" parent="." index="12" instance=ExtResource("3_82dcr")]
-position = Vector2(-1285, -2083)
-
-[node name="Invisible_Wall" type="StaticBody2D" parent="." index="13"]
+[node name="Invisible_Wall" type="StaticBody2D" parent="." index="12"]
 collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Invisible_Wall" index="0"]

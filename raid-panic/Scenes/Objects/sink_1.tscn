@@ -41,12 +41,14 @@ area1_shape = SubResource("RectangleShape2D_d1g8w")
 area2_shape = SubResource("RectangleShape2D_0tvvf")
 area1_pos = Vector2(-180, 0)
 area2_pos = Vector2(180, 0)
+width_buffer = 50
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_2lem3")]
 area1_shape = SubResource("RectangleShape2D_vx1ka")
 area2_shape = SubResource("RectangleShape2D_0nl26")
 area1_pos = Vector2(0, 130)
 area2_pos = Vector2(0, -130)
+width_buffer = 50
 
 [node name="Sink" type="Sprite2D" parent="." index="4"]
 position = Vector2(-1, -2)

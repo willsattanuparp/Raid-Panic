@@ -73,6 +73,10 @@ level_scene = ExtResource("9_3lw3f")
 level = 5
 photo = NodePath("../../LevelPhotos/PhotoLevel5")
 level_name = "President's Mansion"
+author_time = "60"
+gold_time = "75"
+silver_time = "95"
+bronze_time = "120"
 
 [node name="LevelHolder4" parent="Levels" node_paths=PackedStringArray("photo") instance=ExtResource("4_qqtrk")]
 position = Vector2(-3.59998, 25.915)
@@ -81,6 +85,10 @@ level_scene = ExtResource("8_tdqr1")
 level = 4
 photo = NodePath("../../LevelPhotos/PhotoLevel4")
 level_name = "Celebrity's Mansion"
+author_time = "35"
+gold_time = "45"
+silver_time = "60"
+bronze_time = "75"
 
 [node name="LevelHolder3" parent="Levels" node_paths=PackedStringArray("photo") instance=ExtResource("4_qqtrk")]
 position = Vector2(-8.01001, -46.315)
@@ -89,6 +97,10 @@ level_scene = ExtResource("7_5h0od")
 level = 3
 photo = NodePath("../../LevelPhotos/PhotoLevel3")
 level_name = "Senator's House"
+author_time = "45"
+gold_time = "50"
+silver_time = "55"
+bronze_time = "75"
 
 [node name="LevelHolder2" parent="Levels" node_paths=PackedStringArray("photo") instance=ExtResource("4_qqtrk")]
 position = Vector2(-9, -1)
@@ -97,6 +109,10 @@ level_scene = ExtResource("6_m8cgl")
 level = 2
 photo = NodePath("../../LevelPhotos/PhotoLevel2")
 level_name = "Athlete's Mansion"
+author_time = "35"
+gold_time = "45"
+silver_time = "60"
+bronze_time = "100"
 
 [node name="LevelHolder1" parent="Levels" node_paths=PackedStringArray("photo") instance=ExtResource("4_qqtrk")]
 position = Vector2(-70.43, -34.23)
@@ -105,6 +121,10 @@ level_scene = ExtResource("5_xbh6p")
 level = 1
 photo = NodePath("../../LevelPhotos/PhotoLevel1")
 level_name = "Principal's House"
+author_time = "12"
+gold_time = "15"
+silver_time = "17"
+bronze_time = "22"
 
 [node name="FolderEndLocation" type="Marker2D" parent="."]
 position = Vector2(1393, -382)

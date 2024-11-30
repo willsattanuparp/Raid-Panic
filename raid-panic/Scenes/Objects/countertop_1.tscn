@@ -38,12 +38,14 @@ area1_shape = SubResource("RectangleShape2D_vubia")
 area2_shape = SubResource("RectangleShape2D_2l7sd")
 area1_pos = Vector2(-122, 5)
 area2_pos = Vector2(132, 5)
+width_buffer = 50
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_35gv1")]
 area1_shape = SubResource("RectangleShape2D_7rxng")
 area2_shape = SubResource("RectangleShape2D_ok477")
 area1_pos = Vector2(5, -130)
 area2_pos = Vector2(5, 140)
+width_buffer = 50
 
 [node name="CounterTop" type="Sprite2D" parent="." index="4"]
 position = Vector2(4, 4)

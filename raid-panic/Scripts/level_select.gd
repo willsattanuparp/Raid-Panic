@@ -38,7 +38,7 @@ func _on_level_holder_play_level(lvl: Variant) -> void:
 	$BoxContainer/Forward.disabled = true
 	var scene = $Levels.get_child($Levels.get_child_count() - lvl).level_scene
 	var tween = get_tree().create_tween()
-	tween.tween_property($BlackTransition,"modulate:a",1,5)
+	tween.tween_property($BlackTransition,"modulate:a",1,3)
 	await tween.finished
 	get_tree().change_scene_to_packed(scene)
 

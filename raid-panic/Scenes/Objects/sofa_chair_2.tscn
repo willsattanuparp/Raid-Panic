@@ -37,12 +37,14 @@ area1_shape = SubResource("RectangleShape2D_1osos")
 area2_shape = SubResource("RectangleShape2D_0eykt")
 area1_pos = Vector2(-138, 0)
 area2_pos = Vector2(138, 0)
+width_buffer = 50
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_uvfis")]
 area1_shape = SubResource("RectangleShape2D_kfp6o")
 area2_shape = SubResource("RectangleShape2D_2dcx2")
 area1_pos = Vector2(0, 129)
 area2_pos = Vector2(0, -133)
+width_buffer = 50
 
 [node name="SofaChair2" type="Sprite2D" parent="." index="4"]
 position = Vector2(1, -8)

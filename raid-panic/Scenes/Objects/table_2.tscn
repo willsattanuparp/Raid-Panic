@@ -34,12 +34,14 @@ area1_shape = SubResource("RectangleShape2D_pnq0d")
 area2_shape = SubResource("RectangleShape2D_m5il7")
 area1_pos = Vector2(-139, 0)
 area2_pos = Vector2(139, 0)
+width_buffer = 50
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_np7rh")]
 area1_shape = SubResource("RectangleShape2D_6cpyf")
 area2_shape = SubResource("RectangleShape2D_wnxeq")
 area1_pos = Vector2(0, -259)
 area2_pos = Vector2(0, 259)
+width_buffer = 50
 
 [node name="ObjectSprite" parent="." index="3"]
 texture = ExtResource("2_wtjyp")

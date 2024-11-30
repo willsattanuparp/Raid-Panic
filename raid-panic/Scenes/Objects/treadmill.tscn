@@ -1,9 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://i5cc0jtygct8"]
+[gd_scene load_steps=9 format=3 uid="uid://i5cc0jtygct8"]
 
 [ext_resource type="PackedScene" uid="uid://bninn6i3qsydk" path="res://Scenes/Objects/object.tscn" id="1_5ae3f"]
 [ext_resource type="Texture2D" uid="uid://gvv306d4r63v" path="res://Assets/Sprites/FinalFurnitureItems/Treadmill.png" id="2_bfjsj"]
+[ext_resource type="PackedScene" uid="uid://3idfsdcm2ina" path="res://Scenes/Objects/Components/parkourable_parent.tscn" id="3_kvonk"]
+[ext_resource type="PackedScene" uid="uid://bjbxjqvprrghr" path="res://Scenes/Objects/Components/parkourable_component.tscn" id="4_wvaus"]
 
-[node name="Treadmill" instance=ExtResource("1_5ae3f")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0mmt"]
+size = Vector2(50, 502)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edj6h"]
+size = Vector2(50, 502)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_educj"]
+size = Vector2(215, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_guvuw"]
+size = Vector2(215, 50)
+
+[node name="Treadmill" node_paths=PackedStringArray("parkourable") instance=ExtResource("1_5ae3f")]
+parkourable = NodePath("ParkourableParent")
 
 [node name="ObjectHitbox" parent="." index="0"]
 shape = null
@@ -13,3 +28,19 @@ polygon = PackedVector2Array(-125, 87, -121, 91, -111, 91, -111, 270, -106, 274,
 
 [node name="ObjectSprite" parent="." index="2"]
 texture = ExtResource("2_bfjsj")
+
+[node name="ParkourableParent" parent="." index="3" instance=ExtResource("3_kvonk")]
+
+[node name="HorizontalHB" parent="ParkourableParent" index="0" instance=ExtResource("4_wvaus")]
+area1_shape = SubResource("RectangleShape2D_k0mmt")
+area2_shape = SubResource("RectangleShape2D_edj6h")
+area1_pos = Vector2(-145, 21)
+area2_pos = Vector2(141, 21)
+width_buffer = 50
+
+[node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_wvaus")]
+area1_shape = SubResource("RectangleShape2D_educj")
+area2_shape = SubResource("RectangleShape2D_guvuw")
+area1_pos = Vector2(-2, 299)
+area2_pos = Vector2(-2, -257)
+width_buffer = 50

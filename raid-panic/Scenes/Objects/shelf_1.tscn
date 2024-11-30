@@ -41,12 +41,14 @@ area1_shape = SubResource("RectangleShape2D_o4ysx")
 area2_shape = SubResource("RectangleShape2D_m0eto")
 area1_pos = Vector2(233, -13)
 area2_pos = Vector2(-233, -13)
+width_buffer = 50
 
 [node name="VerticalHB" parent="ParkourableParent" index="1" instance=ExtResource("4_pteje")]
 area1_shape = SubResource("RectangleShape2D_av1tc")
 area2_shape = SubResource("RectangleShape2D_dvanr")
 area1_pos = Vector2(0, 151)
 area2_pos = Vector2(0, -151)
+width_buffer = 50
 
 [node name="BreakableComponent" parent="." index="4" instance=ExtResource("5_bhrfg")]
 

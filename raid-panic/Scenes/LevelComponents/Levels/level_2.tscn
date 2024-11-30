@@ -134,6 +134,11 @@ size = Vector2(589, 733)
 
 [node name="Level2" instance=ExtResource("1_xg7jv")]
 script = ExtResource("2_7w8g7")
+level = 2
+time_gold = 45.0
+time_silver = 60.0
+time_bronze = 100.0
+time_author = 35.0
 
 [node name="outside" type="TileMapLayer" parent="." index="2"]
 modulate = Color(0.313726, 0.313726, 0.313726, 1)
@@ -253,6 +258,10 @@ position = Vector2(178, -369)
 position = Vector2(178, -369)
 zoom = Vector2(0.6, 0.6)
 
+[node name="Black" parent="Camera2D" index="0"]
+position = Vector2(-12.5, 3.00004)
+scale = Vector2(5.61772, 4.65292)
+
 [node name="PhantomCamera2D" parent="." index="9"]
 position = Vector2(178, -369)
 zoom = Vector2(0.6, 0.6)
@@ -260,3 +269,9 @@ zoom = Vector2(0.6, 0.6)
 [node name="CollisionShape2D" parent="FinishZone" index="0"]
 position = Vector2(204.5, -209.5)
 shape = SubResource("RectangleShape2D_xhefo")
+
+[node name="Invisible_Wall" type="StaticBody2D" parent="." index="14"]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Invisible_Wall" index="0"]
+polygon = PackedVector2Array(-93, -574, -153, -574, -154, 298, 585, 298, 585, -577, 505, -577, 506, 208, -91, 207)

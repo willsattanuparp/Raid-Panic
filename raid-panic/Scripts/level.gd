@@ -22,7 +22,7 @@ var score_author: int = 16000
 
 var time_rank_time = ""
 var time_score = 0
-var time_bonus_multiplier = 50
+var time_bonus_multiplier = 20
 var document_bonus_multiplier = 400
 var combo_bonus_multiplier = 2
 var combo_bonus_max = 1999
