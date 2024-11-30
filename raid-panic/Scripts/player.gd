@@ -47,6 +47,9 @@ signal combo_broken()
 var skeleton
 var current_skeleton
 
+var dodge_sound :AudioStreamPlayer
+var walk_sound :AudioStreamPlayer
+
 signal total_documents
 var documents: int = 0:
 	set(value):
@@ -75,6 +78,9 @@ func _physics_process(delta):
 	if can_direction:
 		is_dodging = false
 		var input = Input.get_vector("Left","Right","Up","Down")
+		if input != Vector2.ZERO and (walk_sound == null or walk_sound.playing == false):
+			walk_sound = $FootstepSounds.get_child(randi_range(0,3))
+			walk_sound.play()
 		#play_directional_walk(input)
 		#for scoring, start scoring timer
 		if $Timers/NotParkouringTimer.is_stopped():
@@ -160,8 +166,14 @@ func _physics_process(delta):
 		if can_dodge and !is_hanging:
 			#print("can dodge")
 			#conditional is either no collision or facing away
+			dodge_sound = $DodgeSounds.get_child(randi_range(0,1))
+			dodge_sound.play()
+			$Timers/SoundTimer.start()
 			dodge((last_collision_location == null) or (last_collision_location - global_position).dot(get_global_mouse_position() - global_position) < 0)
 		elif is_hanging and last_collision_location != null and (last_collision_location - global_position).dot(get_global_mouse_position() - global_position) < 0:
+			dodge_sound = $DodgeSounds.get_child(randi_range(0,1))
+			dodge_sound.play()
+			$Timers/SoundTimer.start()
 			#print((last_collision_location - global_position).normalized().dot((get_global_mouse_position() - global_position).normalized()))
 			exit_hanging((get_global_mouse_position() - global_position).normalized())
 #
@@ -356,3 +368,7 @@ func _on_not_parkouring_timer_timeout() -> void:
 	if in_combo:
 		combo_broken.emit()
 	in_combo = false
+
+
+func _on_sound_timer_timeout() -> void:
+	dodge_sound.stop()

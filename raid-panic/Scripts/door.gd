@@ -11,6 +11,7 @@ func _ready() -> void:
 
 
 func open(direction_vec):
+	$DoorOpenSound/DoorSound.play()
 	if closed == true:
 		var tween = get_tree().create_tween()
 		if direction_vec.dot(clockwise_open) > 0:

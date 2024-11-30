@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ca4bee8aroijk"]
+[gd_scene load_steps=19 format=3 uid="uid://ca4bee8aroijk"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_8xaru"]
 [ext_resource type="Texture2D" uid="uid://dxbvsld3sfkc0" path="res://icon.svg" id="2_bm7vx"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://c6es4iyew1l2r" path="res://Assets/Sprites/Player/player_slide.png" id="5_8g7xe"]
 [ext_resource type="Texture2D" uid="uid://pkq340j46prl" path="res://Assets/Sprites/Player/Yves-roll.png" id="6_8ss0j"]
 [ext_resource type="Texture2D" uid="uid://dxfse5w0moddk" path="res://Assets/Sprites/Player/Mr Hold Ya Walls.png" id="7_lsmda"]
+[ext_resource type="AudioStream" uid="uid://cni5s6nipr1v3" path="res://Assets/Sounds/Grunt Sounds/Jump_Grunt_2.wav" id="8_lcwsb"]
+[ext_resource type="AudioStream" uid="uid://cs70iyxct0761" path="res://Assets/Sounds/Grunt Sounds/Jump_Grunt.wav" id="9_xotyr"]
+[ext_resource type="AudioStream" uid="uid://xr6c27wmp71l" path="res://Assets/Sounds/Footstep Sounds/Footstep_2.wav" id="10_bjvym"]
+[ext_resource type="AudioStream" uid="uid://dnf6q6vaurl71" path="res://Assets/Sounds/Footstep Sounds/Footstep_1.wav" id="11_cji5t"]
+[ext_resource type="AudioStream" uid="uid://dt4jxq1uqofxa" path="res://Assets/Sounds/Footstep Sounds/Footstep_3.wav" id="12_2j7l6"]
+[ext_resource type="AudioStream" uid="uid://coxgxjlwaugvv" path="res://Assets/Sounds/Footstep Sounds/Footstep_4.wav" id="13_ttcvg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_20jwo"]
 radius = 39.9249
@@ -207,6 +213,8 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="SoundTimer" type="Timer" parent="Timers"]
+
 [node name="Weapon" type="Node2D" parent="."]
 
 [node name="Knife" parent="Weapon" instance=ExtResource("3_d8gpv")]
@@ -231,8 +239,31 @@ libraries = {
 "": SubResource("AnimationLibrary_b1lvd")
 }
 
+[node name="DodgeSounds" type="Node" parent="."]
+
+[node name="JumpGrunt2" type="AudioStreamPlayer" parent="DodgeSounds"]
+stream = ExtResource("8_lcwsb")
+
+[node name="JumpGrunt" type="AudioStreamPlayer" parent="DodgeSounds"]
+stream = ExtResource("9_xotyr")
+
+[node name="FootstepSounds" type="Node" parent="."]
+
+[node name="Footstep2" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource("10_bjvym")
+
+[node name="Footstep1" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource("11_cji5t")
+
+[node name="Footstep3" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource("12_2j7l6")
+
+[node name="Footstep4" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource("13_ttcvg")
+
 [connection signal="timeout" from="Timers/DodgeTimer" to="." method="_on_dodge_timer_timeout"]
 [connection signal="timeout" from="Timers/DodgeRecoverTimer" to="." method="_on_dodge_recover_timer_timeout"]
 [connection signal="timeout" from="Timers/ParkourTimer" to="." method="_on_parkour_timer_timeout"]
 [connection signal="timeout" from="Timers/HangJumpTimer" to="." method="_on_hang_jump_timer_timeout"]
 [connection signal="timeout" from="Timers/NotParkouringTimer" to="." method="_on_not_parkouring_timer_timeout"]
+[connection signal="timeout" from="Timers/SoundTimer" to="." method="_on_sound_timer_timeout"]

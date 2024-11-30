@@ -1,18 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctmuygrl3apcm"]
+[gd_scene load_steps=5 format=3 uid="uid://ctmuygrl3apcm"]
 
 [ext_resource type="PackedScene" uid="uid://5ltu62tsincr" path="res://Scenes/Weapons/weapon.tscn" id="1_ynjd7"]
+[ext_resource type="AudioStream" uid="uid://dpn4uf8532vkh" path="res://Assets/Sounds/Grunt Sounds/Punch_Grunt.wav" id="2_amuxt"]
+[ext_resource type="AudioStream" uid="uid://djlmy3f5rnuba" path="res://Assets/Sounds/Grunt Sounds/Punch_Grunt_2.wav" id="3_ifui8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vaibl"]
-size = Vector2(63.375, 43)
+size = Vector2(64.375, 75)
 
 [node name="Knife" instance=ExtResource("1_ynjd7")]
 
 [node name="CollisionShape2D" parent="WeaponArea" index="0"]
-position = Vector2(86.3125, -18.5)
+position = Vector2(86.8125, -18.5)
 shape = SubResource("RectangleShape2D_vaibl")
 
 [node name="HitTimer" type="Timer" parent="." index="1"]
 wait_time = 0.4
 one_shot = true
 
+[node name="SoundTimer" type="Timer" parent="." index="2"]
+wait_time = 0.59
+
+[node name="PunchSounds" type="Node" parent="." index="3"]
+
+[node name="PunchGrunt" type="AudioStreamPlayer" parent="PunchSounds" index="0"]
+stream = ExtResource("2_amuxt")
+
+[node name="PunchGrunt2" type="AudioStreamPlayer" parent="PunchSounds" index="1"]
+stream = ExtResource("3_ifui8")
+
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="timeout" from="SoundTimer" to="." method="_on_sound_timer_timeout"]

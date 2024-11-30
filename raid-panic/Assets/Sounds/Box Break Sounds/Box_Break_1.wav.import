@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://i7qfynnhnedw"
+path="res://.godot/imported/Box_Break_1.wav-5ba5f9edb2f798d5fe17bfdaf33f922e.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Box Break Sounds/Box_Break_1.wav"
+dest_files=["res://.godot/imported/Box_Break_1.wav-5ba5f9edb2f798d5fe17bfdaf33f922e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

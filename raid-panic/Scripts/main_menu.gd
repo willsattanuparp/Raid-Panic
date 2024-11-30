@@ -4,6 +4,9 @@ extends Control
 @export var options_scene: PackedScene
 @export var tutorial_scene: PackedScene
 
+func _ready() -> void:
+	Global.read_score()
+
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_packed(level_select_scene)
 

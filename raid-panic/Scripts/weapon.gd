@@ -6,9 +6,10 @@ var to_break = []
 var to_open = []
 
 #signal hit(dmg)
+var punch_noise
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Hit"):
+	if Input.is_action_just_pressed("Hit") and !get_parent().get_parent().get_node("PlayerSkeleton").is_punching():
 		get_parent().get_parent().get_node("PlayerSkeleton").punch()
 		if $HitTimer.is_stopped():
 			$HitTimer.start()
@@ -35,9 +36,16 @@ func _on_weapon_area_body_exited(body: Node2D) -> void:
 
 
 func _on_hit_timer_timeout() -> void:
+	punch_noise = $PunchSounds.get_child(randi_range(0,1))
+	punch_noise.play()
+	$SoundTimer.start()
 	for i in to_break:
 		if i.is_in_group("Breakable"):
 			deal_dmg(i)
 	for i in to_open:
 		if i.is_in_group("Door"):
 			open(i)
+
+
+func _on_sound_timer_timeout() -> void:
+	punch_noise.stop()

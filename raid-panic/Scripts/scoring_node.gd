@@ -11,10 +11,13 @@ var all_combos = []
 var combo = []
 var parkour_ids = []
 
+signal score_str(move_name)
+signal clear_combo()
+
 func _process(delta: float) -> void:
 	if run_timer:
 		time_elapsed += delta
-		$"../UI/Container/Timer".text = "Time: " + str(snapped(time_elapsed,.01))
+		$"../UI/TopRightHUD/Timer".text = "Time: " + str(snapped(time_elapsed,.01))
 
 func calculate_score():
 	var score = 0
@@ -37,12 +40,23 @@ func calculate_score():
 
 func _on_player_combo_broken() -> void:
 	#print("combo broken")
+	clear_combo.emit()
 	all_combos.append([combo,parkour_ids])
 	combo = []
 	parkour_ids = []
 
 
 func _on_player_move_score(amount: Variant) -> void:
+	var score_string
+	match amount:
+		Global.MOVEMENT.ROLL:
+			score_str.emit("Roll")
+		Global.MOVEMENT.HANG:
+			score_str.emit("Hang")
+		Global.MOVEMENT.HANGEXIT:
+			score_str.emit("Exit Hang")
+		Global.MOVEMENT.PARKOUR:
+			score_str.emit("Parkour")
 	#print("move: " + str(amount))
 	combo.append(amount)
 

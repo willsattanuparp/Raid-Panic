@@ -1935,6 +1935,9 @@ position = Vector2(-64, -20)
 rotation = 0.0628318
 scale = Vector2(8.5, 8.5)
 rest = Transform2D(8.48323, 0.533719, -0.533719, 8.48323, -64, -20)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 3.6
 
 [node name="R Leg" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(37, 66)
@@ -1945,6 +1948,9 @@ position = Vector2(-39, 47)
 rotation = -0.891864
 scale = Vector2(12.335, 12.335)
 rest = Transform2D(7.74592, -9.59963, 9.59963, 7.74592, -39, 47)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = -51.1
 
 [node name="L Leg" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(-109, -22)
@@ -1955,6 +1961,9 @@ position = Vector2(-33, 34)
 rotation = -0.888373
 scale = Vector2(11.98, 11.98)
 rest = Transform2D(7.5555, -9.29704, 9.29704, 7.5555, -33, 34)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = -50.9
 
 [node name="L Arm TOP" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(-221, -98)
@@ -1969,6 +1978,9 @@ position = Vector2(187, -8)
 rotation = 0.120428
 scale = Vector2(6.56, 6.56)
 rest = Transform2D(6.51249, 0.788098, -0.788098, 6.51249, 187, -8)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 6.90002
 
 [node name="R Arm TOP" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(178, 101)
@@ -1984,6 +1996,9 @@ position = Vector2(171, -92)
 rotation = -0.239109
 scale = Vector2(6.83, 6.83)
 rest = Transform2D(6.63568, -1.6176, 1.6176, 6.63568, 171, -92)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = -13.6999
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

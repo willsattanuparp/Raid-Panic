@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs56gxuajc6ke"]
+[gd_scene load_steps=6 format=3 uid="uid://cs56gxuajc6ke"]
 
 [ext_resource type="Script" path="res://Scripts/breakable_component.gd" id="1_caslw"]
+[ext_resource type="AudioStream" uid="uid://i7qfynnhnedw" path="res://Assets/Sounds/Box Break Sounds/Box_Break_1.wav" id="2_lqxws"]
+[ext_resource type="AudioStream" uid="uid://ukutbf6ppw5t" path="res://Assets/Sounds/Box Break Sounds/Box_Break_2.wav" id="3_uqktn"]
+[ext_resource type="AudioStream" uid="uid://itp2s7bnfyrc" path="res://Assets/Sounds/Box Break Sounds/Box_Break_3.wav" id="4_05pub"]
+[ext_resource type="AudioStream" uid="uid://blydj3m85s2df" path="res://Assets/Sounds/Box Break Sounds/Box_Break_4.wav" id="5_10y2t"]
 
 [node name="BreakableComponent" type="Node2D"]
 script = ExtResource("1_caslw")
@@ -8,3 +12,17 @@ script = ExtResource("1_caslw")
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_right = 4.0
 offset_bottom = 27.0
+
+[node name="BreakSounds" type="Node" parent="."]
+
+[node name="BoxBreak1" type="AudioStreamPlayer" parent="BreakSounds"]
+stream = ExtResource("2_lqxws")
+
+[node name="BoxBreak2" type="AudioStreamPlayer" parent="BreakSounds"]
+stream = ExtResource("3_uqktn")
+
+[node name="BoxBreak3" type="AudioStreamPlayer" parent="BreakSounds"]
+stream = ExtResource("4_05pub")
+
+[node name="BoxBreak4" type="AudioStreamPlayer" parent="BreakSounds"]
+stream = ExtResource("5_10y2t")

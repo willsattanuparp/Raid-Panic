@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bh46j34qs5pdf"]
 
 [ext_resource type="Script" path="res://Scripts/document.gd" id="1_7mper"]
-[ext_resource type="Texture2D" uid="uid://diif3f0b74xg1" path="res://Assets/Sprites/FinalFurnitureItems/Documents.png" id="2_syqol"]
-[ext_resource type="Texture2D" uid="uid://da7hfwok32xio" path="res://Assets/Sprites/FinalFurnitureItems/Document1.png" id="3_ppwws"]
-[ext_resource type="Texture2D" uid="uid://carvdhiptmd7n" path="res://Assets/Sprites/FinalFurnitureItems/Document2.png" id="4_5rwtf"]
-[ext_resource type="Texture2D" uid="uid://0reu5ga7olcl" path="res://Assets/Sprites/FinalFurnitureItems/Document3.png" id="5_qsvb6"]
+[ext_resource type="Texture2D" uid="uid://diif3f0b74xg1" path="res://Assets/Sprites/FinalFurnitureItems/Documents.png" id="2_hiw25"]
+[ext_resource type="Texture2D" uid="uid://da7hfwok32xio" path="res://Assets/Sprites/FinalFurnitureItems/Document1.png" id="3_swrp6"]
+[ext_resource type="Texture2D" uid="uid://carvdhiptmd7n" path="res://Assets/Sprites/FinalFurnitureItems/Document2.png" id="4_r8oij"]
+[ext_resource type="Texture2D" uid="uid://0reu5ga7olcl" path="res://Assets/Sprites/FinalFurnitureItems/Document3.png" id="5_cpih8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bsoem"]
 radius = 75.4321
@@ -24,21 +24,21 @@ shape = SubResource("CircleShape2D_bsoem")
 shape = SubResource("CircleShape2D_aioxm")
 
 [node name="Documents" type="Sprite2D" parent="."]
-texture = ExtResource("2_syqol")
+texture = ExtResource("2_hiw25")
 
 [node name="DocTypes" type="Node2D" parent="."]
 
 [node name="Document1" type="Sprite2D" parent="DocTypes"]
 visible = false
-texture = ExtResource("3_ppwws")
+texture = ExtResource("3_swrp6")
 
 [node name="Document2" type="Sprite2D" parent="DocTypes"]
 visible = false
-texture = ExtResource("4_5rwtf")
+texture = ExtResource("4_r8oij")
 
 [node name="Document3" type="Sprite2D" parent="DocTypes"]
 visible = false
-texture = ExtResource("5_qsvb6")
+texture = ExtResource("5_cpih8")
 
 [node name="EjectionTimer" type="Timer" parent="."]
 wait_time = 0.2

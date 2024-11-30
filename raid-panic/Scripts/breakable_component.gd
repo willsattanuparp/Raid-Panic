@@ -1,6 +1,6 @@
 class_name BreakableComponent extends Node2D
 
-@export var health = 100
+@export var health = 1
 
 var documents_contained = 0
 var required_document = false
@@ -29,6 +29,8 @@ func set_bar_position(pos):
 
 #TODO: make this more animated
 func destroy():
+	var break_sound = $BreakSounds.get_child(randi_range(0,3))
+	break_sound.play()
 	if documents != null:
 		for i in documents.get_children():
 			i.show()

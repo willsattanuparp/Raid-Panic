@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djlmy3f5rnuba"
+path="res://.godot/imported/Punch_Grunt_2.wav-1f994d1a8d1bf8fa6d7a15daf8f259c9.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Grunt Sounds/Punch_Grunt_2.wav"
+dest_files=["res://.godot/imported/Punch_Grunt_2.wav-1f994d1a8d1bf8fa6d7a15daf8f259c9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
