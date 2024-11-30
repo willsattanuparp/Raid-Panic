@@ -1,11 +1,18 @@
 Programming by Will 'its cold in here' Sattanuparp
+
 Art by Sheba 'Fawndering' Laufman
+
 Music, Sound, and Voice by Maz Fernando @mazfnando
 
 
+
+
 Other credits
+
 PhantomCamera by ramokz
+
 Sound Biography:
+
 Door Sound: “Push-bar fire door opening” from wlabarron on freesounds.org (Creative Commons 0)
     https://freesound.org/people/wlabarron/sounds/475312/
 Paper Sound 1: “Paper page turn 3” from HenKonen on freesounds.org (Creative Commons 0)
