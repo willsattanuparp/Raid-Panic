@@ -1,4 +1,18 @@
-[gd_scene format=3 uid="uid://de1gmegnmbs1"]
+[gd_scene load_steps=8 format=3 uid="uid://de1gmegnmbs1"]
+
+[ext_resource type="Script" path="res://Scripts/how_to_play.gd" id="1_j6t4c"]
+[ext_resource type="Texture2D" uid="uid://dmn1yje0a0urn" path="res://Assets/Sprites/Black.png" id="2_ithwt"]
+[ext_resource type="PackedScene" uid="uid://xoshyhyf31m3" path="res://Scenes/Objects/pool_table.tscn" id="3_3iqli"]
+[ext_resource type="Texture2D" uid="uid://df8eengm018fc" path="res://Assets/Sprites/MenuItems/x_button.png" id="4_wkf4r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8sulm"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_fisjp"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_p6v38"]
+font_size = 30
 
 [node name="HowToPlay" type="MarginContainer"]
 anchors_preset = 8
@@ -6,11 +20,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 1730.0
+offset_bottom = 1032.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_vertical = 0
+script = ExtResource("1_j6t4c")
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(1741, 772)
+scale = Vector2(10.5063, 7.32646)
+texture = ExtResource("2_ithwt")
+
+[node name="PoolTable" parent="." instance=ExtResource("3_3iqli")]
+position = Vector2(1450, 886)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -19,25 +50,43 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+text = "Welcome to Raid Rush! Your objective is to raid these houses and retrieve the primary document and get out as fast as you can!"
+label_settings = SubResource("LabelSettings_8sulm")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HBoxContainer2"]
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Controls:
+WASD to move
+Shift to action (dodge, parkour, wall hang)
+Mouse1 to punch"
+label_settings = SubResource("LabelSettings_fisjp")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer2/HBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HBoxContainer3"]
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
+text = "- Break the boxes to get extra documents!
+- The safe will contain the primary document, punch the door to the safe to retrieve the primary document.
+- Avoid Cameras, as you will get a points penalty (you can punch these too!)
+- If you dodge into a wall you will stick to it, increasing your roll distance rolling out of a wall.
+- You will see green boxes around certain pieces of furniture, this means you can parkour over it using your shift key.
+- Maintain your movement combo by rolling, parkouring, or sticking to walls - try to keep moving!"
+label_settings = SubResource("LabelSettings_p6v38")
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+[node name="ExitButton" type="TextureButton" parent="."]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("4_wkf4r")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
-layout_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer3/HBoxContainer"]
-
-[node name="Label" type="Label" parent="VBoxContainer3/HBoxContainer"]
-layout_mode = 2
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
