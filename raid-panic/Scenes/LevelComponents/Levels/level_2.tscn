@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bqduey0wm2546"]
+[gd_scene load_steps=31 format=4 uid="uid://bqduey0wm2546"]
 
 [ext_resource type="PackedScene" uid="uid://ctcdf0d5ca8to" path="res://Scenes/LevelComponents/level.tscn" id="1_xg7jv"]
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="2_7w8g7"]
@@ -17,6 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://b08npnr2xarvp" path="res://Scenes/Objects/TV.tscn" id="13_ikg8w"]
 [ext_resource type="PackedScene" uid="uid://d2eo6xfdrn8fh" path="res://Scenes/Objects/door.tscn" id="14_06no4"]
 [ext_resource type="TileSet" uid="uid://jmn824y57bw8" path="res://Assets/Tilemaps/TileMapWallsFloors.tres" id="15_gwnce"]
+[ext_resource type="Texture2D" uid="uid://xdi0xjw4tuaq" path="res://Assets/Sprites/FinalFurnitureItems/MousePad.png" id="18_4jkd1"]
+[ext_resource type="Texture2D" uid="uid://cft0m47y6h15p" path="res://Assets/Sprites/FinalFurnitureItems/Laptop.png" id="19_57yxb"]
+[ext_resource type="Texture2D" uid="uid://b8ucy1cfemc3l" path="res://Assets/Sprites/FinalFurnitureItems/Mouse.png" id="20_0qxw6"]
+[ext_resource type="Texture2D" uid="uid://b1dsv6o4rt3ub" path="res://Assets/Sprites/FinalFurnitureItems/Succulent1.png" id="21_e883m"]
+[ext_resource type="Texture2D" uid="uid://di6gqb0yu0vgg" path="res://Assets/Sprites/FinalFurnitureItems/Succulent3.png" id="22_d354e"]
+[ext_resource type="Texture2D" uid="uid://dw1q3j8gc38kf" path="res://Assets/Sprites/FinalFurnitureItems/Succulent2.png" id="23_8606m"]
+[ext_resource type="Texture2D" uid="uid://bmov8j1h8vlhl" path="res://Assets/Sprites/FinalFurnitureItems/Journal.png" id="24_0hy7o"]
+[ext_resource type="Texture2D" uid="uid://hvxhgd0t6wca" path="res://Assets/Sprites/FinalFurnitureItems/Folder.png" id="25_gqd4a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2iod"]
 texture = ExtResource("3_ftwpp")
@@ -275,3 +283,39 @@ collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Invisible_Wall" index="0"]
 polygon = PackedVector2Array(-93, -574, -153, -574, -154, 298, 585, 298, 585, -577, 505, -577, 506, 208, -91, 207)
+
+[node name="MousePad" type="Sprite2D" parent="." index="15"]
+position = Vector2(-873, -2459)
+rotation = -1.60091
+scale = Vector2(1, 1)
+texture = ExtResource("18_4jkd1")
+
+[node name="Laptop" type="Sprite2D" parent="." index="16"]
+position = Vector2(-863, -2293)
+rotation = -3.01214
+texture = ExtResource("19_57yxb")
+
+[node name="Mouse" type="Sprite2D" parent="." index="17"]
+position = Vector2(-889, -2433)
+rotation = -2.19391
+texture = ExtResource("20_0qxw6")
+
+[node name="Succulent1" type="Sprite2D" parent="." index="18"]
+position = Vector2(212, -3680)
+texture = ExtResource("21_e883m")
+
+[node name="Succulent3" type="Sprite2D" parent="." index="19"]
+position = Vector2(718, -3677)
+texture = ExtResource("22_d354e")
+
+[node name="Succulent2" type="Sprite2D" parent="." index="20"]
+position = Vector2(718, -3516)
+texture = ExtResource("23_8606m")
+
+[node name="Journal" type="Sprite2D" parent="." index="21"]
+position = Vector2(373, -3536)
+texture = ExtResource("24_0hy7o")
+
+[node name="Folder" type="Sprite2D" parent="." index="22"]
+position = Vector2(557, -3530)
+texture = ExtResource("25_gqd4a")

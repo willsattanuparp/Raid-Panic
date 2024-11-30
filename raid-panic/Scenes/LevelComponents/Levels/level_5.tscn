@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://c2d0vu6ws6u1i"]
+[gd_scene load_steps=33 format=4 uid="uid://c2d0vu6ws6u1i"]
 
 [ext_resource type="PackedScene" uid="uid://ctcdf0d5ca8to" path="res://Scenes/LevelComponents/level.tscn" id="1_8jew3"]
 [ext_resource type="Script" path="res://Scripts/level_5.gd" id="2_loc5s"]
@@ -22,6 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://bhippf4q85ftt" path="res://Scenes/Objects/long_sofa_1.tscn" id="20_k3l12"]
 [ext_resource type="PackedScene" uid="uid://e21vold366sx" path="res://Scenes/Objects/bed_1.tscn" id="21_id7x3"]
 [ext_resource type="PackedScene" uid="uid://d2eo6xfdrn8fh" path="res://Scenes/Objects/door.tscn" id="22_udott"]
+[ext_resource type="Texture2D" uid="uid://b1dsv6o4rt3ub" path="res://Assets/Sprites/FinalFurnitureItems/Succulent1.png" id="23_3651t"]
+[ext_resource type="Texture2D" uid="uid://dw1q3j8gc38kf" path="res://Assets/Sprites/FinalFurnitureItems/Succulent2.png" id="24_keiq3"]
+[ext_resource type="Texture2D" uid="uid://di6gqb0yu0vgg" path="res://Assets/Sprites/FinalFurnitureItems/Succulent3.png" id="25_pn8rk"]
+[ext_resource type="Texture2D" uid="uid://dk767ymy7byyy" path="res://Assets/Sprites/FinalFurnitureItems/Mug.png" id="26_wk15k"]
+[ext_resource type="Texture2D" uid="uid://chvu8kyekq7lh" path="res://Assets/Sprites/FinalFurnitureItems/Pot.png" id="27_iiktv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8uo1y"]
 texture = ExtResource("2_y6wdw")
@@ -486,3 +491,51 @@ collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Invisible_Wall" index="0"]
 polygon = PackedVector2Array(-93, -574, -153, -574, -154, 298, 585, 298, 585, -577, 505, -577, 506, 208, -91, 207)
+
+[node name="Succulent1" type="Sprite2D" parent="." index="15"]
+position = Vector2(239, -1490)
+texture = ExtResource("23_3651t")
+
+[node name="Succulent2" type="Sprite2D" parent="." index="16"]
+position = Vector2(239, -1626)
+texture = ExtResource("24_keiq3")
+
+[node name="Succulent3" type="Sprite2D" parent="." index="17"]
+position = Vector2(227, -1762)
+texture = ExtResource("25_pn8rk")
+
+[node name="Succulent4" type="Sprite2D" parent="." index="18"]
+position = Vector2(223, -1922)
+texture = ExtResource("25_pn8rk")
+
+[node name="Succulent5" type="Sprite2D" parent="." index="19"]
+position = Vector2(223, -2078)
+texture = ExtResource("23_3651t")
+
+[node name="Succulent6" type="Sprite2D" parent="." index="20"]
+position = Vector2(219, -2214)
+texture = ExtResource("24_keiq3")
+
+[node name="Mug" type="Sprite2D" parent="." index="21"]
+position = Vector2(448, -3920)
+texture = ExtResource("26_wk15k")
+
+[node name="Pot" type="Sprite2D" parent="." index="22"]
+position = Vector2(1933, -3811)
+texture = ExtResource("27_iiktv")
+
+[node name="Mug2" type="Sprite2D" parent="." index="23"]
+position = Vector2(4751, -3402)
+texture = ExtResource("26_wk15k")
+
+[node name="Succulent7" type="Sprite2D" parent="." index="24"]
+position = Vector2(4791, -3548)
+texture = ExtResource("24_keiq3")
+
+[node name="Succulent8" type="Sprite2D" parent="." index="25"]
+position = Vector2(4791, -4163)
+texture = ExtResource("25_pn8rk")
+
+[node name="Succulent9" type="Sprite2D" parent="." index="26"]
+position = Vector2(4801, -4808)
+texture = ExtResource("23_3651t")

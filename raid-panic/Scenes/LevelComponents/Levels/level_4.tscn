@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cm22c0k1u516u"]
+[gd_scene load_steps=36 format=4 uid="uid://cm22c0k1u516u"]
 
 [ext_resource type="PackedScene" uid="uid://ctcdf0d5ca8to" path="res://Scenes/LevelComponents/level.tscn" id="1_ggg0g"]
 [ext_resource type="Texture2D" uid="uid://d2tbn16wlgy4s" path="res://Assets/Tilemaps/Walls_and_Floors_Sheerfix_20241127442.png" id="2_2kv5n"]
@@ -22,7 +22,14 @@
 [ext_resource type="PackedScene" uid="uid://0h5d62llinbr" path="res://Scenes/Objects/Stovetop_1.tscn" id="20_mif3w"]
 [ext_resource type="PackedScene" uid="uid://b16hc244wxgio" path="res://Scenes/Objects/camera.tscn" id="21_h474q"]
 [ext_resource type="PackedScene" uid="uid://d34ll0jr4e4ha" path="res://Scenes/Objects/table_2.tscn" id="22_f4eg0"]
+[ext_resource type="Texture2D" uid="uid://celmp8sm8jvx3" path="res://Assets/Sprites/FinalFurnitureItems/Ladle.png" id="23_gb7ol"]
 [ext_resource type="PackedScene" uid="uid://d2eo6xfdrn8fh" path="res://Scenes/Objects/door.tscn" id="23_xty88"]
+[ext_resource type="Texture2D" uid="uid://ca3h4ecmusasg" path="res://Assets/Sprites/FinalFurnitureItems/RollingPin.png" id="24_tvyj2"]
+[ext_resource type="Texture2D" uid="uid://c6hj2p4qqggb2" path="res://Assets/Sprites/FinalFurnitureItems/Saucepan.png" id="25_spy78"]
+[ext_resource type="Texture2D" uid="uid://dk767ymy7byyy" path="res://Assets/Sprites/FinalFurnitureItems/Mug.png" id="26_0mifr"]
+[ext_resource type="Texture2D" uid="uid://cft0m47y6h15p" path="res://Assets/Sprites/FinalFurnitureItems/Laptop.png" id="27_di2ak"]
+[ext_resource type="Texture2D" uid="uid://b8ucy1cfemc3l" path="res://Assets/Sprites/FinalFurnitureItems/Mouse.png" id="28_wrram"]
+[ext_resource type="Texture2D" uid="uid://bciqv3akgopo7" path="res://Assets/Sprites/FinalFurnitureItems/Spoon.png" id="29_2gk0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxb1x"]
 texture = ExtResource("2_2kv5n")
@@ -279,6 +286,40 @@ rotation = 3.92699
 [node name="TV2" parent="GameObjects" index="34" instance=ExtResource("12_mk4em")]
 position = Vector2(-246, -2198)
 rotation = 2.35619
+
+[node name="Ladle" type="Sprite2D" parent="GameObjects" index="35"]
+position = Vector2(-1253, -1930)
+texture = ExtResource("23_gb7ol")
+
+[node name="RollingPin" type="Sprite2D" parent="GameObjects" index="36"]
+position = Vector2(-1248, -2044)
+texture = ExtResource("24_tvyj2")
+
+[node name="Saucepan" type="Sprite2D" parent="GameObjects" index="37"]
+position = Vector2(-1270, -1761)
+rotation = 0.0575662
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("25_spy78")
+
+[node name="Mug" type="Sprite2D" parent="GameObjects" index="38"]
+position = Vector2(-1220, -1114)
+texture = ExtResource("26_0mifr")
+
+[node name="Mug2" type="Sprite2D" parent="GameObjects" index="39"]
+position = Vector2(-1301, -1357)
+texture = ExtResource("26_0mifr")
+
+[node name="Laptop" type="Sprite2D" parent="GameObjects" index="40"]
+position = Vector2(3760, -3731)
+texture = ExtResource("27_di2ak")
+
+[node name="Mouse" type="Sprite2D" parent="GameObjects" index="41"]
+position = Vector2(3611, -3717)
+texture = ExtResource("28_wrram")
+
+[node name="Spoon" type="Sprite2D" parent="GameObjects" index="42"]
+position = Vector2(-1206, -1432)
+texture = ExtResource("29_2gk0b")
 
 [node name="Doors" type="Node2D" parent="." index="6"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bqxr5kebot1r3"]
+[gd_scene load_steps=22 format=4 uid="uid://bqxr5kebot1r3"]
 
 [ext_resource type="PackedScene" uid="uid://ctcdf0d5ca8to" path="res://Scenes/LevelComponents/level.tscn" id="1_yradb"]
 [ext_resource type="TileSet" uid="uid://r1nd0b4oxfy7" path="res://Assets/Tilemaps/TileMapFloors.tres" id="2_81ql1"]
@@ -12,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://k5ej5u307v22" path="res://Scenes/Objects/table_1.tscn" id="5_vf06d"]
 [ext_resource type="PackedScene" uid="uid://dob5j2sfg204o" path="res://Scenes/Objects/table_3.tscn" id="7_34o3c"]
 [ext_resource type="PackedScene" uid="uid://xiavs4qa7la2" path="res://Scenes/Objects/safe_with_door.tscn" id="9_i2n17"]
+[ext_resource type="Texture2D" uid="uid://dm4xjhqqcqpcl" path="res://Assets/Sprites/Office/journal1.png" id="11_soopq"]
+[ext_resource type="Texture2D" uid="uid://w4ut2lttaknr" path="res://Assets/Sprites/Office/coffeemug.png" id="12_w5ii6"]
+[ext_resource type="Texture2D" uid="uid://b6lgmdjbhw45d" path="res://Assets/Sprites/Office/plant1.png" id="13_8dc4w"]
+[ext_resource type="Texture2D" uid="uid://bnx7815vt521p" path="res://Assets/Sprites/standinglight1.png" id="14_g6dbo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbvcp"]
 texture = ExtResource("3_8ih8h")
@@ -163,6 +167,23 @@ position = Vector2(2067, -716)
 
 [node name="Boxes2" parent="GameObjects" index="5" instance=ExtResource("3_82dcr")]
 position = Vector2(-1285, -2083)
+
+[node name="Journal1" type="Sprite2D" parent="GameObjects" index="6"]
+position = Vector2(-1090, -1002)
+texture = ExtResource("11_soopq")
+
+[node name="Coffeemug" type="Sprite2D" parent="GameObjects" index="7"]
+position = Vector2(-912, -1103)
+texture = ExtResource("12_w5ii6")
+
+[node name="Plant1" type="Sprite2D" parent="GameObjects" index="8"]
+position = Vector2(-16, -1084)
+texture = ExtResource("13_8dc4w")
+
+[node name="Standinglight1" type="Sprite2D" parent="GameObjects" index="9"]
+position = Vector2(-1144, -1579)
+rotation = -0.96523
+texture = ExtResource("14_g6dbo")
 
 [node name="Doors" type="Node2D" parent="." index="5"]
 
